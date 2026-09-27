@@ -1,0 +1,6 @@
+{
+  "name": "AI 拍拍機 - 卡牌與 IG 內容庫",
+  "description": "香港白領專用 AI Agent 實戰情境卡牌預覽、雙語 OCR 檢索與 IG Carousel 內容庫",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
