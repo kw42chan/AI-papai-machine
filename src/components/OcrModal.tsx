@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { CardData, OcrResult } from '../types/card';
-import { allCards, cardMapByNumber } from '../data/cards';
+import { findCardByNumber } from '../data/cards';
+import { CreateCardForm } from './CreateCardForm';
 import {
   X,
   UploadCloud,
@@ -8,22 +9,23 @@ import {
   CheckCircle2,
   AlertTriangle,
   Loader2,
-  FileImage,
   ArrowRight,
-  Sparkles,
-  Bot
 } from 'lucide-react';
 
 interface OcrModalProps {
   isOpen: boolean;
   onClose: () => void;
   onSelectMatchedCard: (card: CardData, imageUrl?: string) => void;
+  cards: CardData[];
+  onCreateCard: (card: CardData, imageUrl?: string) => void;
 }
 
 export const OcrModal: React.FC<OcrModalProps> = ({
   isOpen,
   onClose,
   onSelectMatchedCard,
+  cards,
+  onCreateCard,
 }) => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [mimeType, setMimeType] = useState<string>('image/png');
@@ -70,7 +72,7 @@ export const OcrModal: React.FC<OcrModalProps> = ({
 
   // Quick preset test cards
   const loadPresetTestCard = (cardNum: string) => {
-    const card = allCards.find((c) => c.cardNumber === cardNum);
+    const card = cards.find((c) => c.cardNumber === cardNum);
     if (!card) return;
 
     setError(null);
@@ -176,11 +178,10 @@ export const OcrModal: React.FC<OcrModalProps> = ({
         // Match card
         let match: CardData | undefined;
         if (data.cardNumber) {
-          const num = data.cardNumber.replace(/^0+/, '');
-          match = cardMapByNumber[data.cardNumber.toLowerCase()] || cardMapByNumber[num];
+          match = findCardByNumber(cards, data.cardNumber);
         }
         if (!match && data.chineseTitle) {
-          match = allCards.find(
+          match = cards.find(
             (c) =>
               c.chineseTitle.includes(data.chineseTitle!) ||
               data.chineseTitle!.includes(c.chineseTitle)
@@ -233,71 +234,59 @@ export const OcrModal: React.FC<OcrModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in">
-      <div className="relative w-full max-w-3xl bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
-        {/* Header */}
-        <div className="px-6 py-4 border-b border-slate-800 flex items-center justify-between bg-slate-950/70">
-          <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-purple-600/30 border border-purple-500/40 flex items-center justify-center text-purple-300">
-              <ScanText className="w-5 h-5" />
-            </div>
-            <div>
-              <h2 className="text-base font-bold text-white">
-                卡牌智慧 OCR 掃描辨識
-              </h2>
-              <p className="text-xs text-slate-400">
-                上傳實體卡照片或截圖，自動辨識中英文標題、卡號並調出對應 Markdown
-              </p>
-            </div>
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-ink/60 p-4"
+      onClick={onClose}
+      onKeyDown={(e) => e.key === 'Escape' && onClose()}
+    >
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="ocr-title"
+        onClick={(e) => e.stopPropagation()}
+        className="relative flex max-h-[90vh] w-full max-w-3xl flex-col overflow-hidden rounded-md border border-rule bg-paper shadow-xl"
+      >
+        <div className="flex items-start justify-between gap-4 border-b border-rule px-6 py-4">
+          <div>
+            <h2 id="ocr-title" className="font-display text-xl font-black">
+              掃描卡牌
+            </h2>
+            <p className="mt-0.5 text-sm text-ink-soft">
+              上傳實體卡的照片或截圖，辨識卡號與中英文標題，並找出對應的卡片。
+            </p>
           </div>
-
           <button
             onClick={onClose}
-            className="w-8 h-8 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center transition"
+            aria-label="關閉"
+            className="p-1 text-ink-soft hover:text-ink"
           >
-            <X className="w-5 h-5" />
+            <X className="h-5 w-5" aria-hidden />
           </button>
         </div>
 
-        {/* Body */}
-        <div className="flex-1 overflow-y-auto p-6 space-y-6">
-          {/* Quick presets for testing */}
-          <div className="bg-slate-950/60 p-3.5 rounded-xl border border-slate-800 flex flex-wrap items-center justify-between gap-2">
-            <span className="text-xs text-slate-400 flex items-center gap-1.5 font-medium">
-              <Sparkles className="w-3.5 h-3.5 text-purple-400" />
-              <span>快速測試範例（點擊即測）：</span>
-            </span>
-            <div className="flex items-center gap-2">
+        <div className="flex-1 space-y-6 overflow-y-auto p-6">
+          <div className="flex flex-wrap items-center gap-2 text-sm">
+            <span className="text-ink-soft">沒有實體卡？用範例試試：</span>
+            {[
+              ['21', '項目章程'],
+              ['01', '長文件摘要'],
+              ['15', '合約審查'],
+            ].map(([num, name]) => (
               <button
-                onClick={() => loadPresetTestCard('21')}
-                className="px-2.5 py-1 rounded-lg bg-purple-600/20 hover:bg-purple-600/40 text-purple-300 border border-purple-500/30 text-xs font-mono transition"
+                key={num}
+                onClick={() => loadPresetTestCard(num)}
+                className="rounded-sm border border-rule px-2.5 py-1 hover:border-royal hover:text-royal"
               >
-                測試卡 21 (項目章程)
+                卡 {num} {name}
               </button>
-              <button
-                onClick={() => loadPresetTestCard('01')}
-                className="px-2.5 py-1 rounded-lg bg-blue-600/20 hover:bg-blue-600/40 text-blue-300 border border-blue-500/30 text-xs font-mono transition"
-              >
-                測試卡 01 (長文件摘要)
-              </button>
-              <button
-                onClick={() => loadPresetTestCard('15')}
-                className="px-2.5 py-1 rounded-lg bg-emerald-600/20 hover:bg-emerald-600/40 text-emerald-300 border border-emerald-500/30 text-xs font-mono transition"
-              >
-                測試卡 15 (合約審查)
-              </button>
-            </div>
+            ))}
           </div>
 
-          {/* Upload Dropzone */}
           <div
             onDrop={handleDrop}
             onDragOver={handleDragOver}
-            onClick={() => fileInputRef.current?.click()}
-            className={`border-2 border-dashed rounded-2xl p-6 text-center cursor-pointer transition flex flex-col items-center justify-center min-h-[180px] ${
-              selectedImage
-                ? 'border-purple-500/60 bg-purple-950/10'
-                : 'border-slate-700 hover:border-purple-500/50 bg-slate-950/40 hover:bg-slate-950/60'
+            className={`flex min-h-[170px] flex-col items-center justify-center rounded-sm border border-dashed p-6 text-center transition-colors ${
+              selectedImage ? 'border-royal bg-white' : 'border-rule bg-white hover:border-royal'
             }`}
           >
             <input
@@ -309,40 +298,37 @@ export const OcrModal: React.FC<OcrModalProps> = ({
             />
 
             {selectedImage ? (
-              <div className="flex items-center gap-4 text-left w-full max-w-md">
-                <div className="w-24 h-28 rounded-lg overflow-hidden border border-slate-700 shrink-0 bg-black flex items-center justify-center">
-                  <img
-                    src={selectedImage}
-                    alt="Preview"
-                    className="w-full h-full object-contain"
-                  />
+              <div className="flex w-full max-w-md items-center gap-4 text-left">
+                <div className="flex h-28 w-24 shrink-0 items-center justify-center overflow-hidden rounded-sm border border-rule bg-royal-deep">
+                  <img src={selectedImage} alt="已選擇的卡牌圖片預覽" className="h-full w-full object-contain" />
                 </div>
                 <div className="flex-1">
-                  <div className="flex items-center gap-1.5 text-xs text-purple-400 font-semibold mb-1">
-                    <FileImage className="w-4 h-4" />
-                    <span>已載入卡牌影像</span>
-                  </div>
-                  <p className="text-xs text-slate-300">
-                    點擊可更換其他卡牌圖片或重新拖放
+                  <p className="font-medium">已載入圖片</p>
+                  <p className="text-sm text-ink-soft">
+                    <button
+                      type="button"
+                      onClick={() => fileInputRef.current?.click()}
+                      className="text-royal underline underline-offset-2 hover:text-royal-deep"
+                    >
+                      換一張
+                    </button>
+                    ，或直接拖放新圖片。
                   </p>
                   <button
                     type="button"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleStartOcr();
-                    }}
+                    onClick={handleStartOcr}
                     disabled={loading}
-                    className="mt-3 px-4 py-1.5 rounded-xl bg-purple-600 hover:bg-purple-500 disabled:opacity-50 text-white text-xs font-bold transition flex items-center gap-1.5 shadow-lg shadow-purple-600/30"
+                    className="mt-3 flex items-center gap-1.5 rounded-sm bg-royal px-4 py-1.5 text-sm font-medium text-white hover:bg-royal-deep disabled:opacity-50"
                   >
                     {loading ? (
                       <>
-                        <Loader2 className="w-3.5 h-3.5 animate-spin" />
-                        <span>OCR 掃描中...</span>
+                        <Loader2 className="h-4 w-4 animate-spin" aria-hidden />
+                        <span>辨識中…</span>
                       </>
                     ) : (
                       <>
-                        <ScanText className="w-3.5 h-3.5" />
-                        <span>開始執行 Gemini OCR</span>
+                        <ScanText className="h-4 w-4" aria-hidden />
+                        <span>開始辨識</span>
                       </>
                     )}
                   </button>
@@ -350,97 +336,94 @@ export const OcrModal: React.FC<OcrModalProps> = ({
               </div>
             ) : (
               <>
-                <div className="w-12 h-12 rounded-full bg-purple-950/60 border border-purple-600/30 flex items-center justify-center text-purple-400 mb-3">
-                  <UploadCloud className="w-6 h-6" />
-                </div>
-                <p className="text-sm font-semibold text-white">
-                  點擊或拖放卡牌圖片至此處
-                </p>
-                <p className="text-xs text-slate-400 mt-1">
-                  支援 PNG, JPG, WebP 格式（手機拍攝實體卡亦可自動校正辨識）
-                </p>
+                <UploadCloud className="mb-2 h-6 w-6 text-royal" aria-hidden />
+                <button
+                  type="button"
+                  onClick={() => fileInputRef.current?.click()}
+                  className="rounded-sm border border-royal px-4 py-1.5 font-medium text-royal hover:bg-royal hover:text-white"
+                >
+                  選擇圖片
+                </button>
+                <p className="mt-2 text-sm text-ink-soft">或把圖片拖放到這裡</p>
+                <p className="mt-1 text-sm text-ink-soft">支援 PNG、JPG、WebP。手機拍攝的實體卡照片也可以。</p>
               </>
             )}
           </div>
 
-          {/* Error notice */}
           {error && (
-            <div className="p-3.5 rounded-xl bg-rose-950/60 border border-rose-800/60 flex items-start gap-2.5 text-xs text-rose-200">
-              <AlertTriangle className="w-4 h-4 text-rose-400 shrink-0 mt-0.5" />
+            <div role="alert" className="flex items-start gap-2.5 rounded-sm border border-stamp/50 bg-white p-3.5 text-sm text-stamp">
+              <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" aria-hidden />
               <span>{error}</span>
             </div>
           )}
 
-          {/* OCR Results Panel */}
           {ocrResult && (
-            <div className="bg-slate-950 border border-purple-500/40 rounded-2xl p-5 space-y-4">
-              <div className="flex items-center justify-between border-b border-slate-800 pb-3">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-emerald-400" />
-                  <h3 className="text-sm font-bold text-white">
-                    OCR 辨識完成
-                  </h3>
-                </div>
-
-                {matchedCard && (
-                  <span className="text-xs px-2.5 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-800/40 font-mono">
-                    已自動匹配庫存卡 #{matchedCard.cardNumber}
-                  </span>
+            <section className="space-y-4 rounded-sm border border-rule bg-white p-5" aria-live="polite">
+              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-rule pb-3">
+                <h3 className="flex items-center gap-2 font-bold">
+                  <CheckCircle2 className="h-5 w-5 text-royal" aria-hidden />
+                  辨識完成
+                </h3>
+                {matchedCard ? (
+                  <span className="text-sm text-ink-soft">已對應到卡 {matchedCard.cardNumber}</span>
+                ) : (
+                  <span className="text-sm text-stamp">資料庫裡沒有這張卡，可以在下面建立。</span>
                 )}
               </div>
 
-              {/* Extracted Fields */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
-                <div className="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
-                  <span className="text-slate-400 block mb-1">辨識卡號 (Card Number)</span>
-                  <span className="font-mono text-base font-black text-purple-300">
-                    {ocrResult.cardNumber || '未知'}
-                  </span>
+              <dl className="grid grid-cols-1 gap-x-6 gap-y-3 text-sm md:grid-cols-2">
+                <div>
+                  <dt className="text-ink-soft">卡號</dt>
+                  <dd className="tabular font-display text-2xl font-black text-royal">
+                    {ocrResult.cardNumber || '未辨識'}
+                  </dd>
                 </div>
-
-                <div className="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
-                  <span className="text-slate-400 block mb-1">雙語標題 (Titles)</span>
-                  <span className="font-bold text-white block">
-                    {ocrResult.chineseTitle || '未偵測'}
-                  </span>
-                  <span className="font-mono text-purple-400 text-[11px]">
-                    {ocrResult.englishTitle || ''}
-                  </span>
+                <div>
+                  <dt className="text-ink-soft">標題</dt>
+                  <dd className="font-medium">{ocrResult.chineseTitle || '未辨識'}</dd>
+                  {ocrResult.englishTitle && <dd className="text-ink-soft">{ocrResult.englishTitle}</dd>}
                 </div>
-
-                <div className="bg-slate-900/80 p-3 rounded-xl border border-slate-800 md:col-span-2">
-                  <span className="text-slate-400 block mb-1">實戰情境 (Scenario)</span>
-                  <p className="text-slate-200">
-                    {ocrResult.scenario || '未偵測'}
-                  </p>
+                <div className="md:col-span-2">
+                  <dt className="text-ink-soft">實戰情境</dt>
+                  <dd>{ocrResult.scenario || '未辨識'}</dd>
                 </div>
-
                 {ocrResult.promptText && (
-                  <div className="bg-slate-900/80 p-3 rounded-xl border border-slate-800 md:col-span-2">
-                    <span className="text-slate-400 block mb-1">AI 指令 (Prompt)</span>
-                    <p className="text-slate-300 font-mono">
-                      {ocrResult.promptText}
-                    </p>
+                  <div className="md:col-span-2">
+                    <dt className="text-ink-soft">輸入指令</dt>
+                    <dd>{ocrResult.promptText}</dd>
                   </div>
                 )}
-              </div>
+              </dl>
 
-              {/* Matched Card Action */}
+              {!matchedCard && (
+                <CreateCardForm
+                  key={JSON.stringify(ocrResult)}
+                  ocr={ocrResult}
+                  cards={cards}
+                  onCreate={(card) => {
+                    onCreateCard(card, selectedImage || undefined);
+                    onClose();
+                  }}
+                />
+              )}
+
               {matchedCard && (
-                <div className="pt-2 flex items-center justify-between">
-                  <span className="text-xs text-slate-400">
-                    匹配成果：<strong>{matchedCard.chineseTitle}</strong> ({matchedCard.week} · {matchedCard.category})
+                <div className="flex flex-wrap items-center justify-between gap-3 border-t border-rule pt-4">
+                  <span className="text-sm">
+                    <strong>{matchedCard.chineseTitle}</strong>
+                    <span className="ml-3 text-ink-soft">{matchedCard.week}</span>
+                    <span className="ml-3 text-ink-soft">{matchedCard.category}</span>
                   </span>
                   <button
                     onClick={handleConfirmSelection}
-                    className="px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs flex items-center gap-1.5 transition shadow-lg shadow-purple-600/40"
+                    className="flex items-center gap-1.5 rounded-sm bg-royal px-4 py-2 text-sm font-medium text-white hover:bg-royal-deep"
                   >
-                    <span>確認並選取此卡片</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <span>開啟這張卡</span>
+                    <ArrowRight className="h-4 w-4" aria-hidden />
                   </button>
                 </div>
               )}
-            </div>
+            </section>
           )}
         </div>
       </div>

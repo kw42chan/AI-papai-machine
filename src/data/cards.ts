@@ -9,30 +9,44 @@ export const allCards: CardData[] = [
   ...cardsWeek5_6,
 ];
 
-export const cardMapByNumber: Record<string, CardData> = {};
-allCards.forEach((c) => {
-  cardMapByNumber[c.cardNumber.toLowerCase()] = c;
-  const numClean = c.cardNumber.replace(/^0+/, '');
-  if (numClean && !cardMapByNumber[numClean]) {
-    cardMapByNumber[numClean] = c;
-  }
-});
+export function buildCardMap(cards: CardData[]): Record<string, CardData> {
+  const map: Record<string, CardData> = {};
+  cards.forEach((c) => {
+    map[c.cardNumber.toLowerCase()] = c;
+  });
+  // "1" finds "01", without letting it shadow an exact card number
+  cards.forEach((c) => {
+    const numClean = c.cardNumber.replace(/^0+/, '').toLowerCase();
+    if (numClean && !map[numClean]) map[numClean] = c;
+  });
+  return map;
+}
 
-export function findCardByQuery(query: string): CardData | undefined {
+export const cardMapByNumber = buildCardMap(allCards);
+
+/** Finds a card by its number as printed or read by OCR: "21", "1", "01", "b01". */
+export function findCardByNumber(cards: CardData[], raw: string): CardData | undefined {
+  const map = buildCardMap(cards);
+  const key = raw.trim().toLowerCase();
+  return map[key] || map[key.replace(/^0+/, '')];
+}
+
+export function findCardByQuery(query: string, cards: CardData[] = allCards): CardData | undefined {
   if (!query) return undefined;
   const q = query.trim().toLowerCase();
-  
+  const map = cards === allCards ? cardMapByNumber : buildCardMap(cards);
+
   // Try exact match or card number match e.g. "21", "card 21", "卡 21", "#21"
   const cardNumMatch = q.match(/(?:card|卡|#)?\s*([0-9]{1,2}|b[0-9]{2})/i);
   if (cardNumMatch) {
     const rawNum = cardNumMatch[1].toUpperCase();
     const padded = rawNum.length === 1 ? `0${rawNum}` : rawNum;
-    if (cardMapByNumber[padded.toLowerCase()]) return cardMapByNumber[padded.toLowerCase()];
-    if (cardMapByNumber[rawNum.toLowerCase()]) return cardMapByNumber[rawNum.toLowerCase()];
+    if (map[padded.toLowerCase()]) return map[padded.toLowerCase()];
+    if (map[rawNum.toLowerCase()]) return map[rawNum.toLowerCase()];
   }
 
   // Try title or content search
-  return allCards.find(c => 
+  return cards.find(c =>
     c.cardNumber.toLowerCase() === q ||
     c.chineseTitle.toLowerCase().includes(q) ||
     c.englishTitle.toLowerCase().includes(q) ||

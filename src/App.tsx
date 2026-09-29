@@ -1,6 +1,8 @@
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, useRef } from 'react';
 import { allCards, findCardByQuery } from './data/cards';
-import { CardData, FilterCategory, FilterWeek } from './types/card';
+import { CardData, FilterCategory, FilterProgress, FilterWeek } from './types/card';
+import { useProgress } from './hooks/useProgress';
+import { useCustomCards } from './hooks/useCustomCards';
 import { Header } from './components/Header';
 import { CardGallery } from './components/CardGallery';
 import { CardDetailView } from './components/CardDetailView';
@@ -16,16 +18,29 @@ export default function App() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<FilterCategory>('ALL');
   const [selectedWeek, setSelectedWeek] = useState<FilterWeek>('ALL');
+  const [selectedProgress, setSelectedProgress] = useState<FilterProgress>('ALL');
+  const { progress, toggle, touch, importJson } = useProgress();
+  const { customCards, addCard, removeCard, importCards } = useCustomCards();
+
+  // Built-in cards plus cards created from scans, kept in week order (the sort is stable)
+  const cards = useMemo(
+    () => [...allCards, ...customCards].sort((a, b) => (a.weekNumber || 99) - (b.weekNumber || 99)),
+    [customCards]
+  );
   const [isOcrOpen, setIsOcrOpen] = useState(false);
   const [customCardImages, setCustomCardImages] = useState<Record<string, string>>({});
 
   // Real-time search & filter
   const filteredCards = useMemo(() => {
-    return allCards.filter((card) => {
+    return cards.filter((card) => {
       // Category filter
       if (selectedCategory !== 'ALL' && card.category !== selectedCategory) {
         return false;
       }
+
+      // Carousel progress filter
+      if (selectedProgress === 'DONE' && !progress[card.cardNumber]) return false;
+      if (selectedProgress === 'TODO' && progress[card.cardNumber]) return false;
 
       // Week filter
       if (selectedWeek !== 'ALL') {
@@ -70,21 +85,36 @@ export default function App() {
 
       return true;
     });
-  }, [searchQuery, selectedCategory, selectedWeek]);
+  }, [cards, searchQuery, selectedCategory, selectedWeek, selectedProgress, progress]);
 
   // When search matches a single card or query is a direct card number like "21", auto-focus on it
   useEffect(() => {
     if (searchQuery.trim()) {
-      const match = findCardByQuery(searchQuery);
+      const match = findCardByQuery(searchQuery, cards);
       if (match) {
         setSelectedCard(match);
       }
     }
   }, [searchQuery]);
 
+  // On narrow screens the catalogue sits above the detail, so bring the picked card into view
+  const detailRef = useRef<HTMLElement>(null);
+  const revealDetailOnMobile = () => {
+    if (window.matchMedia('(max-width: 1023px)').matches) {
+      detailRef.current?.scrollIntoView({
+        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+      });
+    }
+  };
+
+  const handlePickCard = (card: CardData) => {
+    setSelectedCard(card);
+    revealDetailOnMobile();
+  };
+
   const handleRandomCard = () => {
-    const randomIndex = Math.floor(Math.random() * allCards.length);
-    setSelectedCard(allCards[randomIndex]);
+    const randomIndex = Math.floor(Math.random() * cards.length);
+    setSelectedCard(cards[randomIndex]);
   };
 
   const handleSelectMatchedCard = (card: CardData, imageUrl?: string) => {
@@ -97,39 +127,65 @@ export default function App() {
     }
   };
 
-  return (
-    <div className="min-h-screen bg-[#090d16] text-slate-100 flex flex-col font-sans">
-      {/* Header */}
-      <Header
-        onOpenOcr={() => setIsOcrOpen(true)}
-        onRandomCard={handleRandomCard}
-        totalCards={allCards.length}
-      />
+  const handleCreateCard = (card: CardData, imageUrl?: string) => {
+    addCard(card);
+    setSelectedCard(card);
+    if (imageUrl) setCustomCardImages((prev) => ({ ...prev, [card.cardNumber]: imageUrl }));
+  };
 
-      {/* Main Split-View Workspace */}
-      <main className="flex-1 max-w-7xl w-full mx-auto p-4 lg:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6 min-h-0">
-        {/* Left Column: Interactive Card Gallery & Search (5 cols) */}
-        <section className="lg:col-span-5 h-[calc(100vh-120px)] min-h-[500px]">
+  const handleRemoveCard = (card: CardData) => {
+    removeCard(card.id);
+    setSelectedCard(defaultCard);
+  };
+
+  // One backup file holds both the carousel ticks and the cards created from scans
+  const exportAll = () => JSON.stringify({ version: 2, progress, customCards }, null, 2);
+  const importAll = (text: string) => {
+    const progressCount = importJson(text); // throws on text that isn't JSON
+    let cardCount = 0;
+    try {
+      cardCount = importCards(JSON.parse(text)?.customCards, allCards);
+    } catch {
+      // a v1 export has no cards
+    }
+    return { progress: progressCount, cards: cardCount };
+  };
+
+  return (
+    <div className="min-h-screen bg-ground text-ink flex flex-col">
+      <Header onOpenOcr={() => setIsOcrOpen(true)} onRandomCard={handleRandomCard} />
+
+      <main className="mx-auto grid w-full max-w-[1500px] flex-1 grid-cols-1 lg:grid-cols-[minmax(340px,420px)_minmax(0,1fr)]">
+        {/* Catalogue: sticks to the viewport on desktop and scrolls on its own */}
+        <aside className="border-b border-rule bg-paper lg:sticky lg:top-14 lg:h-[calc(100dvh-3.5rem)] lg:border-b-0 lg:border-r">
           <CardGallery
             cards={filteredCards}
+            totalCount={cards.length}
             selectedCard={selectedCard}
-            onSelectCard={setSelectedCard}
+            onSelectCard={handlePickCard}
             searchQuery={searchQuery}
             onSearchChange={setSearchQuery}
             selectedCategory={selectedCategory}
             onCategoryChange={setSelectedCategory}
             selectedWeek={selectedWeek}
             onWeekChange={setSelectedWeek}
-            onRandomCard={handleRandomCard}
+            selectedProgress={selectedProgress}
+            onProgressChange={setSelectedProgress}
+            progress={progress}
+            onToggleProgress={toggle}
+            exportProgress={exportAll}
+            importProgress={importAll}
           />
-        </section>
+        </aside>
 
-        {/* Right Column: High-Res Card & Rich Markdown Content (7 cols) */}
-        <section className="lg:col-span-7 h-[calc(100vh-120px)] min-h-[500px]">
+        <section ref={detailRef} className="min-w-0 scroll-mt-14">
           <CardDetailView
             card={selectedCard}
             customImageUrl={customCardImages[selectedCard.cardNumber]}
-            onOpenOcrModal={() => setIsOcrOpen(true)}
+            madeAt={progress[selectedCard.cardNumber]}
+            onToggleMade={() => toggle(selectedCard.cardNumber)}
+            onMarkUpdated={() => touch(selectedCard.cardNumber)}
+            onRemoveCard={selectedCard.id.startsWith('custom-') ? () => handleRemoveCard(selectedCard) : undefined}
           />
         </section>
       </main>
@@ -139,6 +195,8 @@ export default function App() {
         isOpen={isOcrOpen}
         onClose={() => setIsOcrOpen(false)}
         onSelectMatchedCard={handleSelectMatchedCard}
+        cards={cards}
+        onCreateCard={handleCreateCard}
       />
     </div>
   );

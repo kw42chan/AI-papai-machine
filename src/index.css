@@ -1,73 +1,87 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: "Noto Sans HK", "Noto Sans TC", "PingFang HK", "Microsoft JhengHei", system-ui, sans-serif;
+  --font-display: "Chiron Sung HK", "Noto Serif HK", "PMingLiU", serif;
+
+  --color-ground: #e9e6f1;
+  --color-paper: #f8f7fb;
+  --color-ink: #1d1633;
+  --color-ink-soft: #5a5273;
+  --color-rule: #cbc5de;
+  --color-royal: #43258a;
+  --color-royal-deep: #26124f;
+  --color-brass: #b48a2c;
+  --color-brass-ink: #7a5a10;
+  --color-brass-wash: #f0e6c8;
+  --color-stamp: #b8322a;
+}
+
 @layer base {
+  html {
+    background-color: #e9e6f1;
+  }
   body {
-    background-color: #0b0f17;
-    color: #e2e8f0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans TC", sans-serif;
+    background-color: var(--color-ground);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    line-height: 1.7;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-royal);
+    outline-offset: 2px;
+  }
+  ::selection {
+    background: var(--color-brass-wash);
+    color: var(--color-ink);
+  }
+  button {
+    cursor: pointer;
+  }
+  button:disabled {
+    cursor: not-allowed;
   }
 }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #0f172a;
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #334155;
-  border-radius: 9999px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #475569;
+  background: var(--color-rule);
+  border-radius: 8px;
 }
 
-/* Metallic gunmetal and purple futuristic accents */
-.gunmetal-card-border {
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05), inset 0 0 20px rgba(255, 255, 255, 0.02);
+.tabular {
+  font-variant-numeric: tabular-nums;
 }
 
-.gunmetal-gradient {
-  background: linear-gradient(145deg, #1e293b 0%, #0f172a 45%, #131d2e 100%);
+/* The card is dealt onto the desk when a different card is picked. */
+@keyframes deal {
+  from {
+    opacity: 0;
+    transform: translateY(8px) rotate(-1.2deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.deal {
+  animation: deal 260ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
-.metallic-shine {
-  position: relative;
-  overflow: hidden;
-}
-.metallic-shine::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    60deg,
-    transparent 35%,
-    rgba(255, 255, 255, 0.06) 45%,
-    rgba(255, 255, 255, 0.15) 50%,
-    rgba(255, 255, 255, 0.06) 55%,
-    transparent 65%
-  );
-  transform: rotate(25deg);
-  pointer-events: none;
-  animation: metallicSweep 8s infinite linear;
-}
-
-@keyframes metallicSweep {
-  0% { transform: translate(-30%, -30%) rotate(25deg); }
-  50% { transform: translate(30%, 30%) rotate(25deg); }
-  100% { transform: translate(-30%, -30%) rotate(25deg); }
-}
-
-.circuit-bg {
-  background-image: radial-gradient(rgba(147, 51, 234, 0.15) 1px, transparent 1px),
-                    radial-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px);
-  background-size: 24px 24px;
-  background-position: 0 0, 12px 12px;
+@media (prefers-reduced-motion: reduce) {
+  .deal {
+    animation: none;
+  }
+  * {
+    transition-duration: 0.01ms !important;
+  }
 }

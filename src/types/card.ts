@@ -43,3 +43,5 @@ export interface OcrResult {
 
 export type FilterCategory = 'ALL' | '日常文檔' | '商務溝通' | '項目管理' | '數據分析' | '財務預算' | '客戶服務' | '商業策略';
 export type FilterWeek = 'ALL' | 1 | 2 | 3 | 4 | 5 | 6 | 'BONUS';
+
+export type FilterProgress = 'ALL' | 'DONE' | 'TODO';
