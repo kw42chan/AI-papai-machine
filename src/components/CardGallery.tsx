@@ -1,10 +1,12 @@
-import React from 'react';
-import { CardData, FilterCategory, FilterWeek } from '../types/card';
+import React, { useEffect, useRef, useState } from 'react';
+import { CardData, FilterCategory, FilterProgress, FilterWeek } from '../types/card';
+import { ProgressMap } from '../hooks/useProgress';
 import { CATEGORIES, WEEKS } from '../data/cards';
-import { Search, Sparkles, X, Dices, Layers } from 'lucide-react';
+import { Search, X } from 'lucide-react';
 
 interface CardGalleryProps {
   cards: CardData[];
+  totalCount: number;
   selectedCard: CardData;
   onSelectCard: (card: CardData) => void;
   searchQuery: string;
@@ -13,11 +15,20 @@ interface CardGalleryProps {
   onCategoryChange: (category: FilterCategory) => void;
   selectedWeek: FilterWeek;
   onWeekChange: (week: FilterWeek) => void;
-  onRandomCard: () => void;
+  selectedProgress: FilterProgress;
+  onProgressChange: (p: FilterProgress) => void;
+  progress: ProgressMap;
+  onToggleProgress: (cardNumber: string) => void;
+  exportProgress: () => string;
+  importProgress: (text: string) => { progress: number; cards: number };
 }
+
+const selectClass =
+  'w-full rounded-sm border border-rule bg-paper px-2 py-1.5 text-sm text-ink focus-visible:border-royal';
 
 export const CardGallery: React.FC<CardGalleryProps> = ({
   cards,
+  totalCount,
   selectedCard,
   onSelectCard,
   searchQuery,
@@ -26,193 +37,238 @@ export const CardGallery: React.FC<CardGalleryProps> = ({
   onCategoryChange,
   selectedWeek,
   onWeekChange,
-  onRandomCard,
+  selectedProgress,
+  onProgressChange,
+  progress,
+  onToggleProgress,
+  exportProgress,
+  importProgress,
 }) => {
+  const [backupNote, setBackupNote] = useState('');
+  const importRef = useRef<HTMLInputElement>(null);
+  const madeCount = Object.keys(progress).length;
+
+  const handleExport = () => {
+    const blob = new Blob([exportProgress()], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `ai-papai-progress-${new Date().toISOString().slice(0, 10)}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+    setBackupNote('已匯出進度與自訂卡片');
+  };
+
+  const handleImport = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    e.target.value = '';
+    if (!file) return;
+    try {
+      const r = importProgress(await file.text());
+      setBackupNote(`已合併 ${r.progress} 張進度` + (r.cards ? `、${r.cards} 張自訂卡片` : ''));
+    } catch {
+      setBackupNote('匯入失敗：請選擇由本頁匯出的 JSON 檔');
+    }
+  };
+
+  const listRef = useRef<HTMLDivElement>(null);
+
+  // Keep the picked card in view inside the list (e.g. the default card 21, or a random pick)
+  useEffect(() => {
+    const list = listRef.current;
+    const row = list?.querySelector<HTMLElement>('[aria-current="true"]');
+    if (!list || !row) return;
+    const top = row.offsetTop - list.offsetTop;
+    if (top < list.scrollTop || top + row.offsetHeight > list.scrollTop + list.clientHeight) {
+      list.scrollTop = top - list.clientHeight / 2 + row.offsetHeight / 2;
+    }
+  }, [selectedCard.id]);
+
+  const isFiltered =
+    searchQuery !== '' || selectedCategory !== 'ALL' || selectedWeek !== 'ALL' || selectedProgress !== 'ALL';
+
+  const resetFilters = () => {
+    onProgressChange('ALL');
+    onSearchChange('');
+    onCategoryChange('ALL');
+    onWeekChange('ALL');
+  };
+
+  // Group by week, keeping the order the data is written in
+  const groups: { week: string; cards: CardData[] }[] = [];
+  cards.forEach((c) => {
+    const last = groups[groups.length - 1];
+    if (last && last.week === c.week) last.cards.push(c);
+    else groups.push({ week: c.week, cards: [c] });
+  });
+
   return (
-    <div className="h-full flex flex-col bg-slate-950/70 rounded-2xl border border-slate-800 overflow-hidden shadow-2xl backdrop-blur-md">
-      {/* Top Search & Filter Area */}
-      <div className="p-4 border-b border-slate-800 space-y-3 bg-slate-900/80">
-        {/* Search Input */}
+    <div className="flex h-full max-h-[80vh] flex-col lg:max-h-none">
+      <div className="space-y-3 border-b border-rule p-4">
         <div className="relative">
-          <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+          <Search
+            className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-ink-soft"
+            aria-hidden
+          />
           <input
-            type="text"
+            type="search"
             value={searchQuery}
             onChange={(e) => onSearchChange(e.target.value)}
-            placeholder="搜尋卡號（如 21、卡 21）、中英標題或情境..."
-            className="w-full bg-slate-950 text-slate-100 placeholder-slate-500 pl-10 pr-9 py-2.5 rounded-xl border border-slate-700/80 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 text-xs transition"
+            aria-label="搜尋卡牌"
+            placeholder="搜尋卡號、標題或情境，例如 21、合約"
+            className="w-full rounded-sm border border-rule bg-white py-2 pl-9 pr-9 text-sm text-ink placeholder:text-ink-soft focus-visible:border-royal [&::-webkit-search-cancel-button]:hidden"
           />
           {searchQuery && (
             <button
               onClick={() => onSearchChange('')}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white"
+              aria-label="清除搜尋"
+              className="absolute right-2 top-1/2 -translate-y-1/2 p-1 text-ink-soft hover:text-ink"
             >
-              <X className="w-4 h-4" />
+              <X className="h-4 w-4" aria-hidden />
             </button>
           )}
         </div>
 
-        {/* Quick Search Chips */}
-        <div className="flex items-center justify-between text-[11px] text-slate-400">
-          <div className="flex items-center gap-1.5 overflow-x-auto py-0.5 no-scrollbar">
-            <span className="text-slate-500 shrink-0">快捷範例:</span>
-            <button
-              onClick={() => onSearchChange('21')}
-              className="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-purple-300 font-mono shrink-0 transition"
+        <div className="grid grid-cols-3 gap-2 text-sm">
+          <label className="block">
+            <span className="mb-1 block text-xs text-ink-soft">週數</span>
+            <select
+              value={String(selectedWeek)}
+              onChange={(e) => {
+                const v = e.target.value;
+                onWeekChange(v === 'ALL' || v === 'BONUS' ? v : (Number(v) as FilterWeek));
+              }}
+              className={selectClass}
             >
-              #21 項目章程
-            </button>
-            <button
-              onClick={() => onSearchChange('01')}
-              className="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-purple-300 font-mono shrink-0 transition"
-            >
-              #01 長文件摘要
-            </button>
-            <button
-              onClick={() => onSearchChange('合約')}
-              className="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 shrink-0 transition"
-            >
-              合約審查
-            </button>
-          </div>
+              {WEEKS.map((w) => (
+                <option key={String(w.value)} value={String(w.value)}>
+                  {w.label}
+                </option>
+              ))}
+            </select>
+          </label>
 
-          <button
-            onClick={onRandomCard}
-            title="隨機拍一張卡"
-            className="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-purple-600/30 hover:bg-purple-600/60 text-purple-200 border border-purple-500/40 shrink-0 transition"
-          >
-            <Dices className="w-3.5 h-3.5" />
-            <span>隨機拍卡</span>
-          </button>
+          <label className="block">
+            <span className="mb-1 block text-xs text-ink-soft">分類</span>
+            <select
+              value={selectedCategory}
+              onChange={(e) => onCategoryChange(e.target.value as FilterCategory)}
+              className={selectClass}
+            >
+              {CATEGORIES.map((cat) => (
+                <option key={cat} value={cat}>
+                  {cat === 'ALL' ? '全部分類' : cat}
+                </option>
+              ))}
+            </select>
+          </label>
+
+          <label className="block">
+            <span className="mb-1 block text-xs text-ink-soft">輪播</span>
+            <select
+              value={selectedProgress}
+              onChange={(e) => onProgressChange(e.target.value as FilterProgress)}
+              className={selectClass}
+            >
+              <option value="ALL">全部</option>
+              <option value="DONE">已製作</option>
+              <option value="TODO">未製作</option>
+            </select>
+          </label>
         </div>
 
-        {/* Week Filter Tabs */}
-        <div className="flex items-center gap-1 overflow-x-auto pb-1 text-xs no-scrollbar">
-          {WEEKS.map((w) => (
-            <button
-              key={String(w.value)}
-              onClick={() => onWeekChange(w.value as FilterWeek)}
-              className={`px-2.5 py-1 rounded-lg font-medium whitespace-nowrap transition ${
-                selectedWeek === w.value
-                  ? 'bg-purple-600 text-white shadow-md'
-                  : 'bg-slate-800/70 text-slate-400 hover:text-slate-200'
-              }`}
-            >
-              {w.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Category Pills */}
-        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 text-[11px] no-scrollbar">
-          {CATEGORIES.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => onCategoryChange(cat as FilterCategory)}
-              className={`px-2.5 py-0.5 rounded-full border transition whitespace-nowrap ${
-                selectedCategory === cat
-                  ? 'bg-blue-600/30 border-blue-400 text-blue-200 font-semibold'
-                  : 'bg-slate-900 border-slate-800 text-slate-400 hover:text-slate-300 hover:border-slate-700'
-              }`}
-            >
-              {cat === 'ALL' ? '全部分類' : cat}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Card Count Bar */}
-      <div className="px-4 py-2 bg-slate-950/80 border-b border-slate-800/60 flex items-center justify-between text-xs text-slate-400">
-        <span className="flex items-center gap-1.5">
-          <Layers className="w-3.5 h-3.5 text-purple-400" />
-          <span>共找到 <strong className="text-white font-mono">{cards.length}</strong> 張卡牌</span>
-        </span>
-        {searchQuery && (
-          <span className="text-[11px] text-purple-300 font-mono">
-            搜尋「{searchQuery}」
+        <div className="flex items-center justify-between gap-3 text-sm text-ink-soft" aria-live="polite">
+          <span>
+            {isFiltered ? `找到 ${cards.length} / ${totalCount} 張` : `共 ${totalCount} 張`}
+            <span className="ml-3 text-royal">
+              已製作輪播 {madeCount} / {totalCount}
+            </span>
           </span>
-        )}
+          {isFiltered && (
+            <button onClick={resetFilters} className="text-royal underline underline-offset-2 hover:text-royal-deep">
+              重設篩選
+            </button>
+          )}
+        </div>
       </div>
 
-      {/* Cards Scrollable List */}
-      <div className="flex-1 overflow-y-auto p-3 space-y-2">
+      <div ref={listRef} className="relative flex-1 overflow-y-auto">
         {cards.length === 0 ? (
-          <div className="text-center py-12 px-4">
-            <div className="w-12 h-12 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center mx-auto mb-3 text-slate-500">
-              <Search className="w-6 h-6" />
-            </div>
-            <p className="text-sm font-semibold text-slate-300">找不到相符的卡牌</p>
-            <p className="text-xs text-slate-500 mt-1">
-              試試搜尋卡號「21」、標題「項目章程」或清除篩選條件
+          <div className="px-6 py-12 text-center">
+            <p className="font-medium">找不到相符的卡牌</p>
+            <p className="mt-1 text-sm text-ink-soft">
+              試試輸入卡號（如 21）或標題關鍵字，或重設篩選。
             </p>
             <button
-              onClick={() => {
-                onSearchChange('');
-                onCategoryChange('ALL');
-                onWeekChange('ALL');
-              }}
-              className="mt-3 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs text-purple-300 transition"
+              onClick={resetFilters}
+              className="mt-4 rounded-sm border border-rule px-3 py-1.5 text-sm hover:border-royal hover:text-royal"
             >
-              重設所有條件
+              重設篩選
             </button>
           </div>
         ) : (
-          cards.map((c) => {
-            const isSelected = c.id === selectedCard.id;
-            return (
-              <div
-                key={c.id}
-                onClick={() => onSelectCard(c)}
-                className={`p-3 rounded-xl cursor-pointer border transition-all duration-200 select-none ${
-                  isSelected
-                    ? 'bg-gradient-to-r from-purple-950/80 to-slate-900 border-purple-500 shadow-lg shadow-purple-950/50 scale-[1.01]'
-                    : 'bg-slate-900/60 border-slate-800/80 hover:bg-slate-850 hover:border-slate-700'
-                }`}
-              >
-                <div className="flex items-start justify-between gap-2">
-                  {/* Left: Number & Titles */}
-                  <div className="flex items-start gap-2.5">
-                    <div
-                      className={`w-9 h-9 rounded-lg flex items-center justify-center font-mono font-bold text-xs shrink-0 border ${
-                        isSelected
-                          ? 'bg-purple-600 text-white border-purple-400'
-                          : 'bg-slate-800 text-slate-300 border-slate-700'
+          groups.map((g, gi) => (
+            <section key={`${g.week}-${gi}`}>
+              <h2 className="sticky top-0 z-10 border-b border-rule bg-ground px-4 py-1.5 text-sm font-medium text-ink-soft">
+                {g.week}
+              </h2>
+              <ul>
+                {g.cards.map((c) => {
+                  const isSelected = c.id === selectedCard.id;
+                  const isMade = Boolean(progress[c.cardNumber]);
+                  return (
+                    <li
+                      key={c.id}
+                      className={`flex items-stretch border-b border-l-[3px] border-b-rule/70 transition-colors ${
+                        isSelected ? 'border-l-brass bg-brass-wash/60' : 'border-l-transparent hover:bg-ground/60'
                       }`}
                     >
-                      {c.cardNumber}
-                    </div>
-
-                    <div>
-                      <div className="flex items-center gap-1.5">
-                        <span className="text-sm font-bold text-white leading-tight">
-                          {c.chineseTitle}
+                      <label className="flex cursor-pointer items-center pl-3 pr-1">
+                        <input
+                          type="checkbox"
+                          checked={isMade}
+                          onChange={() => onToggleProgress(c.cardNumber)}
+                          aria-label={`卡 ${c.cardNumber} ${c.chineseTitle}：輪播已製作`}
+                          className="h-4 w-4 cursor-pointer accent-royal"
+                        />
+                      </label>
+                      <button
+                        onClick={() => onSelectCard(c)}
+                        aria-current={isSelected ? 'true' : undefined}
+                        className="grid min-w-0 flex-1 grid-cols-[2.25rem_minmax(0,1fr)_auto] items-baseline gap-x-2 py-2.5 pl-2 pr-4 text-left"
+                      >
+                        <span className="tabular font-display text-lg font-black text-royal">
+                          {c.cardNumber}
                         </span>
-                      </div>
-                      <div className="text-[11px] font-mono text-purple-400/90 tracking-wide mt-0.5">
-                        {c.englishTitle}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Right Badges */}
-                  <div className="flex flex-col items-end gap-1 shrink-0">
-                    <span className="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700 font-mono">
-                      {c.week}
-                    </span>
-                    <span className="text-[10px] px-1.5 py-0.5 rounded bg-blue-950/70 text-blue-300 border border-blue-900/50">
-                      {c.category}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Scenario preview */}
-                <p className="text-xs text-slate-400 mt-2 line-clamp-1 pl-11">
-                  {c.scenarioSummary}
-                </p>
-              </div>
-            );
-          })
+                        <span className="min-w-0">
+                          <span className="block truncate font-medium leading-snug">{c.chineseTitle}</span>
+                          <span className="block truncate text-xs text-ink-soft">{c.englishTitle}</span>
+                        </span>
+                        <span className="text-xs text-ink-soft">{c.category}</span>
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            </section>
+          ))
         )}
+      </div>
+
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-1 border-t border-rule px-4 py-2 text-sm">
+        <button onClick={handleExport} className="text-royal underline underline-offset-2 hover:text-royal-deep">
+          匯出進度
+        </button>
+        <button
+          onClick={() => importRef.current?.click()}
+          className="text-royal underline underline-offset-2 hover:text-royal-deep"
+        >
+          匯入進度
+        </button>
+        <input ref={importRef} type="file" accept="application/json,.json" onChange={handleImport} className="hidden" />
+        <span className="text-xs text-ink-soft" role="status">
+          {backupNote || '進度只存在這個瀏覽器，換裝置前請先匯出'}
+        </span>
       </div>
     </div>
   );

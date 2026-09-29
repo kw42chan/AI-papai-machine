@@ -1,12 +1,60 @@
 import React, { useState } from 'react';
 import { CardData } from '../types/card';
-import { Sparkles, Copy, Check, Download, Layers, ShieldCheck, Zap, Bot } from 'lucide-react';
+import { Check, Copy } from 'lucide-react';
 
 interface CardVisualRendererProps {
   card: CardData;
   customImageUrl?: string;
   onCopyPrompt?: () => void;
 }
+
+/** Gold circuit traces in the corners, echoing the printed deck. */
+const CircuitLines: React.FC = () => (
+  <svg
+    className="pointer-events-none absolute inset-0 h-full w-full"
+    viewBox="0 0 420 588"
+    preserveAspectRatio="none"
+    fill="none"
+    stroke="#b48a2c"
+    strokeWidth="1"
+    aria-hidden
+  >
+    <g opacity="0.55">
+      <path d="M14 96 V52 Q14 14 52 14 H120 L138 32 H208" />
+      <path d="M26 96 V60 Q26 26 60 26 H108" />
+      <circle cx="212" cy="32" r="3" fill="#b48a2c" />
+      <path d="M406 470 V540 Q406 574 372 574 H340" />
+      <path d="M394 470 V532 Q394 562 364 562" />
+      <circle cx="406" cy="462" r="3" fill="#b48a2c" />
+    </g>
+  </svg>
+);
+
+/** The deck's robot, drawn as brass line art. */
+const Mascot: React.FC = () => (
+  <svg
+    viewBox="0 0 96 96"
+    className="h-28 w-28"
+    fill="none"
+    stroke="#b48a2c"
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M48 16 V8" />
+    <circle cx="48" cy="6" r="3" fill="#b48a2c" />
+    <rect x="22" y="16" width="52" height="38" rx="10" />
+    <rect x="14" y="28" width="8" height="14" rx="2" />
+    <rect x="74" y="28" width="8" height="14" rx="2" />
+    <circle cx="38" cy="34" r="4" fill="#b48a2c" />
+    <circle cx="58" cy="34" r="4" fill="#b48a2c" />
+    <path d="M40 45 H56" />
+    <path d="M30 60 H66 V84 Q66 90 60 90 H36 Q30 90 30 84 Z" />
+    <circle cx="48" cy="74" r="5" />
+    <path d="M30 68 L18 78" />
+    <path d="M66 68 L78 58" />
+  </svg>
+);
 
 export const CardVisualRenderer: React.FC<CardVisualRendererProps> = ({
   card,
@@ -16,212 +64,100 @@ export const CardVisualRenderer: React.FC<CardVisualRendererProps> = ({
   const [copiedPrompt, setCopiedPrompt] = useState(false);
   const [viewMode, setViewMode] = useState<'card' | 'photo'>(customImageUrl ? 'photo' : 'card');
 
-  const handleCopy = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  const handleCopy = () => {
     navigator.clipboard.writeText(card.promptShort);
     setCopiedPrompt(true);
     if (onCopyPrompt) onCopyPrompt();
     setTimeout(() => setCopiedPrompt(false), 2000);
   };
 
-  const getCategoryColor = (category: string) => {
-    switch (category) {
-      case '項目管理':
-        return 'from-blue-600/30 to-indigo-600/30 border-blue-400/40 text-blue-300';
-      case '日常文檔':
-        return 'from-emerald-600/30 to-teal-600/30 border-emerald-400/40 text-emerald-300';
-      case '商務溝通':
-        return 'from-purple-600/30 to-pink-600/30 border-purple-400/40 text-purple-300';
-      case '數據分析':
-        return 'from-cyan-600/30 to-sky-600/30 border-cyan-400/40 text-cyan-300';
-      case '財務預算':
-        return 'from-amber-600/30 to-yellow-600/30 border-amber-400/40 text-amber-300';
-      case '客戶服務':
-        return 'from-rose-600/30 to-orange-600/30 border-rose-400/40 text-rose-300';
-      case '商業策略':
-        return 'from-violet-600/30 to-fuchsia-600/30 border-violet-400/40 text-violet-300';
-      default:
-        return 'from-slate-700/30 to-slate-800/30 border-slate-500/40 text-slate-300';
-    }
-  };
+  const tabClass = (active: boolean) =>
+    `px-3 py-1 text-sm transition-colors ${
+      active ? 'border-b-2 border-royal font-medium text-royal' : 'border-b-2 border-transparent text-ink-soft hover:text-ink'
+    }`;
 
   return (
-    <div className="flex flex-col items-center w-full max-w-[420px] mx-auto">
-      {/* View Switcher if custom photo is available */}
+    <div className="mx-auto w-full max-w-[420px]">
       {customImageUrl && (
-        <div className="flex items-center gap-2 mb-3 bg-slate-900/80 p-1 rounded-lg border border-slate-700 text-xs">
-          <button
-            onClick={() => setViewMode('card')}
-            className={`px-3 py-1 rounded font-medium transition ${
-              viewMode === 'card'
-                ? 'bg-purple-600 text-white shadow'
-                : 'text-slate-400 hover:text-white'
-            }`}
-          >
-            數位卡牌 (Cyber Deck)
+        <div className="mb-3 flex gap-2 border-b border-rule" role="tablist" aria-label="卡牌檢視方式">
+          <button role="tab" aria-selected={viewMode === 'card'} onClick={() => setViewMode('card')} className={tabClass(viewMode === 'card')}>
+            數位卡牌
           </button>
-          <button
-            onClick={() => setViewMode('photo')}
-            className={`px-3 py-1 rounded font-medium transition ${
-              viewMode === 'photo'
-                ? 'bg-purple-600 text-white shadow'
-                : 'text-slate-400 hover:text-white'
-            }`}
-          >
-            上傳實體照 (Original Photo)
+          <button role="tab" aria-selected={viewMode === 'photo'} onClick={() => setViewMode('photo')} className={tabClass(viewMode === 'photo')}>
+            上傳的照片
           </button>
         </div>
       )}
 
-      {/* Main Card Container */}
       {viewMode === 'photo' && customImageUrl ? (
-        <div className="relative rounded-2xl overflow-hidden border-2 border-slate-600 shadow-2xl bg-black aspect-[3/4.2] w-full flex items-center justify-center">
-          <img
-            src={customImageUrl}
-            alt={`Card ${card.cardNumber}`}
-            className="w-full h-full object-contain"
-          />
-          <div className="absolute bottom-2 left-2 right-2 bg-slate-900/85 backdrop-blur px-3 py-1.5 rounded-lg border border-slate-700 text-xs text-slate-300 flex justify-between items-center">
-            <span>📷 已上傳卡牌影像：卡 {card.cardNumber}</span>
-            <button
-              onClick={() => setViewMode('card')}
-              className="text-purple-400 hover:underline flex items-center gap-1"
-            >
-              <Layers className="w-3 h-3" /> 切換數位版
-            </button>
-          </div>
+        <div className="aspect-[63/88] w-full overflow-hidden rounded-[14px] bg-royal-deep">
+          <img src={customImageUrl} alt={`卡 ${card.cardNumber} 的上傳照片`} className="h-full w-full object-contain" />
         </div>
       ) : (
-        <div
+        <article
+          key={card.id}
           id={`visual-card-${card.cardNumber}`}
-          className="relative w-full aspect-[3/4.4] rounded-2xl gunmetal-card-border metallic-shine shadow-2xl p-5 flex flex-col justify-between overflow-hidden bg-gradient-to-b from-[#181d2a] via-[#10141f] to-[#0b0e17] transition-all hover:scale-[1.01] duration-300 select-none group"
+          className="deal relative flex aspect-[63/88] w-full flex-col overflow-hidden rounded-[14px] bg-royal-deep p-6 text-[#efeaf9] shadow-[0_18px_30px_-18px_rgba(29,22,51,0.7)]"
         >
-          {/* Futuristic Circuit & Glow background */}
-          <div className="absolute inset-0 opacity-15 circuit-bg pointer-events-none" />
-          <div className="absolute -top-24 -right-24 w-60 h-60 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute -bottom-24 -left-24 w-60 h-60 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+          {/* Printed inner border */}
+          <div className="pointer-events-none absolute inset-2 rounded-[9px] border border-brass/70" aria-hidden />
+          <CircuitLines />
 
-          {/* Top Card Header: Badges & Number */}
-          <div className="relative z-10">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <span className="px-2.5 py-0.5 rounded-md bg-purple-950/80 border border-purple-500/40 text-purple-300 text-[11px] font-semibold tracking-wider">
-                  {card.week}
-                </span>
-                <span
-                  className={`px-2.5 py-0.5 rounded-md bg-gradient-to-r ${getCategoryColor(
-                    card.category
-                  )} border text-[11px] font-medium tracking-wide`}
-                >
-                  {card.category}
-                </span>
-              </div>
+          <header className="relative flex items-start justify-between">
+            <span className="tabular font-display text-5xl font-black leading-none text-brass">
+              {card.cardNumber}
+            </span>
+            <span className="pt-1 text-right text-sm leading-tight text-[#cfc4ea]">
+              <span className="block">{card.week}</span>
+              <span className="block">{card.category}</span>
+            </span>
+          </header>
 
-              {/* Card Number Badge */}
-              <div className="flex items-center gap-1 bg-white/10 backdrop-blur-md border border-white/30 rounded-lg px-2.5 py-1 shadow-inner">
-                <span className="text-[10px] uppercase font-mono tracking-widest text-slate-300">
-                  CARD
-                </span>
-                <span className="text-base font-black font-mono text-white tracking-wider">
-                  {card.cardNumber}
-                </span>
-              </div>
-            </div>
-
-            {/* Bilingual Titles */}
-            <div className="mt-4 pt-1">
-              <div className="text-[11px] font-bold tracking-widest text-purple-400/90 uppercase font-mono mb-0.5">
-                {card.englishTitle}
-              </div>
-              <h2 className="text-2xl font-black text-white tracking-tight leading-snug drop-shadow-sm flex items-center gap-2">
-                {card.chineseTitle}
-              </h2>
-            </div>
-
-            {/* Scenario Box */}
-            <div className="mt-3 bg-slate-900/70 border border-slate-700/60 rounded-xl p-2.5 backdrop-blur-sm">
-              <div className="flex items-center gap-1 text-[11px] font-semibold text-slate-400 mb-1">
-                <ShieldCheck className="w-3.5 h-3.5 text-blue-400" />
-                <span>實戰情境</span>
-              </div>
-              <p className="text-xs text-slate-200 leading-relaxed">
-                {card.scenarioSummary}
-              </p>
-            </div>
+          <div className="relative mt-6">
+            <p className="text-sm text-[#cfc4ea]">{card.englishTitle}</p>
+            <h2 className="font-display text-[1.75rem] font-black leading-tight text-white">
+              {card.chineseTitle}
+            </h2>
           </div>
 
-          {/* Middle: AI Prompt Speech Bubble */}
-          <div className="relative z-10 my-3">
-            <div className="relative bg-gradient-to-r from-purple-950/70 via-slate-900/90 to-indigo-950/70 border border-purple-500/30 rounded-xl p-3 shadow-lg">
-              <div className="flex items-center justify-between mb-1.5">
-                <div className="flex items-center gap-1 text-[11px] font-bold text-purple-300">
-                  <Bot className="w-3.5 h-3.5 text-purple-400 animate-pulse" />
-                  <span>AI Agent 操作指令</span>
-                </div>
-                <button
-                  onClick={handleCopy}
-                  title="複製指令"
-                  className="flex items-center gap-1 text-[10px] px-2 py-0.5 rounded bg-purple-600/30 hover:bg-purple-600/60 border border-purple-400/40 text-purple-200 transition"
-                >
-                  {copiedPrompt ? (
-                    <>
-                      <Check className="w-3 h-3 text-emerald-400" />
-                      <span>已複製</span>
-                    </>
-                  ) : (
-                    <>
-                      <Copy className="w-3 h-3" />
-                      <span>複製</span>
-                    </>
-                  )}
-                </button>
-              </div>
-              <p className="text-xs text-slate-100 font-mono leading-relaxed line-clamp-4 bg-black/40 p-2 rounded-lg border border-white/5">
-                {card.promptShort}
-              </p>
-            </div>
+          <p className="relative mt-4 border-t border-white/15 pt-3 text-sm leading-relaxed text-[#e4ddf5]">
+            {card.scenarioSummary}
+          </p>
+
+          {/* Speech bubble: the mascot speaks the prompt */}
+          <p className="relative mt-4 rounded-md bg-[#f8f7fb] px-3 py-2 text-[13px] leading-relaxed text-ink before:absolute before:-bottom-1.5 before:left-12 before:h-3 before:w-3 before:rotate-45 before:bg-[#f8f7fb] before:content-['']">
+            {card.promptShort}
+          </p>
+
+          <div className="relative flex flex-1 items-end pb-3 pl-6" aria-hidden>
+            <Mascot />
           </div>
 
-          {/* Bottom: Expected Outcomes / Benefits */}
-          <div className="relative z-10">
-            <div className="text-[11px] font-semibold text-slate-400 mb-1.5 flex items-center gap-1">
-              <Zap className="w-3.5 h-3.5 text-amber-400" />
-              <span>卡片預期效益</span>
-            </div>
-            <div className="grid grid-cols-1 gap-1">
+          <footer className="relative">
+            <ul className="grid grid-cols-3 divide-x divide-white/15 border-y border-white/15 py-2 text-center text-xs leading-snug text-[#e4ddf5]">
               {card.benefits.map((b, idx) => (
-                <div
-                  key={idx}
-                  className="flex items-center gap-1.5 text-xs text-slate-300 bg-slate-900/60 px-2 py-1 rounded-md border border-slate-800"
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
-                  <span className="truncate">{b}</span>
-                </div>
+                <li key={idx} className="px-2">
+                  {b}
+                </li>
               ))}
+            </ul>
+            <div className="mt-2 flex items-center justify-between text-xs text-[#a99fc9]">
+              <span>AI 拍拍機</span>
+              <span>Rare Purple Strategy</span>
             </div>
-
-            {/* Footer Tech Watermark */}
-            <div className="mt-3 pt-2 border-t border-slate-800 flex items-center justify-between text-[10px] text-slate-500 font-mono">
-              <span className="flex items-center gap-1">
-                <Sparkles className="w-3 h-3 text-purple-400/70" /> AI 拍拍機 · CARD {card.cardNumber}
-              </span>
-              <span>RARE PURPLE STRATEGY</span>
-            </div>
-          </div>
-        </div>
+          </footer>
+        </article>
       )}
 
-      {/* Action bar under card */}
-      <div className="flex items-center justify-between w-full mt-3 px-1 text-xs text-slate-400">
+      <div className="mt-3 flex items-center justify-between gap-3 text-sm">
         <button
           onClick={handleCopy}
-          className="flex items-center gap-1.5 hover:text-purple-300 transition py-1 px-2.5 rounded-lg hover:bg-slate-800"
+          className="flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-sm border border-rule px-3 py-1.5 transition-colors hover:border-royal hover:text-royal"
         >
-          {copiedPrompt ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
-          <span>{copiedPrompt ? '已複製指令到剪貼簿' : '一鍵複製 Prompt 指令'}</span>
+          {copiedPrompt ? <Check className="h-4 w-4 text-royal" aria-hidden /> : <Copy className="h-4 w-4" aria-hidden />}
+          <span>{copiedPrompt ? '已複製' : '複製指令'}</span>
         </button>
-
-        <span className="text-[11px] text-slate-500 font-mono">
+        <span className="truncate text-xs text-ink-soft" title={card.imageFileName}>
           {card.imageFileName || `card_${card.cardNumber}.png`}
         </span>
       </div>
