@@ -1,0 +1,11 @@
+{
+  "name": "AI Papai Machine",
+  "install": "npm ci --legacy-peer-deps",
+  "start": "npm run dev",
+  "ports": [
+    {
+      "name": "web",
+      "port": 3000
+    }
+  ]
+}
