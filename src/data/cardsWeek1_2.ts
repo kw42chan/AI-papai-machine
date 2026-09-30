@@ -22,14 +22,29 @@ export const cardsWeek1_2: CardData[] = [
       '5 分鐘掌握重點，開會前就講得出邊幾件事最緊要',
       '3 分鐘完成閱讀，老細即場追問都答得出'
     ],
-    igCaption: `【老細一句話：「summarize 份合同。」你望住 20 頁 PDF 發呆 😵‍💫】\n\n逐頁讀完已經用咗成個鐘，\n仲係唔夠時間消化重點。\n開會時老細問咩，你都答唔到點 —— 個樣仲衰過扮工。\n\nAI Agent 幫你：\n✅ 上傳 20 頁 → 摘要成 5 個重點（每點 30 字內）\n✅ 逐點展開解釋，追問都答得出\n✅ 5 分鐘掌握重點，開會前有底\n✅ 3 分鐘讀完，唔使翻足 20 頁\n\n20 頁變成 5 個重點，半個鐘變成 5 分鐘。\n\n📇 拍到「長文件摘要」呢張卡，跟住做就有底氣。\n👉 Link in bio 睇 AI 拍拍機`,
+    igCaption: `【老細一句話：「summarize 份合同。」你望住 20 頁 PDF 發呆 😵‍💫】
+
+逐頁讀完已經用咗成個鐘，
+仲係唔夠時間消化重點。
+開會時老細問咩，你都答唔到點 —— 個樣仲衰過扮工。
+
+AI Agent 幫你：
+✅ 上傳 20 頁 → 摘要成 5 個重點（每點 30 字內）
+✅ 逐點展開解釋，追問都答得出
+✅ 5 分鐘掌握重點，開會前有底
+✅ 3 分鐘讀完，唔使翻足 20 頁
+
+20 頁變成 5 個重點，半個鐘變成 5 分鐘。
+
+📇 拍到「長文件摘要」呢張卡，跟住做就有底氣。
+👉 Link in bio 睇 AI 拍拍機`,
     carouselSlides: [
-      { slideNumber: 1, label: '封面', title: '20 頁合同，5 分鐘內要掌握重點', description: '老細一句話，望住 20 頁 PDF 發呆', type: 'cover' },
-      { slideNumber: 2, label: '痛點', title: '逐頁讀成個鐘，開會仍一片空白', description: '讀完唔記得，重要條款消化唔到', type: 'pain' },
-      { slideNumber: 3, label: '痛點', title: '開會老細追問，即場語塞', description: '想拎住幾句重點，結果連文件都未翻完', type: 'pain' },
-      { slideNumber: 4, label: 'AI 方案', title: '上傳 PDF 一鍵提煉 5 大要點', description: '每點 30 字內，附精準逐點展開說明', type: 'process' },
-      { slideNumber: 5, label: '成果對比', title: 'Before 60分鐘 vs After 3分鐘', description: '從大海撈針到 5 分鐘胸有成竹掌握重點', type: 'outcome' },
-      { slideNumber: 6, label: 'CTA', title: 'AI 拍拍機 · 隨拍隨用', description: '拍到長文件摘要卡，跟住做就有底氣', type: 'cta' }
+      { slideNumber: 1, label: '封面', title: '20 頁合同，5 分鐘內要掌握重點', description: 'Hook 大字 + 慌失失 icon', type: 'cover' },
+      { slideNumber: 2, label: '畫面', title: '逐頁讀 20 頁文件', description: '「成個鐘過去，重點都唔記得」', type: 'pain' },
+      { slideNumber: 3, label: '畫面', title: '開會答唔到老細問題嘅尷尬表情', description: '', type: 'pain' },
+      { slideNumber: 4, label: '畫面', title: 'AI Agent prompt 流程', description: '上傳 PDF → 摘要 5 個重點 → 逐點展開', type: 'process' },
+      { slideNumber: 5, label: '畫面', title: 'Before vs After 對比', description: 'Before（20 頁迷霧）vs After（5 個重點、3 分鐘讀完）', type: 'outcome' },
+      { slideNumber: 6, label: 'CTA', title: 'AI 拍拍機 + 情境卡展示', description: '「拍到邊張卡，就跟住做」', type: 'cta' }
     ],
     hashtags: ['#香港職場', '#合同摘要', '#AI工具', '#白領自救', '#閱讀效率', '#職場打工人'],
     imageFileName: '20260818_gunmetal_silver_whiteoutline_card_01.png'
@@ -50,19 +65,35 @@ export const cardsWeek1_2: CardData[] = [
     hook: '「開完兩個鐘會，你只記得『下次再傾』—— 咦，咁即係邊個做？」',
     painPoints: '香港開會文化：冇 agenda 就開，開完冇 minutes。你夾硬記住幾個 point，返到座位先發現漏咗老細講嘅死線。寫 minutes 又要兩日後先交，交上去同事話「我當日唔係咁講」。最慘係決議冇寫負責人 —— 到下星期開會，大家一齊問「上次嗰件事做完未」，然後又開多次會。',
     aiHelp: [
-      '開會前先出 30 分鐘議程：角色、各議題時間分配、預期成果',
+      '開會前先出 30 分鐘議程：角色、各議題時間分配、預期成果，唔會開到唔知幾時完',
       '會後貼上筆記，按出席者、議題、討論要點、決議、行動項目整理',
       '每項行動自動標負責人 + 期限，唔會再「冇人認頭」',
       '30 分鐘會出 1 頁 minutes，當日就 send 得出去'
     ],
-    igCaption: `【開完兩個鐘會，冇人知邊個做 🤯】\n\n冇 agenda 就開，\n開完冇 minutes，\n你只記得「下次再傾」。\n下星期開會，大家一齊問「上次嗰件事做完未」。\n\nAI Agent 幫你：\n✅ 開會前出議程（角色 + 議題時間 + 預期成果）\n✅ 會後貼筆記 → 出席者 / 議題 / 決議 / 行動項目\n✅ 每項行動標負責人 + 期限\n✅ 1 頁 minutes，當日 send 得出去\n\n由「開完就算」變成「開完有跟進」。\n\n📇 拍到「會議紀錄整理」呢張卡，跟住做就唔會漏。\n👉 Link in bio 睇 AI 拍拍機`,
+    igCaption: `【開完兩個鐘會，冇人知邊個做 🤯】
+
+冇 agenda 就開，
+開完冇 minutes，
+你只記得「下次再傾」。
+下星期開會，大家一齊問「上次嗰件事做完未」。
+
+AI Agent 幫你：
+✅ 開會前出議程（角色 + 議題時間 + 預期成果）
+✅ 會後貼筆記 → 出席者 / 議題 / 決議 / 行動項目
+✅ 每項行動標負責人 + 期限
+✅ 1 頁 minutes，當日 send 得出去
+
+由「開完就算」變成「開完有跟進」。
+
+📇 拍到「會議紀錄整理」呢張卡，跟住做就唔會漏。
+👉 Link in bio 睇 AI 拍拍機`,
     carouselSlides: [
-      { slideNumber: 1, label: '封面', title: '開完兩個鐘會，冇人知邊個做', description: '淨係記得下次再傾，行動責任成謎', type: 'cover' },
-      { slideNumber: 2, label: '痛點', title: '冇 Agenda 漫無目的開會', description: '兩日後出 minutes 同事話自己冇咁講', type: 'pain' },
-      { slideNumber: 3, label: '痛點', title: '行動冇寫負責人同死線', description: '下星期重複開會，件事原地踏步', type: 'pain' },
-      { slideNumber: 4, label: 'AI 方案', title: '事前出議程，事後自動萃取決議', description: '精準捕捉出席者、決議、行動項目', type: 'process' },
-      { slideNumber: 5, label: '成果對比', title: '即日交出清晰 Action Items', description: '每項行動責任明確，會議時間減少一半', type: 'outcome' },
-      { slideNumber: 6, label: 'CTA', title: 'AI 拍拍機 · 隨拍隨用', description: '拍到會議紀錄整理卡，會議不再甩轆', type: 'cta' }
+      { slideNumber: 1, label: '封面', title: '開完兩個鐘會，冇人知邊個做', description: 'Hook 大字', type: 'cover' },
+      { slideNumber: 2, label: '畫面', title: '冇 agenda 嘅會議現場', description: '', type: 'pain' },
+      { slideNumber: 3, label: '畫面', title: '兩日後先交 minutes', description: '同事話「我唔係咁講」', type: 'pain' },
+      { slideNumber: 4, label: '畫面', title: 'AI Agent 三步', description: '出 agenda → 貼筆記 → 出行動項目', type: 'process' },
+      { slideNumber: 5, label: '畫面', title: 'minutes 示範', description: '決議 / 負責人 / 期限一格格睇清', type: 'outcome' },
+      { slideNumber: 6, label: 'CTA', title: 'AI 拍拍機 + 情境卡展示', description: '', type: 'cta' }
     ],
     hashtags: ['#香港職場', '#會議紀錄', '#開會', '#AI工具', '#職場自救', '#返工日常'],
     imageFileName: '20260818_gunmetal_silver_whiteoutline_card_02.png'
@@ -81,20 +112,37 @@ export const cardsWeek1_2: CardData[] = [
     articleNumber: 12,
     articleTitle: '【PDF 要改但冇原始檔】一鍵轉成可編輯 Word',
     hook: '「收到份 PDF 要改兩個字，但對方冇畀原始檔 —— 你點改？」',
-    painPoints: '香港做 admin、採購、營運，成日收到 PDF 或圖片檔 —— 合同、報價單、表格，對方一句「你改幾個位再 send 返」。但手上只有 PDF，字打唔到、表格複製唔到，想改就要由頭重新打一份。上網搵免費轉換網站？搞完排版散晒、表格走位，仲要將公司文件上傳去唔知邊度。明明只改兩個字，最後用咗半個鐘。',
+    painPoints: '香港做 admin、採購、營運，成日收到 PDF 或圖片檔 —— 合同、報價單、表格，對方一句「你改幾個位再 send 返」。但手上只有 PDF，字打唔到、表格複製唔到，想改就要由頭重新打一份。上網搵免費轉換網站？搞完排版散晒、表格走位，仲要將公司文件上傳去唔知邊度。明明只改兩個字，最後用咗半個鐘，仲要人手再執一次格式。',
     aiHelp: [
-      '貼上 PDF／圖片，直接轉成可編輯 .docx，免裝多餘工具',
-      '保留原本排版同表格結構，唔會走位變亂碼',
-      '交出可編輯 Word 檔，對方可以直接改',
-      '標示掃描質素差或跨頁表格位，提你覆核'
+      '貼上 PDF／圖片，直接轉成可編輯 .docx，唔使另裝轉換工具',
+      '保留原本排版同表格結構，唔會變成一堆走位文字',
+      '交出可編輯 Word 檔，對方可以直接改，唔使再來回',
+      '掃描質素差、表格跨頁嘅位會標示出嚟，提你人手覆核一次'
     ],
-    igCaption: `【收到份 PDF 要改兩個字，但冇原始檔 —— 你點改？📄】\n\n字打唔到、表格複製唔到，\n想改就要由頭重新打一份。\n上網搵免費轉換工具，\n排版散晒、表格走位，仲要上傳公司文件。\n\nAI Agent 幫你：\n✅ 貼上 PDF / 圖片 → 出可編輯 .docx\n✅ 保留原本排版 + 表格結構\n✅ 免用額外轉換工具，唔使上傳第三方網站\n✅ 標示掃描模糊 / 跨頁表格位，提你覆核\n\n由「重新打一份」變成「直接改返」。\n\n📇 拍到「文件格式轉換」呢張卡，跟住做就改得順。\n👉 Link in bio 睇 AI 拍拍機`,
+    igCaption: `【收到份 PDF 要改兩個字，但冇原始檔 —— 你點改？📄】
+
+字打唔到、表格複製唔到，
+想改就要由頭重新打一份。
+上網搵免費轉換工具，
+排版散晒、表格走位，仲要上傳公司文件。
+
+AI Agent 幫你：
+✅ 貼上 PDF / 圖片 → 出可編輯 .docx
+✅ 保留原本排版 + 表格結構
+✅ 免用額外轉換工具，唔使上傳去第三方網站
+✅ 標示掃描模糊 / 跨頁表格位，提你覆核
+
+由「重新打一份」變成「直接改返」。
+
+📇 拍到「文件格式轉換」呢張卡，跟住做就改得順。
+👉 Link in bio 睇 AI 拍拍機`,
     carouselSlides: [
-      { slideNumber: 1, label: '封面', title: '要改兩個字，但冇原始檔', description: '收到 PDF 唔知點改，重打定走位？', type: 'cover' },
-      { slideNumber: 2, label: '痛點', title: '文字不能複製，表格全走樣', description: '免費網上工具排版全散，洩露公司機密', type: 'pain' },
-      { slideNumber: 3, label: 'AI 方案', title: '保留原始排版與表格結構轉換', description: '精準識別多欄排版與表格單元格', type: 'process' },
-      { slideNumber: 4, label: '成果對比', title: '直接取得可編輯 .docx 檔', description: '排版完好，改兩個字立刻完成交貨', type: 'outcome' },
-      { slideNumber: 5, label: 'CTA', title: 'AI 拍拍機 · 隨拍隨用', description: '拍到文件格式轉換卡，告別重打地獄', type: 'cta' }
+      { slideNumber: 1, label: '封面', title: '要改兩個字，但冇原始檔', description: 'Hook 大字 + 冒汗表情', type: 'cover' },
+      { slideNumber: 2, label: '畫面', title: '對住 PDF 打唔到字、表格複製唔到', description: '', type: 'pain' },
+      { slideNumber: 3, label: '畫面', title: '重新打一份 / 上網搵免費轉換工具嘅麻煩', description: '', type: 'pain' },
+      { slideNumber: 4, label: '畫面', title: 'AI Agent 三步流程', description: '貼 PDF → 轉 .docx → 保留排版', type: 'process' },
+      { slideNumber: 5, label: '畫面', title: 'Before vs After 對比', description: 'Before（走位亂碼） vs After（排版表格原封不動）', type: 'outcome' },
+      { slideNumber: 6, label: 'CTA', title: 'AI 拍拍機 + 情境卡展示', description: '「拍到邊張卡，就跟住做」', type: 'cta' }
     ],
     hashtags: ['#香港職場', '#PDF轉Word', '#文件格式轉換', '#AI工具', '#行政日常', '#返工日常'],
     imageFileName: '20260818_gunmetal_silver_whiteoutline_card_03.png'
@@ -113,20 +161,37 @@ export const cardsWeek1_2: CardData[] = [
     articleNumber: 43,
     articleTitle: '【同一份 proposal 改咗三版，老細只問即係幾錢】提案書一頁摘要',
     hook: '「同一份 proposal 改咗三個版本 —— 老細最後只問：『即係幾錢、幾時得？』」',
-    painPoints: '提案永遠係東拼西湊：上次嘅 template、同事嘅段落、新加嘅報價表。每個部門格式都唔同，老細睇兩頁就開始唔專心，因為第一頁都未講到重點。你想加個 executive summary，但唔知點寫先叫「高層睇得明」。最後 proposal send 出去，客戶反問你「即係同上一份有咩分別」。',
+    painPoints: '提案永遠係東拼西湊：上次嘅 template、同事嘅段落、新加嘅報價表。每個部門格式都唔同，老細睇兩頁就開始唔專心，因為第一頁都未講到重點。你想加個 executive summary，但唔知點寫先叫「高層睇得明」。最後 proposal send 出去，客戶反問你「即係同上一份有咩分別」—— 你自己都要翻返去睇。',
     aiHelp: [
       '出 2 頁客戶提案書 .docx：公司簡介、問題分析、方案、報價範圍、時間表',
       '另出一頁企劃摘要：核心提案、投資回報、風險、3 個假設、建議決定',
-      '格式統一專業，唔會部門各一套',
+      '格式統一，唔會每個部門一個樣',
       '高層 2 分鐘睇完就知要唔要批，唔使逐頁問你'
     ],
-    igCaption: `【同一份 proposal 改咗三版，老細只問「即係幾錢？」📄】\n\n東拼西湊：上次 template、同事段落、新報價表。\n每個部門格式都唔同，\n老細睇兩頁就走神。\n客戶反問「同上一份有咩分別」—— 你自己都要翻返去睇。\n\nAI Agent 幫你：\n✅ 2 頁提案書（簡介 / 問題 / 方案 / 報價 / 時間表）\n✅ 1 頁企劃摘要（回報 / 風險 / 假設 / 建議決定）\n✅ 格式統一，唔會部門各一套\n✅ 高層 2 分鐘睇完就知批唔批\n\n由「你睇下啦」變成「一頁睇晒重點」。\n\n📇 拍到「提案書製作與企劃摘要」呢張卡，跟住做就交得出。\n👉 Link in bio 睇 AI 拍拍機`,
+    igCaption: `【同一份 proposal 改咗三版，老細只問「即係幾錢？」📄】
+
+東拼西湊：上次 template、同事段落、新報價表。
+每個部門格式都唔同，
+老細睇兩頁就走神。
+客戶反問「同上一份有咩分別」—— 你自己都要翻返去睇。
+
+AI Agent 幫你：
+✅ 2 頁提案書（簡介 / 問題 / 方案 / 報價 / 時間表）
+✅ 1 頁企劃摘要（回報 / 風險 / 假設 / 建議決定）
+✅ 格式統一，唔會部門各一套
+✅ 高層 2 分鐘睇完就知批唔批
+
+由「你睇下啦」變成「一頁睇晒重點」。
+
+📇 拍到「提案書製作與企劃摘要」呢張卡，跟住做就交得出。
+👉 Link in bio 睇 AI 拍拍機`,
     carouselSlides: [
-      { slideNumber: 1, label: '封面', title: '老細只問：即係幾錢、幾時得？', description: '改咗三版 proposal，高層依然睇唔到重點', type: 'cover' },
-      { slideNumber: 2, label: '痛點', title: '各部門東拼西湊格式不一', description: '高層缺乏判斷依據，遲遲未能審批', type: 'pain' },
-      { slideNumber: 3, label: 'AI 方案', title: '2 頁提案書 + 1 頁企劃摘要', description: '包含投資回報、風險、三大假設與建議', type: 'process' },
-      { slideNumber: 4, label: '成果對比', title: '2 分鐘抓住決策核心', description: '高層快速判斷，加速專案批准通過', type: 'outcome' },
-      { slideNumber: 5, label: 'CTA', title: 'AI 拍拍機 · 隨拍隨用', description: '拍到提案書製作卡，提案一矢中的', type: 'cta' }
+      { slideNumber: 1, label: '封面', title: '老細只問：即係幾錢、幾時得？', description: 'Hook 大字', type: 'cover' },
+      { slideNumber: 2, label: '畫面', title: '東拼西湊嘅提案書', description: '', type: 'pain' },
+      { slideNumber: 3, label: '畫面', title: '老細睇兩頁走神 / 客戶反問分別', description: '', type: 'pain' },
+      { slideNumber: 4, label: '畫面', title: 'AI Agent 出提案書 + 企劃摘要', description: '', type: 'process' },
+      { slideNumber: 5, label: '畫面', title: '企劃摘要示範', description: '回報 / 風險 / 假設 / 建議', type: 'outcome' },
+      { slideNumber: 6, label: 'CTA', title: 'AI 拍拍機 + 情境卡展示', description: '', type: 'cta' }
     ],
     hashtags: ['#香港職場', '#提案書', '#企劃', '#商業寫作', '#AI工具', '#職場攻略'],
     imageFileName: '20260818_gunmetal_silver_whiteoutline_card_04.png'
@@ -150,15 +215,32 @@ export const cardsWeek1_2: CardData[] = [
       '一句輸入 → 6 頁結構（標題／問題／方案／時間表／成果／下一步）',
       '每頁 3–5 個重點，字數精簡，唔會一頁塞爆',
       '附 speaker notes，上台唔會斷片',
-      '出嚟已經結構清晰、重點突出，只需微調即可使用'
+      '出嚟已經結構清晰、重點一目了然，只需微調即可使用'
     ],
-    igCaption: `【老細話「聽日要個 deck」，你開住空白頁 🫠】\n\n唔知要幾頁、\n唔知先講問題定先講方案。\n砌到凌晨出咗幾十頁，\n上台時冇人記得你想講咩。\n\nAI Agent 幫你：\n✅ 6 頁結構（標題 / 問題 / 方案 / 時間表 / 成果 / 下一步）\n✅ 每頁 3–5 個重點，字數精簡\n✅ 附 speaker notes，上台唔斷片\n✅ 結構清晰、重點突出，只需微調就交得\n\n由空白頁變成一個講得清嘅 deck。\n\n📇 拍到「簡報投影片製作」呢張卡，跟住做就有稿。\n👉 Link in bio 睇 AI 拍拍機`,
+    igCaption: `【老細話「聽日要個 deck」，你開住空白頁 🫠】
+
+唔知要幾頁、
+唔知先講問題定先講方案。
+砌到凌晨出咗幾十頁，
+上台時冇人記得你想講咩。
+
+AI Agent 幫你：
+✅ 6 頁結構（標題 / 問題 / 方案 / 時間表 / 成果 / 下一步）
+✅ 每頁 3–5 個重點，字數精簡
+✅ 附 speaker notes，上台唔斷片
+✅ 結構清晰、重點突出，只需微調就交得
+
+由空白頁變成一個講得清嘅 deck。
+
+📇 拍到「簡報投影片製作」呢張卡，跟住做就有稿。
+👉 Link in bio 睇 AI 拍拍機`,
     carouselSlides: [
-      { slideNumber: 1, label: '封面', title: '聽日要個 deck，望住空白頁', description: '通宵砌 PPT 仲被老細嫌字太多', type: 'cover' },
-      { slideNumber: 2, label: '痛點', title: '不知架構，每一頁塞滿密密麻麻文字', description: '上台匯報台下全在看手機', type: 'pain' },
-      { slideNumber: 3, label: 'AI 方案', title: '標準 6 頁結構骨架自動成形', description: '標題、問題、方案、時間、成果、下一步', type: 'process' },
-      { slideNumber: 4, label: '成果對比', title: '微調即可上場的高說服力簡報', description: '重點一目了然，附演講備忘', type: 'outcome' },
-      { slideNumber: 5, label: 'CTA', title: 'AI 拍拍機 · 隨拍隨用', description: '拍到簡報投影片製作卡，告別加班砌 Deck', type: 'cta' }
+      { slideNumber: 1, label: '封面', title: '聽日要個 deck', description: 'Hook 大字 + 空白頁畫面', type: 'cover' },
+      { slideNumber: 2, label: '畫面', title: '唔知幾頁、唔知點排次序', description: '', type: 'pain' },
+      { slideNumber: 3, label: '畫面', title: '一頁塞十行，老細叫「精簡啲」', description: '', type: 'pain' },
+      { slideNumber: 4, label: '畫面', title: 'AI Agent 出 6 頁結構', description: '', type: 'process' },
+      { slideNumber: 5, label: '畫面', title: 'Before vs After 對比', description: 'Before（幾十頁亂） vs After（6 頁清）', type: 'outcome' },
+      { slideNumber: 6, label: 'CTA', title: 'AI 拍拍機 + 情境卡展示', description: '', type: 'cta' }
     ],
     hashtags: ['#香港職場', '#簡報', '#PPT技巧', '#presentation', '#AI工具', '#職場求生'],
     imageFileName: '20260818_gunmetal_silver_whiteoutline_card_05.png'
@@ -182,15 +264,31 @@ export const cardsWeek1_2: CardData[] = [
       '一貼落去，自動捉錯別字、文法、語氣不一致',
       '標示「send 後會好尷尬」嘅低級錯誤',
       '捉埋邏輯矛盾 —— 前後數字、時序、立場有冇打架',
-      '給完整修訂版，send 前過一次就安心'
+      '給修訂版，send 前過一次就放心'
     ],
-    igCaption: `【Send 咗封「把」寫成「吧」嘅 email 畀全公司，我真係想辭職 💀】\n\n趕住 send，proofread 咗三次，\n點知老細 reply：「『把』字寫錯咗。」\n全公司都睇到，個面紅到可以煎蛋。\n\nAI Agent 幫你：\n✅ 捉錯別字 + 文法 + 邏輯矛盾 + 語氣唔一致\n✅ 列出問題 + 修改建議\n✅ 提供完整修訂版本\n✅ Send 前過一次，放心 send\n\n覆水難收嘅事，以後唔會再發生。\n\n📇 拍到「文件校對與潤飾」呢張卡，跟住做就唔使出醜。\n👉 Link in bio 睇 AI 拍拍機`,
+    igCaption: `【Send 咗封「把」寫成「吧」嘅 email 畀全公司，我真係想辭職 💀】
+
+趕住 send，proofread 咗三次，
+點知老細 reply：「『把』字寫錯咗。」
+全公司都睇到，個面紅到可以煎蛋。
+
+AI Agent 幫你：
+✅ 捉錯別字 + 文法 + 邏輯矛盾 + 語氣唔一致
+✅ 列出問題 + 修改建議
+✅ 提供完整修訂版本
+✅ Send 前過一次，放心 send
+
+覆水難收嘅事，以後唔會再發生。
+
+📇 拍到「文件校對與潤飾」呢張卡，跟住做就唔使出醜。
+👉 Link in bio 睇 AI 拍拍機`,
     carouselSlides: [
-      { slideNumber: 1, label: '封面', title: 'Send 咗錯字 Email 畀全公司', description: 'Proofread 咗三次都睇唔到自己盲點', type: 'cover' },
-      { slideNumber: 2, label: '痛點', title: '大腦自動腦補，自己抓不到錯字', description: '老細一句「細心啲」當場社死', type: 'pain' },
-      { slideNumber: 3, label: 'AI 方案', title: '四重校對：錯字、文法、邏輯、語氣', description: '全面掃描前後數字矛與語氣偏差', type: 'process' },
-      { slideNumber: 4, label: '成果對比', title: '問題清單 + 完整修訂版一步到位', description: '降低出錯風險，安心按下傳送鍵', type: 'outcome' },
-      { slideNumber: 5, label: 'CTA', title: 'AI 拍拍機 · 隨拍隨用', description: '拍到文件校對與潤飾卡，發送前有保障', type: 'cta' }
+      { slideNumber: 1, label: '封面', title: '錯字 email 截圖風 + 死亡表情', description: '', type: 'cover' },
+      { slideNumber: 2, label: '畫面', title: '「Proofread 咗三次都睇唔到」嘅盲點解釋', description: '', type: 'pain' },
+      { slideNumber: 3, label: '畫面', title: 'Send 完先發現錯字嘅絕望', description: '', type: 'pain' },
+      { slideNumber: 4, label: '畫面', title: 'AI Agent 標示問題', description: '錯字 / 邏輯 / 語氣 + 附修訂版本', type: 'process' },
+      { slideNumber: 5, label: '畫面', title: '「執到寶」情緒 —— 放心 send', description: '', type: 'outcome' },
+      { slideNumber: 6, label: 'CTA', title: 'AI 拍拍機 + 情境卡展示', description: '', type: 'cta' }
     ],
     hashtags: ['#香港職場', '#Email禮儀', '#AI工具', '#錯字地獄', '#職場自救', '#返工日常'],
     imageFileName: '20260818_gunmetal_silver_whiteoutline_card_06.png'
@@ -209,20 +307,37 @@ export const cardsWeek1_2: CardData[] = [
     articleNumber: 14,
     articleTitle: '【LinkedIn 份 CV 三年冇 Update】履歷表優化神器',
     hook: '「LinkedIn 嗰份 CV 三年冇 update，仲寫緊『精通 Office』。」',
-    painPoints: '香港打工仔跳槽頻密，但份 CV 永遠係上次搵工時寫嘅。新技能、新項目、新成就全部冇寫上去。最尷係仲寫緊「精通 Microsoft Office」——想 update，但唔知點突出自己，唔知邊項寫前邊、邊項寫後邊，結果一拖再拖，獵頭搵都唔敢 send。份 CV 唔靚，連面試機會都冇。',
+    painPoints: '香港打工仔跳槽頻密，但份 CV 永遠係上次搵工時寫嘅。新技能、新項目、新成就全部冇寫上去。最尷係仲寫緊「精通 Microsoft Office」——2026 年啦大哥。想 update，但唔知點突出自己，唔知邊項寫前邊、邊項寫後邊，結果一拖再拖，獵頭搵都唔敢 send。份 CV 唔靚，連面試機會都冇。',
     aiHelp: [
       '貼上舊 CV，自動重新排版同突出 3 項量化成就',
       '將「做過咩」變成「達成咗咩」——加數據、加 impact',
       '按目標職位重新排序經歷、調整技能關鍵字，過到 ATS 篩選',
       '生成中英雙版本，LinkedIn + 求職信一次搞掂'
     ],
-    igCaption: `【份 CV 三年冇 update，仲寫緊「精通 Office」😂】\n\n2026 年啦，精通 Office 係基本嘢，唔係賣點。\n新技能、新項目、新成就 —— 全部冇寫。\n獵頭搵你，你 send 唔出手，個樣仲衰過扮工。\n\nAI Agent 幫你：\n✅ 自動排版 + 突出量化成就\n✅ 「做過咩」→「達成咗咩」\n✅ 按目標職位排序經歷 + 調關鍵字\n✅ 中英雙版本一次搞掂\n\n份 CV 靚咗，搵工自信啲。\n\n📇 拍到「履歷表優化」呢張卡，跟住做就靚晒。\n👉 Link in bio 睇 AI 拍拍機`,
+    igCaption: `【份 CV 三年冇 update，仲寫緊「精通 Office」😂】
+
+2026 年啦，精通 Office 係基本嘢，唔係賣點。
+新技能、新項目、新成就 —— 全部冇寫。
+獵頭搵你，你 send 唔出手，個樣仲衰過扮工。
+
+AI Agent 幫你：
+✅ 自動排版 + 突出量化成就
+✅ 「做過咩」→「達成咗咩」
+✅ 按目標職位排序經歷 + 調關鍵字
+✅ 中英雙版本一次搞掂
+
+份 CV 靚咗，搵工自信啲。
+
+📇 拍到「履歷表優化」呢張卡，跟住做就靚晒。
+👉 Link in bio 睇 AI 拍拍機`,
     carouselSlides: [
-      { slideNumber: 1, label: '封面', title: 'LinkedIn 份 CV 三年冇 Update', description: '仲寫緊精通 Office，獵頭搵你都唔敢 Send', type: 'cover' },
-      { slideNumber: 2, label: '痛點', title: '只有工作流水帳，毫無量化成果', description: '未針對職位關鍵字優化，第一關 ATS 就被刷', type: 'pain' },
-      { slideNumber: 3, label: 'AI 方案', title: '萃取 3 大量化成就 + 目標職位適配', description: '做過咩變達成咩，前後對比一清二楚', type: 'process' },
-      { slideNumber: 4, label: '成果對比', title: '專業有力的高轉化履歷表', description: '關鍵字突出，面試邀約率翻倍', type: 'outcome' },
-      { slideNumber: 5, label: 'CTA', title: 'AI 拍拍機 · 隨拍隨用', description: '拍到履歷表優化卡，跳槽轉工信心十足', type: 'cta' }
+      { slideNumber: 1, label: '封面', title: '舊 CV 截圖風 + 「精通 Office」大字', description: '', type: 'cover' },
+      { slideNumber: 2, label: '畫面', title: '三年冇 update 嘅尷尬', description: '', type: 'pain' },
+      { slideNumber: 3, label: '畫面', title: '唔知點突出自己', description: '', type: 'pain' },
+      { slideNumber: 4, label: '畫面', title: 'AI Agent Before vs After 對比', description: '', type: 'process' },
+      { slideNumber: 5, label: '畫面', title: '量化成就自動生成示範', description: '', type: 'outcome' },
+      { slideNumber: 6, label: '畫面', title: '中英雙版本展示', description: '', type: 'outcome' },
+      { slideNumber: 7, label: 'CTA', title: 'AI 拍拍機 + 情境卡展示', description: '', type: 'cta' }
     ],
     hashtags: ['#香港職場', '#搵工', '#CV優化', '#LinkedIn', '#AI工具', '#轉工'],
     imageFileName: '20260818_gunmetal_silver_whiteoutline_card_07.png'
@@ -245,16 +360,33 @@ export const cardsWeek1_2: CardData[] = [
     aiHelp: [
       '貼上文件 → 譯成目標語言，用詞符合當地習慣',
       '本地化貨幣同日期格式，唔會再出現「點解寫美金」',
-      '商業用語改成目標市場慣例，語氣得體專業',
+      '商業用語改成目標市場慣例，唔會硬到似機械人',
       '附本地化注意事項（稱謂、忌諱、付款慣例）畀你 send 前 check'
     ],
-    igCaption: `【份文件翻譯完，客戶回一句：「點解你哋寫美金？」🌏】\n\n譯得準唔夠，\n貨幣、日期、稱謂、商業用語 —— 樣樣都要入鄉隨俗。\n免費工具出嚟嘅版本硬到似機械人，\n客戶睇得出你冇認真對過。\n\nAI Agent 幫你：\n✅ 譯成目標語言，符合當地用語習慣\n✅ 統一貨幣同日期格式\n✅ 商業用語符合目標市場慣例\n✅ 附本地化注意事項，send 前 check\n\n一份外語文件，睇得出你有準備。\n\n📇 拍到「多語翻譯與本地化」呢張卡，跟住做就唔失禮。\n👉 Link in bio 睇 AI 拍拍機`,
+    igCaption: `【份文件翻譯完，客戶回一句：「點解你哋寫美金？」🌏】
+
+譯得準唔夠，
+貨幣、日期、稱謂、商業用語 —— 樣樣都要入鄉隨俗。
+免費工具出嚟嘅版本硬到似機械人，
+客戶睇得出你冇認真對過。
+
+AI Agent 幫你：
+✅ 譯成目標語言，符合當地用語習慣
+✅ 統一貨幣同日期格式
+✅ 商業用語符合目標市場慣例
+✅ 附本地化注意事項，send 前 check
+
+一份外語文件，睇得出你有準備。
+
+📇 拍到「多語翻譯與本地化」呢張卡，跟住做就唔失禮。
+👉 Link in bio 睇 AI 拍拍機`,
     carouselSlides: [
-      { slideNumber: 1, label: '封面', title: '翻譯完客戶問「點解寫美金」', description: '字面翻譯唔等於商業本地化', type: 'cover' },
-      { slideNumber: 2, label: '痛點', title: '日期格式顛倒、稱謂用錯', description: '免費翻譯生硬如機械人，顯得極不專業', type: 'pain' },
-      { slideNumber: 3, label: 'AI 方案', title: '商務語境 + 貨幣日期全面本地化', description: '適配目標市場用語習慣與法律商業慣例', type: 'process' },
-      { slideNumber: 4, label: '成果對比', title: '地道得體的專業商務文件', description: '附本地化注意事項，客戶信心倍增', type: 'outcome' },
-      { slideNumber: 5, label: 'CTA', title: 'AI 拍拍機 · 隨拍隨用', description: '拍到多語翻譯卡，跨國溝通不踩雷', type: 'cta' }
+      { slideNumber: 1, label: '封面', title: '點解你哋寫美金？', description: 'Hook 大字', type: 'cover' },
+      { slideNumber: 2, label: '畫面', title: '機械式翻譯嘅生硬版本', description: '', type: 'pain' },
+      { slideNumber: 3, label: '畫面', title: '貨幣 / 日期 / 稱謂全部唔對', description: '', type: 'pain' },
+      { slideNumber: 4, label: '畫面', title: 'AI Agent prompt 流程', description: '貼文件 → 翻譯 → 本地化貨幣 / 日期 / 用語', type: 'process' },
+      { slideNumber: 5, label: '畫面', title: 'Before vs After 對比', description: 'Before（美金、月日倒轉）vs After（符合當地慣例）', type: 'outcome' },
+      { slideNumber: 6, label: 'CTA', title: 'AI 拍拍機 + 情境卡展示', description: '', type: 'cta' }
     ],
     hashtags: ['#香港職場', '#翻譯', '#本地化', '#外貿', '#AI工具', '#職場攻略'],
     imageFileName: '20260818_gunmetal_silver_whiteoutline_card_08.png'
@@ -280,13 +412,30 @@ export const cardsWeek1_2: CardData[] = [
       '加評估小測，知道新人邊度未明',
       '材料即時可用：直接發畀新人，唔使再改'
     ],
-    igCaption: `【老細話「你整個新人 training」，你連 learning objective 係咩都唔知 😵】\n\n冇 template、冇教材，\n整咗成日，新人睇完依然問：\n「即係我實際要做咩？」\n最後你唯有坐低逐個慢慢講。\n\nAI Agent 幫你：\n✅ 學習目標 + 核心概念\n✅ 3 個實作練習 + 常見問題\n✅ 評估小測，知佢哋邊度未明\n✅ 材料即時可用，直接發畀新人\n\n一份材料，新人自己睇得明。\n\n📇 拍到「培訓材料製作」呢張卡，跟住做就唔使由零開始。\n👉 Link in bio 睇 AI 拍拍機`,
+    igCaption: `【老細話「你整個新人 training」，你連 learning objective 係咩都唔知 😵】
+
+冇 template、冇教材，
+整咗成日，新人睇完依然問：
+「即係我實際要做咩？」
+最後你唯有坐低逐個慢慢講。
+
+AI Agent 幫你：
+✅ 學習目標 + 核心概念
+✅ 3 個實作練習 + 常見問題
+✅ 評估小測，知佢哋邊度未明
+✅ 材料即時可用，直接發畀新人
+
+一份材料，新人自己睇得明。
+
+📇 拍到「培訓材料製作」呢張卡，跟住做就唔使由零開始。
+👉 Link in bio 睇 AI 拍拍機`,
     carouselSlides: [
-      { slideNumber: 1, label: '封面', title: '老細叫你自己整份新人 Training', description: '連 Learning Objective 係咩都唔知點寫', type: 'cover' },
-      { slideNumber: 2, label: '痛點', title: '材料空洞，新人看完依然不會操作', description: '最後還是要前輩坐在一旁手把手教學', type: 'pain' },
-      { slideNumber: 3, label: 'AI 方案', title: '學習目標 + 3 大實作練習 + 評估測驗', description: '新手友好的階梯式培訓指引', type: 'process' },
-      { slideNumber: 4, label: '成果對比', title: '新人自學即可上手，即時可用', description: '培訓標準化，釋放團隊寶貴工時', type: 'outcome' },
-      { slideNumber: 5, label: 'CTA', title: 'AI 拍拍機 · 隨拍隨用', description: '拍到培訓材料製作卡，新人培訓省心省力', type: 'cta' }
+      { slideNumber: 1, label: '封面', title: '你整個新人 training', description: 'Hook 大字 + 迷惘表情', type: 'cover' },
+      { slideNumber: 2, label: '畫面', title: '對住空白文件，唔知點開始', description: '', type: 'pain' },
+      { slideNumber: 3, label: '畫面', title: '整完新人依然唔識做', description: '', type: 'pain' },
+      { slideNumber: 4, label: '畫面', title: 'AI Agent 生成結構', description: '目標 → 概念 → 練習 → 小測', type: 'process' },
+      { slideNumber: 5, label: '畫面', title: '一份完整培訓材料預覽', description: '', type: 'outcome' },
+      { slideNumber: 6, label: 'CTA', title: 'AI 拍拍機 + 情境卡展示', description: '', type: 'cta' }
     ],
     hashtags: ['#香港職場', '#培訓', '#新人上手', '#AI工具', '#帶人日常', '#返工日常'],
     imageFileName: '20260818_gunmetal_silver_whiteoutline_card_09.png'
@@ -305,20 +454,38 @@ export const cardsWeek1_2: CardData[] = [
     articleNumber: 15,
     articleTitle: '【見客前兩個鐘先發現】客戶背景速查一鍵整合',
     hook: '「見客前兩個鐘先發現：你連對方做緊咩生意都唔知。」',
-    painPoints: '香港做 B2B 銷售、BD、客戶管理，見客前要準備會議要點：對方公司業務、規模、近期新聞、主要決策同可能需求。但成日臨急臨忙先收到通知，兩個鐘內要由零開始做 research。Google 完一輪都係官網廢話：成立年份、規模、近期新聞散落喺十幾個網頁，自己逐個搵都唔知邊個準。最後會議要點寫唔出，見客時講唔到重點。',
+    painPoints: '香港做 B2B 銷售、BD、客戶管理，見客前要準備會議要點：對方公司業務、規模、近期新聞、主要決策同可能需求。但成日臨急臨忙先收到通知，兩個鐘內要由零開始做 research。Google 完一輪都係官網廢話：成立年份、規模、近期新聞散落喺十幾個網頁，自己逐個搵都唔知邊個準。最後會議要點寫唔出，見客時講唔到重點，個樣好唔專業。',
     aiHelp: [
       '輸入公司名，自動整合成立年份、業務範圍、規模、近期新聞',
       '整理主要決策同可能需求，搵唔到嘅標示「待確認」',
       '生成 3 個洽談切入點，見面即用得著',
       '整理成 1–2 頁簡報，見客前 print 出嚟傍身'
     ],
-    igCaption: `【見客前兩個鐘，你先發現自己連對方做咩都唔知 😰】\n\n收到 meeting invite，以為有時間準備，\n點知一開會議紀錄：「下禮拜二見新客。」\nGoogle 咗一輪，搵到嘅都係官網廢話。\n見客時講唔出重點，個樣好唔專業。\n\nAI Agent 幫你：\n✅ 輸入公司名 → 整合成立年份 / 業務 / 規模 / 新聞\n✅ 整理主要決策 + 可能需求\n✅ 生成 3 個洽談切入點，見面即用得著\n✅ 整理成 1–2 頁會議簡報，print 出嚟傍身\n\n由慌失失變成有備而來。\n\n📇 拍到「客戶背景調查及會前準備」呢張卡，跟住做就唔使驚。\n👉 Link in bio 睇 AI 拍拍機`,
+    igCaption: `【見客前兩個鐘，你先發現自己連對方做咩都唔知 😰】
+
+收到 meeting invite，以為有時間準備，
+點知一開會議紀錄：「下禮拜二見新客。」
+Google 咗一輪，搵到嘅都係官網廢話。
+見客時講唔出重點，個樣好唔專業。
+
+AI Agent 幫你：
+✅ 輸入公司名 → 整合成立年份 / 業務 / 規模 / 新聞
+✅ 整理主要決策 + 可能需求
+✅ 生成 3 個洽談切入點，見面即用得著
+✅ 整理成 1–2 頁會議簡報，print 出嚟傍身
+
+由慌失失變成有備而來。
+
+📇 拍到「客戶背景調查及會前準備」呢張卡，跟住做就唔使驚。
+👉 Link in bio 睇 AI 拍拍機`,
     carouselSlides: [
-      { slideNumber: 1, label: '封面', title: '見客前兩個鐘先發現冇準備', description: '連對方業務核心都唔知，點開口傾？', type: 'cover' },
-      { slideNumber: 2, label: '痛點', title: '網上資料零散，官網全係門面套話', description: '抓不到真正痛點，開會只能尬聊', type: 'pain' },
-      { slideNumber: 3, label: 'AI 方案', title: '公司背景 + 動態 + 3 大洽談切入點', description: '未查證資訊標註「待確認」，客觀精準', type: 'process' },
-      { slideNumber: 4, label: '成果對比', title: '1-2 頁會前簡報隨身帶', description: '切中對方潛在需求，專業形象拉滿', type: 'outcome' },
-      { slideNumber: 5, label: 'CTA', title: 'AI 拍拍機 · 隨拍隨用', description: '拍到客戶背景調查卡，開會成單有把握', type: 'cta' }
+      { slideNumber: 1, label: '封面', title: '見客前兩個鐘先發現', description: 'Hook 大字 + 慌失失 icon', type: 'cover' },
+      { slideNumber: 2, label: '畫面', title: '收到 meeting invite 嘅驚慌', description: '', type: 'pain' },
+      { slideNumber: 3, label: '畫面', title: 'Google 咗一輪都係廢話', description: '', type: 'pain' },
+      { slideNumber: 4, label: '畫面', title: 'AI Agent 一鍵生成背景報告', description: '', type: 'process' },
+      { slideNumber: 5, label: '畫面', title: '成立年份 / 規模 / 主要決策 + 切入點', description: '', type: 'outcome' },
+      { slideNumber: 6, label: '畫面', title: '1 頁簡報 print-ready', description: '', type: 'outcome' },
+      { slideNumber: 7, label: 'CTA', title: 'AI 拍拍機 + 情境卡展示', description: '', type: 'cta' }
     ],
     hashtags: ['#香港職場', '#見客', '#B2B銷售', '#客戶管理', '#AI工具', '#職場攻略'],
     imageFileName: '20260818_gunmetal_silver_whiteoutline_card_10.png'
@@ -344,13 +511,29 @@ export const cardsWeek1_2: CardData[] = [
       '明確列出需對方配合事項同截止日期，唔會寫成客套三部曲',
       '語氣合作、唔指令式，減少來回追問'
     ],
-    igCaption: `【催 IT 部做嘢，寫到好似求佢哋咁 🙏】\n\n「唔該晒幫手整一個……」\n「如果方便嘅話……」\n寫完自己都覺得卑微，但嘢仲係未做。\n\nAI Agent 幫你：\n✅ 主題 + 對象 → 即出跨部門電郵草稿\n✅ 講清背景同影響（點解要對方幫手）\n✅ 需配合事項 + 截止日期寫得明\n✅ 語氣合作唔指令式，減少來回追問\n\n催人做嘢都可以催得有格調。\n\n📇 拍到「跨部門溝通草擬」呢張卡，跟住做就唔使求。\n👉 Link in bio 睇 AI 拍拍機`,
+    igCaption: `【催 IT 部做嘢，寫到好似求佢哋咁 🙏】
+
+「唔該晒幫手整一個……」
+「如果方便嘅話……」
+寫完自己都覺得卑微，但嘢仲係未做。
+
+AI Agent 幫你：
+✅ 主題 + 對象 → 即出跨部門電郵草稿
+✅ 講清背景同影響（點解要對方幫手）
+✅ 需配合事項 + 截止日期寫得明
+✅ 語氣合作唔指令式，減少來回追問
+
+催人做嘢都可以催得有格調。
+
+📇 拍到「跨部門溝通草擬」呢張卡，跟住做就唔使求。
+👉 Link in bio 睇 AI 拍拍機`,
     carouselSlides: [
-      { slideNumber: 1, label: '封面', title: '催 IT 做嘢，寫到好似求人', description: '改咗十幾次都未敢 Send 出去', type: 'cover' },
-      { slideNumber: 2, label: '痛點', title: '客套三部曲，重點死線全模糊', description: '對方已讀不回，跨部門合作嚴重拖慢', type: 'pain' },
-      { slideNumber: 3, label: 'AI 方案', title: '背景 + 影響 + 待辦 + 死線 四要素', description: '語氣堅定合作，不顯霸道指令', type: 'process' },
-      { slideNumber: 4, label: '成果對比', title: '對方立刻看懂並給出具體回覆', description: '減少來回拉扯，跨部門推進超順暢', type: 'outcome' },
-      { slideNumber: 5, label: 'CTA', title: 'AI 拍拍機 · 隨拍隨用', description: '拍到跨部門溝通卡，電郵得體又高效', type: 'cta' }
+      { slideNumber: 1, label: '封面', title: '卑微 email 截圖風 + 求人手勢', description: '', type: 'cover' },
+      { slideNumber: 2, label: '畫面', title: '改咗十幾次都未敢 send', description: '', type: 'pain' },
+      { slideNumber: 3, label: '畫面', title: '唔該晒三部曲', description: '', type: 'pain' },
+      { slideNumber: 4, label: '畫面', title: 'AI Agent prompt 流程', description: '主題 + 對象 → 背景 / 影響 / 配合事項 / 死線', type: 'process' },
+      { slideNumber: 5, label: '畫面', title: 'Before vs After 對比', description: 'Before（客套三部曲）vs After（講清配合事項同死線）', type: 'outcome' },
+      { slideNumber: 6, label: 'CTA', title: 'AI 拍拍機 + 情境卡展示', description: '', type: 'cta' }
     ],
     hashtags: ['#香港職場', '#跨部門溝通', '#email技巧', '#AI工具', '#職場求生', '#大公司'],
     imageFileName: '20260818_gunmetal_silver_whiteoutline_card_11.png'
@@ -376,13 +559,29 @@ export const cardsWeek1_2: CardData[] = [
       '補上「同事最想知」嘅位（關唔關我事、幾時開始、有問搵邊個）',
       '結構清楚、員工容易理解，減少不必要焦慮'
     ],
-    igCaption: `【公司出新政策，你要出通告 —— 同事第一反應：「係咪要炒人？」😨】\n\n寫得太硬，話你冇人情味；\n寫得太軟，又講唔清生效日期同影響範圍。\n改完五版，同事仍然只記得「聽講有嘢變」。\n\nAI Agent 幫你：\n✅ 背景 / 變化 / 影響 / 生效日 / 查詢途徑，一次寫齊\n✅ 語氣正面但不浮誇\n✅ 補上同事最想知嘅三條問題\n✅ 減少不必要焦慮\n\n一份通告，講清楚又唔會引起恐慌。\n\n📇 拍到「內部通告草擬」呢張卡，跟住做就得體。\n👉 Link in bio 睇 AI 拍拍機`,
+    igCaption: `【公司出新政策，你要出通告 —— 同事第一反應：「係咪要炒人？」😨】
+
+寫得太硬，話你冇人情味；
+寫得太軟，又講唔清生效日期同影響範圍。
+改完五版，同事仍然只記得「聽講有嘢變」。
+
+AI Agent 幫你：
+✅ 背景 / 變化 / 影響 / 生效日 / 查詢途徑，一次寫齊
+✅ 語氣正面但不浮誇
+✅ 補上同事最想知嘅三條問題
+✅ 減少不必要焦慮
+
+一份通告，講清楚又唔會引起恐慌。
+
+📇 拍到「內部通告草擬」呢張卡，跟住做就得體。
+👉 Link in bio 睇 AI 拍拍機`,
     carouselSlides: [
-      { slideNumber: 1, label: '封面', title: '出新政策通告，怕引起全組恐慌', description: '寫得太硬冇人情味，太軟講唔清生效期', type: 'cover' },
-      { slideNumber: 2, label: '痛點', title: '同事私下揣測，辦公室人心惶惶', description: '改咗五版依然被投訴語氣欠佳', type: 'pain' },
-      { slideNumber: 3, label: 'AI 方案', title: '透明背景 + 影響範疇 + 答問途徑', description: '正面沉穩措辭，解答三大疑慮', type: 'process' },
-      { slideNumber: 4, label: '成果對比', title: '得體清晰的官方 Memo', description: '同事理解支持，降低不必要焦慮', type: 'outcome' },
-      { slideNumber: 5, label: 'CTA', title: 'AI 拍拍機 · 隨拍隨用', description: '拍到內部通告草擬卡，行文大方得體', type: 'cta' }
+      { slideNumber: 1, label: '封面', title: '通告文件 + 同事議論氣泡', description: '「係咪要炒人？」', type: 'cover' },
+      { slideNumber: 2, label: '畫面', title: '寫通告嘅兩難（太硬／太軟）', description: '', type: 'pain' },
+      { slideNumber: 3, label: '畫面', title: '改五版之後同事仍然誤解', description: '', type: 'pain' },
+      { slideNumber: 4, label: '畫面', title: 'AI Agent 生成結構', description: '背景 → 變化 → 影響 → 生效 → 查詢', type: 'process' },
+      { slideNumber: 5, label: '畫面', title: '通告示範 + 常見問題段落', description: '', type: 'outcome' },
+      { slideNumber: 6, label: 'CTA', title: 'AI 拍拍機 + 情境卡展示', description: '', type: 'cta' }
     ],
     hashtags: ['#香港職場', '#HR', '#內部溝通', '#通告', '#AI工具', '#職場攻略'],
     imageFileName: '20260818_gunmetal_silver_whiteoutline_card_12.png'
@@ -404,17 +603,33 @@ export const cardsWeek1_2: CardData[] = [
     painPoints: '香港 office 型活動多：team building、年會、產品發佈、客戶 presentation。最怕老細突然一句「你上台講兩句」，你連主題都未定好。自己諗嘅 speech，又驚太悶、太長、或者講錯重點。講完落台，同事面都係面，你唔知佢哋覺得好定唔好。上台講嘢係香港白領嘅噩夢，尤其是 sudden call。',
     aiHelp: [
       '輸入主題 + audience，生成結構完整嘅演講稿（開場 → 3 個核心論點 → 實例 → 結尾）',
-      '開場一句就抓實注意力，唔使諗點破冰',
       '開場一句就抓實注意力，結尾收一個明確行動呼籲',
-      '語氣自信但唔自大，精準控制在 10 分鐘內'
+      '開場一句就抓實注意力，唔使諗點破冰',
+      '結尾收一個明確行動呼籲，語氣自信但唔自大'
     ],
-    igCaption: `【老細突然叫你上台講兩句，你腦入面一片空白 😶】\n\nTeam building、年會、產品發佈 ——\n最怕老細一句「你講兩句」。\n講完落台，同事個樣你睇唔明。\n\nAI Agent 幫你：\n✅ 主題 + 聽眾描述 → 10 分鐘演講稿\n✅ 開場 → 3 個核心論點 → 實例 → 結尾\n✅ 開場一句抓住注意力\n✅ 結尾有明確行動呼籲\n\n由「講咩好」變成「講得掂」。\n\n📇 拍到「演講稿撰寫」呢張卡，跟住做就唔使驚。\n👉 Link in bio 睇 AI 拍拍機`,
+    igCaption: `【老細突然叫你上台講兩句，你腦入面一片空白 😶】
+
+Team building、年會、產品發佈 ——
+最怕老細一句「你講兩句」。
+講完落台，同事個樣你睇唔明。
+
+AI Agent 幫你：
+✅ 主題 + 聽眾描述 → 10 分鐘演講稿
+✅ 開場 → 3 個核心論點 → 實例 → 結尾
+✅ 開場一句抓住注意力
+✅ 結尾有明確行動呼籲
+
+由「講咩好」變成「講得掂」。
+
+📇 拍到「演講稿撰寫」呢張卡，跟住做就唔使驚。
+👉 Link in bio 睇 AI 拍拍機`,
     carouselSlides: [
-      { slideNumber: 1, label: '封面', title: '老細突叫上台講兩句，腦海空白', description: '突如其來的演講，手心出汗不知講咩', type: 'cover' },
-      { slideNumber: 2, label: '痛點', title: '開場無力，內容流水帳如催眠', description: '結尾草草收場，毫無記憶點與感染力', type: 'pain' },
-      { slideNumber: 3, label: 'AI 方案', title: '強開場 + 3 論點 + 實例 + 號召結尾', description: '語氣自信沉穩，節奏精確控制', type: 'process' },
-      { slideNumber: 4, label: '成果對比', title: '10 分鐘自信從容的高質量演說', description: '全場專注聆聽，掌聲自然響起', type: 'outcome' },
-      { slideNumber: 5, label: 'CTA', title: 'AI 拍拍機 · 隨拍隨用', description: '拍到演講稿撰寫卡，上台發言不慌張', type: 'cta' }
+      { slideNumber: 1, label: '封面', title: '老細 sudden call 畫面 + 驚慌表情', description: '', type: 'cover' },
+      { slideNumber: 2, label: '畫面', title: '上台腦一片空白', description: '', type: 'pain' },
+      { slideNumber: 3, label: '畫面', title: '講完唔知好唔好嘅尷尬', description: '', type: 'pain' },
+      { slideNumber: 4, label: '畫面', title: 'AI Agent prompt 流程', description: '主題 + 聽眾 → 開場 → 3 論點 → 實例 → 呼籲', type: 'process' },
+      { slideNumber: 5, label: '畫面', title: '講稿結構示範', description: '結構清晰、開場有力、結尾明確', type: 'outcome' },
+      { slideNumber: 6, label: 'CTA', title: 'AI 拍拍機 + 情境卡展示', description: '', type: 'cta' }
     ],
     hashtags: ['#香港職場', '#演講', '#presentation', '#AI工具', '#年會', '#職場求生'],
     imageFileName: '20260818_gunmetal_silver_whiteoutline_card_13.png'
@@ -440,13 +655,30 @@ export const cardsWeek1_2: CardData[] = [
       '加上行業趨勢分析 —— 睇到方向，唔止睇到對手',
       '每週跑一次，變成固定情報流程，唔使臨急抱佛腳'
     ],
-    igCaption: `【老細問「對手出咗咩新招？」你只知佢哋出咗個 ad 👀】\n\n情報靠「聽返嚟」：\n同事食飯講、客戶隨口提，\n零散、冇系統、仲要過時。\n老細追問「減幾多？打邊個 segment？」—— 你啞咗。\n\nAI Agent 幫你：\n✅ 3 個對手 x 定位 / 價格 / 渠道 / 推廣\n✅ 搵唔到嘅資料標示「待確認」，唔會估\n✅ 加行業趨勢分析\n✅ 每週跑一次，變成固定流程\n\n由「聽講佢哋減價」變成有根據嘅情報。\n\n📇 拍到「市場競爭情報分析」呢張卡，跟住做就答得出。\n👉 Link in bio 睇 AI 拍拍機`,
+    igCaption: `【老細問「對手出咗咩新招？」你只知佢哋出咗個 ad 👀】
+
+情報靠「聽返嚟」：
+同事食飯講、客戶隨口提，
+零散、冇系統、仲要過時。
+老細追問「減幾多？打邊個 segment？」—— 你啞咗。
+
+AI Agent 幫你：
+✅ 3 個對手 x 定位 / 價格 / 渠道 / 推廣
+✅ 搵唔到嘅資料標示「待確認」，唔會估
+✅ 加行業趨勢分析
+✅ 每週跑一次，變成固定流程
+
+由「聽講佢哋減價」變成有根據嘅情報。
+
+📇 拍到「市場競爭情報分析」呢張卡，跟住做就答得出。
+👉 Link in bio 睇 AI 拍拍機`,
     carouselSlides: [
-      { slideNumber: 1, label: '封面', title: '老細問：對手出咗咩新招？', description: '聽講佢哋減價，但問具體數據完全答唔出', type: 'cover' },
-      { slideNumber: 2, label: '痛點', title: '情報散亂過時，決策盲目跟風', description: '沒有結構化比對，不知敵我優勢所在', type: 'pain' },
-      { slideNumber: 3, label: 'AI 方案', title: '三大對手定位、價格、渠道立體對比', description: '結合行業大盤趨勢，真實資料標註', type: 'process' },
-      { slideNumber: 4, label: '成果對比', title: '一頁胸有成竹的競爭情報矩陣', description: '老細隨問隨答，防守進攻胸有成竹', type: 'outcome' },
-      { slideNumber: 5, label: 'CTA', title: 'AI 拍拍機 · 隨拍隨用', description: '拍到競爭情報卡，市場動向先知先覺', type: 'cta' }
+      { slideNumber: 1, label: '封面', title: '對手出咗咩新招？', description: 'Hook 大字', type: 'cover' },
+      { slideNumber: 2, label: '畫面', title: '情報散落喺飯局／客戶／LinkedIn', description: '', type: 'pain' },
+      { slideNumber: 3, label: '畫面', title: '老細追問細節答唔到', description: '', type: 'pain' },
+      { slideNumber: 4, label: '畫面', title: 'AI Agent 三步', description: '列對手 → 比較 → 加趨勢', type: 'process' },
+      { slideNumber: 5, label: '畫面', title: '對比表示範', description: '', type: 'outcome' },
+      { slideNumber: 6, label: 'CTA', title: 'AI 拍拍機 + 情境卡展示', description: '', type: 'cta' }
     ],
     hashtags: ['#香港職場', '#市場分析', '#競爭情報', '#策略', '#AI工具', '#Marketing'],
     imageFileName: '20260818_gunmetal_silver_whiteoutline_card_14.png'

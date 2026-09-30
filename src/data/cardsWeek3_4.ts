@@ -7,31 +7,47 @@ export const cardsWeek3_4: CardData[] = [
     week: '第3週',
     weekNumber: 3,
     category: '日常文檔',
-    chineseTitle: '合約條款風險審查',
-    englishTitle: 'Contract Review & Risk',
-    scenarioSummary: '簽署供應商或外判合約前，快速排查隱藏條款與法律風險。',
-    promptShort: '輸入：審查以下合約條款，標記高風險賠償條款、單方解約權、保密期與智慧財產權歸屬，並列出談判修訂建議。[貼上條款文本]',
-    benefits: ['10分鐘排查霸王條款', '條款修改建議對照', '保障公司與個人權益'],
-    articleNumber: 13,
-    articleTitle: '【供應商合約 40 頁，簽字前心驚膽戰】合約條款 10 分鐘風險排查',
-    hook: '「老細話『簽啦冇嘢嘅』，但出事係你揹鑊。」',
-    painPoints: '好多白領唔係律師，但成日要經手採購、供應商、合作夥伴合同。字密麻麻幾十頁，賠償責任寫到無限大，解約通知期又唔對等。搵公司 Legal 要等兩個星期，項目聽日就要開展。唔識睇又唔敢唔簽，每簽一次都心驚膽戰。',
+    chineseTitle: '來源核察',
+    englishTitle: 'Fact Check',
+    scenarioSummary: '需要查找原始來源並評估說法可靠性。',
+    promptShort: '輸入：貼上說法，查找原始來源並評估可靠性；找不到可靠來源，明確標示「未經證實」。',
+    benefits: ['追溯事實來源', '評估來源可靠性', '標示未經證實說法'],
+    articleNumber: 22,
+    articleTitle: '【老細問「呢個數字邊度嚟？」】來源核察一鍵追溯',
+    hook: '「老細問『呢個數字邊度嚟？』你個心即刻涼咗一半。」',
+    painPoints: '寫 proposal、report、deck，引用嘅市場數字、統計、新聞，好多時都係「聽返嚟」或者上次同事留低嘅。老細一句「呢個數據邊度嚟？可靠嗎？」你就啞咗。上網搵返 original source，逐個網站翻，搵到嘅可能只係二手轉載，原文根本冇講過。最後只能偷偷刪走條數，或者改口講「大約」。交報告最怕嘅唔係寫得唔靚，係企唔穩。',
     aiHelp: [
-      '上傳合約文本，自動標註違約金、保密期、終止條款等 5 大陷阱',
-      '將法律術語轉成白話文，列出風險等級（高/中/低）',
-      '直接提供談判修訂建議（Redline 建議語句），複製即可回覆對家',
-      '10 分鐘出審閱清單，開會跟 Legal 傾都胸有成竹'
+      '貼上說法，自動追溯原始來源',
+      '評估來源可靠性（官方數據 / 一手文件 / 二手轉載）',
+      '搵唔到可靠來源，明確標示「未經證實」，唔會幫你作數',
+      '列出待補資料清單，交報告前自己補齊'
     ],
-    igCaption: `【老細話「簽啦冇嘢嘅」，但出事係你揹鑊 😨】\n\n幾十頁英文合約，字細過蟻，\n賠償上限冇寫、解約條款一面倒。\n等 Legal 睇要兩星期，但聽日要開工……\n\nAI Agent 幫你：\n✅ 10 分鐘排查高風險賠償與單方解約條款\n✅ 法律天書轉白話，標明高/中/低風險\n✅ 自動提供 Redline 修改建議語句\n✅ 1 頁風險清單，保護公司同時自保\n\n📇 拍到「合約條款風險審查」呢張卡，簽字前唔使提心吊膽！\n👉 Link in bio 睇 AI 拍拍機`,
+    igCaption: `【老細問「呢個數字邊度嚟？」，你個心即刻涼咗 🥶】
+
+條數係上次個 report 抄落嚟，
+又或者係同事口頭講過。
+Google 一輪，全部都係二手轉載，
+原文根本冇講過。
+
+AI Agent 幫你：
+✅ 追溯原始來源
+✅ 評估來源可靠性
+✅ 搵唔到 → 標示「未經證實」
+✅ 列出待補資料清單
+
+交報告前核一次，唔使靠估。
+
+📇 拍到「來源核察」呢張卡，跟住做就企得穩。
+👉 Link in bio 睇 AI 拍拍機`,
     carouselSlides: [
-      { slideNumber: 1, label: '封面', title: '合約條款風險審查 10 分鐘急救', description: '字密麻麻唔敢簽，出事唔想做替死鬼', type: 'cover' },
-      { slideNumber: 2, label: '痛點', title: 'Legal 要等兩星期，聽日要簽', description: '霸王條款睇唔出，隱藏賠償責任大到嚇死人', type: 'pain' },
-      { slideNumber: 3, label: '痛點', title: '唔係法律出身，條款天書唔明', description: '想改唔知點開口，驚得罪對家又驚自己孭鑊', type: 'pain' },
-      { slideNumber: 4, label: 'AI 方案', title: '條款深度掃描與白話對照', description: '自動提煉風險點並生成修改範本句式', type: 'process' },
-      { slideNumber: 5, label: '效益對比', title: '由忐忑不安到條理分明', description: '有憑有據同對家傾條款，省時安全', type: 'outcome' },
-      { slideNumber: 6, label: 'CTA', title: 'AI 拍拍機 · 隨抽隨用', description: '拍到此卡，合約風險無所遁形', type: 'cta' }
+      { slideNumber: 1, label: '封面', title: '呢個數字邊度嚟？', description: 'Hook 大字 + 心涼表情', type: 'cover' },
+      { slideNumber: 2, label: '畫面', title: '數字源頭不明、同事口頭講過', description: '', type: 'pain' },
+      { slideNumber: 3, label: '畫面', title: 'Google 一輪，全部二手轉載', description: '', type: 'pain' },
+      { slideNumber: 4, label: '畫面', title: 'AI Agent 追溯流程', description: '貼說法 → 找原文 → 評可靠性', type: 'process' },
+      { slideNumber: 5, label: '畫面', title: '可靠 vs「未經證實」標示對比', description: '', type: 'outcome' },
+      { slideNumber: 6, label: 'CTA', title: 'AI 拍拍機 + 情境卡展示', description: '', type: 'cta' }
     ],
-    hashtags: ['#香港職場', '#合約審查', '#風險管理', '#AI助手', '#法律條款', '#職場防坑'],
+    hashtags: ['#香港職場', '#factcheck', '#報告寫作', '#AI工具', '#職場自救', '#返工日常'],
     imageFileName: '20260818_gunmetal_silver_whiteoutline_card_15.png'
   },
   {
@@ -39,32 +55,49 @@ export const cardsWeek3_4: CardData[] = [
     cardNumber: '16',
     week: '第3週',
     weekNumber: 3,
-    category: '商務溝通',
-    chineseTitle: '高難度商務投訴回覆',
-    englishTitle: 'Difficult Customer Response',
-    scenarioSummary: '客戶憤怒投訴或退款要求，需在保持專業下冷靜處理並守住公司底線。',
-    promptShort: '輸入：客戶投訴[具體事件]，非常不滿要求[要求]；請撰寫一封兼具同理心、道歉但保留立場的公關級回覆，提出[2個替代方案]。',
-    benefits: ['化解客戶憤怒情緒', '防範公關法律風險', '5分鐘生成溫和堅定回覆'],
-    articleNumber: 14,
-    articleTitle: '【客鬧到飛起仲揚言報消委會】高難度投訴回覆 5 分鐘降溫法',
-    hook: '「客戶長文開火，你手震打字，點覆都驚火上加油。」',
-    painPoints: '客戶火滾 send 封千字投訴信，要求即時退款仲話要上連登公審。回覆太硬會激嬲個客，回覆太軟又承擔咗不必要責任。改咗十個版本都唔敢撳 Send，驚打錯一個字引發公關災難。',
+    category: '財務預算',
+    chineseTitle: '比較供應商報價表',
+    englishTitle: 'Quotation Comparison',
+    scenarioSummary: '需要比較不同格式的供應商報價表。',
+    promptShort: '輸入：比較供應商報價表，列出單價、數量、運費、稅項、交付期、付款條款、保養期、有效期；推薦選項並列出風險及追問問題。',
+    benefits: ['總成本一目了然', '條款清晰可比較', '推薦選項及早識別風險'],
+    articleNumber: 23,
+    articleTitle: '【三份報價表，格式唔同貨幣唔同】供應商比較一鍵搞掂',
+    hook: '「三間公司報價，一間包運費，一間要 prepay，你點揀？」',
+    painPoints: '做採購、行政、營運，成日要收幾間供應商報價。麻煩係：每間格式唔一樣 —— 一間寫總價、一間寫單價 x 數量、一間唔包運費、一間 30 日數期、一間要 prepay。你想比較，就要自己開個 Excel 逐項抄，抄完仲要對到期日、對付款狀態。遺漏一張帳單，下個月就會出現逾期罰款或者重複付款 —— 而冇人會記得係你有冇收過。',
     aiHelp: [
-      '拆解客戶核心情緒與合理訴求，過濾無效謾罵',
-      '生成標準「同理心認可 + 客觀事實陳述 + 建設性方案」三段式框架',
-      '提供 2 種不同語氣版本（官方嚴謹版 vs 溫和親切版）',
-      '守住公司合約底線，同時令對方感受到被尊重'
+      '唔同格式報價貼落去，統一成同一張比較表',
+      '列明單價、數量、運費、稅項、交付期、付款條款、保養期、報價有效期',
+      '算出總成本，唔係淨係睇面價平唔平',
+      '推薦選項，及早識別風險，並列出要向供應商追問嘅問題'
     ],
-    igCaption: `【客鬧到飛起仲揚言報消委會 🤯】\n\n千字投訴信衝入 Inbox，\n太硬驚激嬲個客，太軟又隨時認錯孭鑊……\n\nAI Agent 幫你：\n✅ 提煉投訴核心，過濾情緒垃圾\n✅ 30 秒生成公關級降溫回信（同理心 + 解決方案）\n✅ 提供 2 個合規補償替代方案\n✅ 5 分鐘冷靜回覆，化解危機守住底線\n\n📇 拍到「高難度商務投訴回覆」卡，跟住做危機變轉機。\n👉 Link in bio 睇 AI 拍拍機`,
+    igCaption: `【三間報價，一間包運費一間要 prepay，你點揀？🤔】
+
+每間格式唔一樣，
+一間寫總價、一間寫單價 x 數量。
+手動抄落 Excel，抄完仲驚睇漏條款。
+老細問「點解揀呢間」，你只能講「感覺佢平啲」。
+
+AI Agent 幫你：
+✅ 統一成同一張比較表
+✅ 列明運費、稅項、交期、付款條款、保養
+✅ 算出總成本，唔淨係睇面價
+✅ 推薦選項 + 風險 + 追問清單
+
+由「感覺平啲」變成「有根據推薦」。
+
+📇 拍到「比較供應商報價表」呢張卡，跟住做就唔使估。
+👉 Link in bio 睇 AI 拍拍機`,
     carouselSlides: [
-      { slideNumber: 1, label: '封面', title: '高難度投訴回覆 5 分鐘滅火', description: '客戶火滾揚言公審，點覆先唔會火上加油？', type: 'cover' },
-      { slideNumber: 2, label: '痛點', title: '回覆太硬激嬲客，回太軟孭鑊', description: '手震打字改十次，錯一個字即成公關災難', type: 'pain' },
-      { slideNumber: 3, label: '痛點', title: '夾喺老細規矩同暴怒客之間', description: '公司政策唔畀退，個客死纏爛打無休止', type: 'pain' },
-      { slideNumber: 4, label: 'AI 方案', title: '公關級拆彈公式輸入', description: '認可情緒 + 澄清事實 + 雙贏替代方案', type: 'process' },
-      { slideNumber: 5, label: '效益對比', title: '情緒降溫，保留客戶關係', description: '由被動捱打變成掌控節奏的專業溝通', type: 'outcome' },
-      { slideNumber: 6, label: 'CTA', title: 'AI 拍拍機 · 客服公關必備', description: '遇到西客唔使怕，拍卡即出解法', type: 'cta' }
+      { slideNumber: 1, label: '封面', title: '三份唔同格式報價單散喺枱面', description: '+ 頭痛 icon', type: 'cover' },
+      { slideNumber: 2, label: '畫面', title: '格式／貨幣／條款全部唔同', description: '', type: 'pain' },
+      { slideNumber: 3, label: '畫面', title: '手動抄落 Excel 嘅痛苦', description: '', type: 'pain' },
+      { slideNumber: 4, label: '畫面', title: 'AI Agent 一鍵統一比較表', description: '', type: 'process' },
+      { slideNumber: 5, label: '畫面', title: '總成本對比', description: '面價 vs 埋單價', type: 'outcome' },
+      { slideNumber: 6, label: '畫面', title: '推薦 + 風險 + 追問問題清單', description: '', type: 'outcome' },
+      { slideNumber: 7, label: 'CTA', title: 'AI 拍拍機 + 情境卡展示', description: '', type: 'cta' }
     ],
-    hashtags: ['#香港職場', '#客戶服務', '#公關拆彈', '#商務溝通', '#AI回信', '#客訴處理'],
+    hashtags: ['#香港職場', '#採購', '#報價比較', '#AI工具', '#成本控制', '#返工日常'],
     imageFileName: '20260818_gunmetal_silver_whiteoutline_card_16.png'
   },
   {
@@ -72,32 +105,48 @@ export const cardsWeek3_4: CardData[] = [
     cardNumber: '17',
     week: '第3週',
     weekNumber: 3,
-    category: '日常文檔',
-    chineseTitle: 'SOP 標準作業程序',
-    englishTitle: 'Standard Operating Procedure',
-    scenarioSummary: '新同事入職或跨部門協作，需把零碎工作流程整理為清晰標準作業指引。',
-    promptShort: '輸入：將[工作任務]整理為標準 SOP，包含前置準備、步驟清單（含檢查點）、異常處理指引與相關負責人。',
-    benefits: ['新人快速上手', '減少人為出錯率', '跨部門無縫對接'],
-    articleNumber: 15,
-    articleTitle: '【教完新人轉頭又做錯】SOP 標準作業程序 20 分鐘落實',
-    hook: '「你明明講咗三次，新人第四次依然做錯。」',
-    painPoints: '做 Team Lead 最攰唔係自己做，而係手把手教新人。講就滔滔不絕，但要寫成 SOP 往往拖幾個月。冇文件紀錄，一放假或者有人離職，成條 team 就癱瘓。寫得太長冇人睇，寫得太短又漏步。',
+    category: '財務預算',
+    chineseTitle: '製作損益表',
+    englishTitle: 'Create P&L View',
+    scenarioSummary: '用Excel製作損益表模型，不用由零開始。',
+    promptShort: '輸入：製作12個月損益表Excel模型，包含收入假設、成本類別、毛利及淨利；加入假設頁和公式，修改假設即可即時查看影響。',
+    benefits: ['12個月損益清晰呈現', '假設與公式完整', '修改假設即時更新數字'],
+    articleNumber: 18,
+    articleTitle: '【老細問「單價加 5% 會點？」】損益表模型即出',
+    hook: '「老細突然問『單價加 5% 會點？』你仲喺度由零砌個 Excel 模型。」',
+    painPoints: '香港做營運、銷售、管理，老細隨時要睇損益 —— 「呢個月賺幾多？」「成本升一成頂唔頂得住？」「單價加 5% 影響幾大？」。你手上有一堆收入同成本數字，但冇模型：由零砌公式、開 sheet、拉足 12 個月，砌到一半已經兩個鐘。想答假設性問題，唯有再開一個 Excel 手動改，改完又唔記得改咗邊個數 —— 答得慢，仲講唔清影響。',
     aiHelp: [
-      '口述或貼上粗略工作筆記，自動結構化為標準 SOP 模板',
-      '自動加入「常見錯誤避坑點」與「Checklist 檢查清單」',
-      '標明角色分工 (RACI) 與關鍵產出物標準',
-      '生成流程圖 Markdown 語法，圖文並茂一眼明了'
+      '講清收入同成本假設，即出 12 個月損益表模型（收入、成本類別、毛利、淨利）',
+      '附獨立假設頁同公式，唔使由零砌 Excel',
+      '改一個假設（單價 +5%、成本 +10%）即時睇到對毛利淨利嘅影響',
+      '12 個月損益清晰呈現，收入、成本、毛利、淨利一頁睇晒'
     ],
-    igCaption: `【教完新人三次，第四次依然做錯 🤦‍♂️】\n\n口頭教完轉個頭就唔記得，\n寫 SOP 又嫌煩寫咗三個月都未完。\n\nAI Agent 幫你：\n✅ 貼上雜亂筆記 → 自動生成清晰 SOP\n✅ 步驟清單 + Checklist + 異常問題處理\n✅ 標註關鍵產出與防錯提醒\n✅ 20 分鐘出規範，新人睇完直接上手\n\n📇 拍到「SOP 標準作業程序」卡，放假再唔會畀同事 Call 爆。\n👉 Link in bio 睇 AI 拍拍機`,
+    igCaption: `【老細突然問「單價加 5% 會點？」你仲喺度由零砌 Excel 🧮】
+
+由零砌公式、開 sheet、拉足 12 個月，
+砌到一半已經兩個鐘。
+老細再追一句假設性問題 ——
+你又開多一個 Excel 手動改。
+
+AI Agent 幫你：
+✅ 講清收入 / 成本假設 → 即出 12 個月損益表模型
+✅ 假設頁 + 公式完整，唔使由零砌
+✅ 改一個假設，數字即時更新
+✅ 12 個月損益清晰，老細問即場答
+
+由「等我砌個 Excel」變成「我即刻試畀你睇」。
+
+📇 拍到「製作損益表」呢張卡，跟住做就有模型在手。
+👉 Link in bio 睇 AI 拍拍機`,
     carouselSlides: [
-      { slideNumber: 1, label: '封面', title: 'SOP 標準作業程序 20 分鐘搞掂', description: '別再口頭教三次，把經驗制度化', type: 'cover' },
-      { slideNumber: 2, label: '痛點', title: '一人請假，全隊流程癱瘓', description: '冇標準文件，做法人人唔同質量參差', type: 'pain' },
-      { slideNumber: 3, label: '痛點', title: '想寫 SOP 望住空白螢幕發呆', description: '細節太多唔知點分類，寫完又臭又長冇人睇', type: 'pain' },
-      { slideNumber: 4, label: 'AI 方案', title: '結構化步驟提取與防錯提示', description: '將日常操作秒變清晰易執行的核對表', type: 'process' },
-      { slideNumber: 5, label: '效益對比', title: '團隊自主運轉，效率翻倍', description: '新人培訓縮短 70%，出錯率大幅降低', type: 'outcome' },
-      { slideNumber: 6, label: 'CTA', title: 'AI 拍拍機 · 管理必備', description: '拍卡自動規範化工作流', type: 'cta' }
+      { slideNumber: 1, label: '封面', title: '老細問「單價加 5% 會點？」', description: '+ 未砌完嘅 Excel', type: 'cover' },
+      { slideNumber: 2, label: '畫面', title: '由零砌公式、拉足 12 個月，兩個鐘過去', description: '', type: 'pain' },
+      { slideNumber: 3, label: '畫面', title: '老細追問假設，你又要開多個 Excel 手動改', description: '', type: 'pain' },
+      { slideNumber: 4, label: '畫面', title: 'AI Agent 三步', description: '講假設 → 出模型 → 加假設頁', type: 'process' },
+      { slideNumber: 5, label: '畫面', title: '改一個假設，毛利 / 淨利即時變', description: '', type: 'outcome' },
+      { slideNumber: 6, label: 'CTA', title: 'AI 拍拍機 + 情境卡展示', description: '', type: 'cta' }
     ],
-    hashtags: ['#香港職場', '#SOP', '#流程優化', '#新人培訓', '#團隊管理', '#AI辦公'],
+    hashtags: ['#香港職場', '#損益表', '#Excel模型', '#財務分析', '#AI工具', '#數據分析'],
     imageFileName: '20260818_gunmetal_silver_whiteoutline_card_17.png'
   },
   {
@@ -105,32 +154,49 @@ export const cardsWeek3_4: CardData[] = [
     cardNumber: '18',
     week: '第3週',
     weekNumber: 3,
-    category: '商務溝通',
-    chineseTitle: '求職履歷與自薦信',
-    englishTitle: 'Resume & Cover Letter',
-    scenarioSummary: '鎖定心儀職缺，需根據職位要求快速精準定製高通過率履歷與信函。',
-    promptShort: '輸入：針對[目標公司與職位描述]，結合我的[個人經驗背景]，改寫履歷重點並生成具備說服力的自薦信，強調量化成果與技能匹配度。',
-    benefits: ['高匹配度通過 ATS 篩選', '量化成果突出實力', '15分鐘定製專屬申請材料'],
-    articleNumber: 16,
-    articleTitle: '【寄出 50 份 CV 石沉大海】量身定制履歷自薦信 15 分鐘逆襲',
-    hook: '「一份 CV 打天下，難怪連 Interview 機會都冇。」',
-    painPoints: '轉工季寄咗幾十份履歷，全部已讀不回。問題在於用同一份 Generic CV 投所有工，HR 睇 6 秒見唔到 Keyword 就即刻扔埋一邊。想每份工都重新寫過，但根本冇咁多時間精力。',
+    category: '數據分析',
+    chineseTitle: '數據趨勢分析',
+    englishTitle: 'Data & Trend Analysis',
+    scenarioSummary: '從銷售或營運數據找出趨勢及異常。',
+    promptShort: '輸入：分析以下數據，找出3大趨勢、2個異常數據點及1個可行動建議，並為每項發現附簡短解釋。[上傳Excel或貼上數據]',
+    benefits: ['掌握三大數據趨勢', '提示兩個異常數據點', '提出可行動建議'],
+    articleNumber: 47,
+    articleTitle: '【老細話「睇下啲數」，你唔知睇邊行】數據趨勢一頁講清',
+    hook: '「老細話『睇下啲數』，你開住個 Excel，唔知自己應該睇邊行。」',
+    painPoints: '數據擺喺度，但唔知由邊度睇起。拉 pivot、畫 chart，圖整得幾靚都好，講唔出「咁即係點」。最緊要嘅異常數字往往藏喺細節 —— 某個產品上個月突然跌三成，你冇發現，到下個月老細自己睇到，問你「點解你冇提過？」。做分析唔係做圖，係要講得出結論同行動。',
     aiHelp: [
-      '分析目標職位 JD，提煉 5 大核心關鍵詞與能力要求',
-      '將過往經歷重新包裝，轉化為「STAR」原則與數據量化成果',
-      '生成匹配目標公司文化語氣的高轉化率 Cover Letter',
-      '提供面試可能被追問的 3 大重點預警'
+      '一貼數據，自動找出 3 大趨勢',
+      '標示 2 個異常數據點，突然跌或者突然升嘅位一個都唔漏',
+      '每項發現附簡短解釋，唔會丟一堆數字畀你自己諗',
+      '最後給 1 個可行動建議 —— 分析完即做得'
     ],
-    igCaption: `【寄咗 50 份 CV 石沉大海？原因喺呢度 📉】\n\n一份 CV 投天下，HR 睇 6 秒就 Swipe 走。\n想每份工量身修改，又邊度有咁多時間？\n\nAI Agent 幫你：\n✅ 比對 JD 提取高頻 Keyword\n✅ 用 STAR 原則量化過往戰績\n✅ 15 分鐘生成專屬 Cover Letter\n✅ 大幅提升 ATS 篩選與面試邀請率\n\n📇 拍到「求職履歷與自薦信」卡，轉工跳槽加人工！\n👉 Link in bio 睇 AI 拍拍機`,
+    igCaption: `【老細話「睇下啲數」，你唔知自己應該睇邊行 📉】
+
+拉 pivot、畫 chart，
+圖整得靚，但講唔出「咁即係點」。
+某個產品突然跌三成你都冇發現 ——
+到下個月老細自己睇到，問你「點解冇提過？」
+
+AI Agent 幫你：
+✅ 自動找出 3 大趨勢
+✅ 標示 2 個異常數據點
+✅ 每項附簡短解釋
+✅ 最後給 1 個可行動建議
+
+由「一堆圖」變成「一個結論」。
+
+📇 拍到「數據趨勢分析」呢張卡，跟住做就講得出。
+👉 Link in bio 睇 AI 拍拍機`,
     carouselSlides: [
-      { slideNumber: 1, label: '封面', title: '求職履歷與自薦信高命中指南', description: '告別石沉大海，秒中 HR 核心關鍵字', type: 'cover' },
-      { slideNumber: 2, label: '痛點', title: '廣撒網冇回音，自信心受挫', description: '經歷寫得太平淡，冇數據支持說服力不足', type: 'pain' },
-      { slideNumber: 3, label: '痛點', title: 'Cover Letter 抄網上範本毫無特色', description: '千篇一律的套話，HR 睇到第一段就關閉', type: 'pain' },
-      { slideNumber: 4, label: 'AI 方案', title: '職缺 JD 精準對照與量化強化', description: '將零散責任轉化為具備商業價值的成就', type: 'process' },
-      { slideNumber: 5, label: '效益對比', title: '面試邀請率顯著提升', description: '15 分鐘高效率打造打動主管的亮眼 CV', type: 'outcome' },
-      { slideNumber: 6, label: 'CTA', title: 'AI 拍拍機 · 職場跳板', description: '拍卡開啟升職加薪新機遇', type: 'cta' }
+      { slideNumber: 1, label: '封面', title: '睇下啲數', description: 'Hook 大字 + 迷茫表情', type: 'cover' },
+      { slideNumber: 2, label: '畫面', title: 'chart 靚但講唔出結論', description: '', type: 'pain' },
+      { slideNumber: 3, label: '畫面', title: '異常數字藏在細節、老細自己發現', description: '', type: 'pain' },
+      { slideNumber: 4, label: '畫面', title: 'AI Agent 三步', description: '貼數據 → 3 趨勢 → 2 異常', type: 'process' },
+      { slideNumber: 5, label: '畫面', title: '趨勢 + 異常標示示範', description: '', type: 'outcome' },
+      { slideNumber: 6, label: '畫面', title: '可行動建議段落', description: '', type: 'outcome' },
+      { slideNumber: 7, label: 'CTA', title: 'AI 拍拍機 + 情境卡展示', description: '', type: 'cta' }
     ],
-    hashtags: ['#香港求職', '#轉工跳槽', '#履歷修改', '#CoverLetter', '#面試技巧', '#AI求職'],
+    hashtags: ['#香港職場', '#數據分析', '#趨勢分析', '#Excel', '#AI工具', '#返工日常'],
     imageFileName: '20260818_gunmetal_silver_whiteoutline_card_18.png'
   },
   {
@@ -138,32 +204,49 @@ export const cardsWeek3_4: CardData[] = [
     cardNumber: '19',
     week: '第3週',
     weekNumber: 3,
-    category: '項目管理',
-    chineseTitle: '項目風險評估矩陣',
-    englishTitle: 'Project Risk Matrix',
-    scenarioSummary: '項目進入執行期前，提前預判潛在阻礙並擬定具體應對預案。',
-    promptShort: '輸入：針對[項目類型與目標]，列出在進度、技術、人力、預算及溝通上的潛在風險，按機率與衝擊力製作評估矩陣，並提供預防與減輕方案。',
-    benefits: ['全面識別潛在盲點', '矩陣圖譜直觀匯報', '防患未然減少延誤'],
-    articleNumber: 17,
-    articleTitle: '【突發事一件接一件】項目風險矩陣 15 分鐘事前拆彈',
-    hook: '「每次爆獲先救火，你只係個兼職消防員。」',
-    painPoints: '做 Project 永遠計劃趕不上變化，Vendor 突然交唔到貨、技術方案行唔通、同事突然請假。每次都係事情爆咗先急忙想辦法，老細問「事前點解冇預計過」，你啞口無言。',
+    category: '數據分析',
+    chineseTitle: 'KPI 儀表板與報告',
+    englishTitle: 'KPI Dashboard',
+    scenarioSummary: '需要製作KPI儀表板及月度報告。',
+    promptShort: '輸入：製作HTML KPI儀表板，顯示3至5個KPI、圖表及綠黃紅提示；再按數據整理月報，列出目標、實際值、達成率、月比及原因分析，最後作整體評估。[貼上數據]',
+    benefits: ['目標實際值清晰', '達成率一目了然', '掌握原因及整體表現'],
+    articleNumber: 31,
+    articleTitle: '【老細要 dashboard，你手上只有十個 Excel】KPI 儀表板一頁睇晒',
+    hook: '「老細話『整個 dashboard 嚟睇』，你手上只有十個散開嘅 Excel。」',
+    painPoints: '月報月月都要交，但你手上嘅數據散落喺十個 Excel、幾個系統、同事 email 附件。要砌 KPI，就要手動 copy 埋一齊、拉 chart、再截圖落 PPT。最慘係老細睇完只問一句：「即係達唔達標？」你交咗一堆圖，但講唔清目標同實際差幾遠、點解會差、下個月點算。做咗成日，等於冇做分析。',
     aiHelp: [
-      '根據項目類型全方位掃描 5 大維度潛在風險點',
-      '自動計算風險等級（高/中/低），排出優先處理順序',
-      '為每個致命風險提供具體「預防措施」與「應急 Contingency 方案」',
-      '生成表格格式，直接放進管理層週報'
+      '貼上數據，直接生成 HTML KPI 儀表板（3–5 個指標 + 圖表 + 綠黃紅提示）',
+      '月報自動列明目標、實際值、達成率、月比，唔使自己逐格對',
+      '加上原因分析：邊個 KPI 跌、可能係咩事',
+      '最後出整體評估，老細問「即係點」你答得出口'
     ],
-    igCaption: `【每次爆鑊先救火，你只係個兼職消防員 🚒】\n\nVendor 延遲、同事請假、系統 Crash……\n每次都等到事發先慌忙應對。\n\nAI Agent 幫你：\n✅ 全面盤點進度/技術/資源 5 大潛在隱患\n✅ 建立風險機率與影響力矩陣圖\n✅ 提前擬定應急 Plan B\n✅ 開會直接攞出風控方案，老細另眼相看\n\n📇 拍到「項目風險評估矩陣」卡，做個從容自若的 PM。\n👉 Link in bio 睇 AI 拍拍機`,
+    igCaption: `【老細話「整個 dashboard 嚟睇」，你手上只有十個散開嘅 Excel 📊】
+
+手動 copy 埋一齊、拉 chart、截圖落 PPT，
+做咗成日。
+老細睇完只問一句：「即係達唔達標？」
+你答唔到 —— 因為你只係砌圖，冇做分析。
+
+AI Agent 幫你：
+✅ 生成 HTML KPI 儀表板（綠黃紅提示）
+✅ 月報列明目標 / 實際 / 達成率 / 月比
+✅ 加上原因分析
+✅ 最後出整體評估
+
+一堆圖，變成一個答得到問題嘅 dashboard。
+
+📇 拍到「KPI 儀表板與報告」呢張卡，跟住做就交得出。
+👉 Link in bio 睇 AI 拍拍機`,
     carouselSlides: [
-      { slideNumber: 1, label: '封面', title: '項目風險評估矩陣 提前排雷', description: '不做救火隊長，做從容掌控全局的負責人', type: 'cover' },
-      { slideNumber: 2, label: '痛點', title: '突發狀況不斷，進度嚴重滯後', description: '臨陣磨槍，付出的代價是通宵加班與挨罵', type: 'pain' },
-      { slideNumber: 3, label: '痛點', title: '管理層問責：事前為何沒考慮？', description: '沒有做過任何風控預算，無法向利益相關者交代', type: 'pain' },
-      { slideNumber: 4, label: 'AI 方案', title: '全景風險庫匹配與減緩策劃', description: '輸入背景即獲取同類型項目的歷史踩坑經驗', type: 'process' },
-      { slideNumber: 5, label: '效益對比', title: '突發事件應對自如', description: '早早準備好 Plan B，項目準時上線不翻車', type: 'outcome' },
-      { slideNumber: 6, label: 'CTA', title: 'AI 拍拍機 · 專案護航', description: '拍卡開啟風控雷達', type: 'cta' }
+      { slideNumber: 1, label: '封面', title: '整個 dashboard 嚟睇', description: 'Hook 大字 + 十個 Excel 圖示', type: 'cover' },
+      { slideNumber: 2, label: '畫面', title: '數據散落喺 Excel／系統／email 附件', description: '', type: 'pain' },
+      { slideNumber: 3, label: '畫面', title: '手動拉 chart、截圖落 PPT 嘅痛苦', description: '', type: 'pain' },
+      { slideNumber: 4, label: '畫面', title: '老細問「即係達唔達標」嘅尷尬', description: '', type: 'pain' },
+      { slideNumber: 5, label: '畫面', title: 'AI Agent 三步', description: '貼數據 → 出儀表板 → 寫月報', type: 'process' },
+      { slideNumber: 6, label: '畫面', title: 'Before vs After 對比', description: 'Before（一堆圖） vs After（目標／實際／達成率／原因一頁睇晒）', type: 'outcome' },
+      { slideNumber: 7, label: 'CTA', title: 'AI 拍拍機 + 情境卡展示', description: '「拍到邊張卡，就跟住做」', type: 'cta' }
     ],
-    hashtags: ['#香港職場', '#項目管理', '#風險評估', '#PM必備', '#進度管控', '#職場效率'],
+    hashtags: ['#香港職場', '#KPI', '#數據分析', '#月度報告', '#AI工具', '#中層管理'],
     imageFileName: '20260818_gunmetal_silver_whiteoutline_card_19.png'
   },
   {
@@ -172,31 +255,48 @@ export const cardsWeek3_4: CardData[] = [
     week: '第3週',
     weekNumber: 3,
     category: '數據分析',
-    chineseTitle: '競品分析深度調研',
-    englishTitle: 'Competitor Analysis',
-    scenarioSummary: '面對市場競爭，快速拆解對手產品特點、定價、優劣勢與推廣策略。',
-    promptShort: '輸入：對比[我方產品]與競品[競品A, 競品B]，在功能特點、目標客群、定價模式與營銷管道上進行 SWOT 分析，並提出差異化突圍策略。',
-    benefits: ['全方位競品畫像對比', '精準識別市場空白點', '支援商業決策與定價'],
-    articleNumber: 18,
-    articleTitle: '【對手出新招你仲後知後覺】競品分析矩陣 20 分鐘洞察突圍',
-    hook: '「對手推新優惠搶走你一半客，老細問你打算點做。」',
-    painPoints: '市場競爭激烈，對手轉型、降價或者推新產品，你都係睇新聞先知。老細要你交一份「競品分析」，你只係上對方官網 Cap 圖，寫啲人人皆知的表面嘢。冇深度對比，根本畀唔到老細建設性策略。',
+    chineseTitle: '問卷結果分析',
+    englishTitle: 'Survey Result Analysis',
+    scenarioSummary: '快速整理問卷或反饋表，轉化為可行動的洞察報告。',
+    promptShort: '輸入：使用表格加摘要分析問卷結果，統計每題回應分佈，找出3個最重要發現，提出2個改善建議。[上傳或貼上數據]',
+    benefits: ['統計回應分佈', '找出三項重要發現', '提出兩項改善建議'],
+    articleNumber: 21,
+    articleTitle: '【收咗 300 份問卷，老細：做個 summary 嚟睇】問卷結果一鍵變洞察',
+    hook: '「老細話『份問卷做個 summary』，你望住個 Excel 唔知由邊度開始。」',
+    painPoints: '香港白領成日要處理問卷同反饋 —— 客戶滿意度、員工 survey、活動後回饋、產品調研。收返嚟嘅數據散落喺 Google Form、Excel、紙本，開住個 pivot table 都唔知睇咩。最慘係老細要嘅唔係一堆數字，係「咁即係點？跟住要改咩？」—— 但你交上去只有百分比，答唔到後面兩條問題，個 summary 等於冇做。',
     aiHelp: [
-      '自動拆解競品產品架構、定價梯隊與用戶評價反饋',
-      '生成結構化功能對照表與 SWOT 矩陣',
-      '提煉對手的軟肋與用戶痛點，找出市場切入空白',
-      '輸出清晰具體的「差異化突圍行動方案」'
+      '表格 + 摘要統計每題回應分佈，唔使自己拉 pivot',
+      '自動找出 3 個最重要發現（唔係最靚嘅數字，係最需要行動嘅位）',
+      '提出 2 個具體改善建議，扣返業務場景',
+      '每項發現引用返原文回答，老細質疑都有得撐'
     ],
-    igCaption: `【對手出新招搶客，老細問你點算 📉】\n\n只識上官網 Cap 圖交差？\n咁樣嘅競品報告老細一眼就睇穿。\n\nAI Agent 幫你：\n✅ 全面拆解定價、功能與客群策略\n✅ 建立競品 SWOT 與差異化矩陣\n✅ 挖掘對手忽視的用戶痛點與機會點\n✅ 20 分鐘出高層決策級洞察報告\n\n📇 拍到「競品分析深度調研」卡，知己知彼百戰不殆。\n👉 Link in bio 睇 AI 拍拍機`,
+    igCaption: `【收咗 300 份問卷，老細一句「做個 summary 嚟睇」😵‍💫】
+
+拉咗個 pivot table，
+交上去只有一堆百分比。
+老細問：「咁即係點？要改咩？」
+你答唔到 —— 因為你只做咗統計，冇做分析。
+
+AI Agent 幫你：
+✅ 統計每題回應分佈
+✅ 找出 3 個最重要發現
+✅ 提出 2 個改善建議
+✅ 每項發現引用原文佐證
+
+由「一堆數字」變成「一份有結論嘅報告」。
+
+📇 拍到「問卷結果分析」呢張卡，跟住做就交得出貨。
+👉 Link in bio 睇 AI 拍拍機`,
     carouselSlides: [
-      { slideNumber: 1, label: '封面', title: '競品分析深度調研 快速突圍', description: '不只 Cap 圖，做出具商業價值的策略對比', type: 'cover' },
-      { slideNumber: 2, label: '痛點', title: '資料零散，分析只停留在表面', description: '花兩天時間整理，得出的結論老細早就知道', type: 'pain' },
-      { slideNumber: 3, label: '痛點', title: '無法給出具體行動建議', description: '只列出對手優點，反而打擊團隊士氣', type: 'pain' },
-      { slideNumber: 4, label: 'AI 方案', title: '多維矩陣對照與空白定位', description: '從功能、定價到用戶體驗進行立體解剖', type: 'process' },
-      { slideNumber: 5, label: '效益對比', title: '清晰洞察市場機遇', description: '找到對手死角，擬定精準反擊打法', type: 'outcome' },
-      { slideNumber: 6, label: 'CTA', title: 'AI 拍拍機 · 商業決策', description: '拍卡開啟商業情報力', type: 'cta' }
+      { slideNumber: 1, label: '封面', title: '收咗 300 份問卷，老細：做個 summary', description: 'Hook 大字 + 眼花 icon', type: 'cover' },
+      { slideNumber: 2, label: '畫面', title: '三份數據源散落喺 Form / Excel / 紙本', description: '', type: 'pain' },
+      { slideNumber: 3, label: '畫面', title: '拉 pivot 拉到眼花，交上去只有百分比', description: '', type: 'pain' },
+      { slideNumber: 4, label: '畫面', title: '老細問「咁即係點」嘅尷尬', description: '', type: 'pain' },
+      { slideNumber: 5, label: '畫面', title: 'AI Agent 三步流程', description: '貼數據 → 3 個發現 → 2 個建議', type: 'process' },
+      { slideNumber: 6, label: '畫面', title: 'Before vs After 對比', description: 'Before（一堆百分比） vs After（有結論嘅一頁報告）', type: 'outcome' },
+      { slideNumber: 7, label: 'CTA', title: 'AI 拍拍機 + 情境卡展示', description: '「拍到邊張卡，就跟住做」', type: 'cta' }
     ],
-    hashtags: ['#香港商業', '#競品分析', '#市場調研', '#產品經理', '#商業戰略', '#AI分析'],
+    hashtags: ['#香港職場', '#問卷分析', '#數據分析', '#AI工具', '#白領自救', '#返工日常'],
     imageFileName: '20260818_gunmetal_silver_whiteoutline_card_20.png'
   },
   {
@@ -209,7 +309,7 @@ export const cardsWeek3_4: CardData[] = [
     englishTitle: 'Project Charter',
     scenarioSummary: '新項目啟動，需提交項目章程供管理層審批。',
     promptShort: '輸入：撰寫項目章程，包含目標、範圍、里程碑、資源、時間表、風險、成功指標、發起人及權限；讓管理層5分鐘內理解。',
-    benefits: ['① 目標範圍清晰', '② 管理層快速判斷', '③ 支援項目批准'],
+    benefits: ['目標範圍清晰', '管理層快速判斷', '支援項目批准'],
     articleNumber: 19,
     articleTitle: '【老細話「開個新項目」，你連章程都未寫過】項目章程 30 分鐘急救',
     hook: '「老細話『開個新項目』，你連項目章程係咩都未搞清楚。」',
@@ -220,14 +320,29 @@ export const cardsWeek3_4: CardData[] = [
       '按公司慣用格式調整（table / paragraph / 簡報）',
       '生成 1 頁精簡版，管理層 5 分鐘睇完就知批唔批'
     ],
-    igCaption: `【老細話「開個新項目」，你連章程係咩都未搞清楚 😵】\n\n要定目標、定範圍、定 stakeholder、定 timeline…… 上網搵 template，唔知邊個啱。 搞完用咗成日，老細仲要改十幾次。\n\nAI Agent 幫你：\n✅ 輸入背景 + 目標 → 自動生成章程\n✅ 目標 / 範圍 / 里程碑 / 資源 / 時間表\n✅ 風險 + 成功指標 + 發起人及權限\n✅ 按公司格式調整，出 1 頁精簡版畀管理層\n\n由唔知點開始變成有成章在手。\n\n📇 拍到「項目章程撰寫」呢張卡，跟住做就唔使慌。\n👉 Link in bio 睇 AI 拍拍機`,
+    igCaption: `【老細話「開個新項目」，你連章程係咩都未搞清楚 😵】
+
+要定目標、定範圍、定 stakeholder、定 timeline……
+上網搵 template，唔知邊個啱。
+搞完用咗成日，老細仲要改十幾次。
+
+AI Agent 幫你：
+✅ 輸入背景 + 目標 → 自動生成章程
+✅ 目標 / 範圍 / 里程碑 / 資源 / 時間表
+✅ 風險 + 成功指標 + 發起人及權限
+✅ 按公司格式調整，出 1 頁精簡版畀管理層
+
+由唔知點開始變成有成章在手。
+
+📇 拍到「項目章程撰寫」呢張卡，跟住做就唔使慌。
+👉 Link in bio 睇 AI 拍拍機`,
     carouselSlides: [
-      { slideNumber: 1, label: '封面', title: '老細「開個 project」畫面 + 驚慌', description: '「開個新項目」，你連項目章程係咩都未搞清楚', type: 'cover' },
-      { slideNumber: 2, label: '痛點', title: '對住空白文件唔知點開始', description: '定目標、定範圍、定 stakeholder，腦袋一片空白', type: 'pain' },
-      { slideNumber: 3, label: '痛點', title: '搵 template 搵到頭暈', description: '網上格式五花八門，用咗成日老細仲要改十幾次', type: 'pain' },
-      { slideNumber: 4, label: 'AI 方案', title: 'AI Agent 自動生成章程', description: '輸入背景目標，自動生成包含發起人權限在內的完整框架', type: 'solution' },
-      { slideNumber: 5, label: '成果', title: '完整框架展示（目標/範圍/里程碑/指標）', description: '生成 1 頁精簡版，管理層 5 分鐘睇完即批', type: 'outcome' },
-      { slideNumber: 6, label: 'CTA', title: 'AI 拍拍機 + 情境卡展示', description: '拍到「項目章程撰寫」卡，跟住做就唔使慌', type: 'cta' }
+      { slideNumber: 1, label: '封面', title: '老細「開個 project」畫面 + 驚慌', description: '', type: 'cover' },
+      { slideNumber: 2, label: '畫面', title: '對住空白文件唔知點開始', description: '', type: 'pain' },
+      { slideNumber: 3, label: '畫面', title: '搵 template 搵到頭暈', description: '', type: 'pain' },
+      { slideNumber: 4, label: '畫面', title: 'AI Agent 自動生成章程', description: '', type: 'process' },
+      { slideNumber: 5, label: '畫面', title: '完整框架展示', description: '目標 / 範圍 / 里程碑 / 成功指標', type: 'outcome' },
+      { slideNumber: 6, label: 'CTA', title: 'AI 拍拍機 + 情境卡展示', description: '', type: 'cta' }
     ],
     hashtags: ['#香港職場', '#項目管理', '#項目章程', '#AI工具', '#PM', '#職場求生'],
     imageFileName: '20260818_gunmetal_silver_whiteoutline_card_21.png'
@@ -237,32 +352,48 @@ export const cardsWeek3_4: CardData[] = [
     cardNumber: '22',
     week: '第4週',
     weekNumber: 4,
-    category: '商務溝通',
-    chineseTitle: '跨部門協作對齊信',
-    englishTitle: 'Cross-Department Alignment',
-    scenarioSummary: '大型項目牽涉多個部門，需發送明確各方權責、資源承諾與死線的溝通郵件。',
-    promptShort: '輸入：為[項目名稱]撰寫跨部門啟動郵件，向[參與部門]明確目標價值、各團隊交付物、聯絡窗口及里程碑時間表，語氣專業積極。',
-    benefits: ['破除部門壁壘', '明確資源責任死線', '減少推諉扯皮'],
-    articleNumber: 20,
-    articleTitle: '【跨部門合作個個推波】協作對齊信 10 分鐘定權責',
-    hook: '「開會個個點頭，散會個個推波。」',
-    painPoints: '跨部門協作係職場最大痛點。IT 話等 Marketing，Marketing 話等 Design，Design 話冇 Brief。信寫得太客氣人哋當你冇到，寫得太嚴肅又得罪同事。冇白紙黑字寫明，最後延期全部算落你頭上。',
+    category: '項目管理',
+    chineseTitle: '風險評估矩陣',
+    englishTitle: 'Risk Matrix',
+    scenarioSummary: '項目有多個風險，需要系統化評估及排列優先級。',
+    promptShort: '輸入：根據項目描述建立風險評估矩陣，列出風險描述、發生機率、影響程度、風險等級、緩解措施及負責人。',
+    benefits: ['系統化評估風險', '清晰排列處理優先級', '明確緩解措施及負責人'],
+    articleNumber: 29,
+    articleTitle: '【項目做到一半爆鑊】風險矩陣 30 分鐘補齊',
+    hook: '「項目開到一半爆鑊，同事先問：『當初有冇 risk assessment？』」',
+    painPoints: '香港開項目，開頭大家都衝 timeline，冇人認真坐低講風險。出事之後，全部人轉頭問你「點解冇預計到？」。冇矩陣就冇優先級 —— 你只能靠感覺決定先救邊樣，結果救錯位、delay，補唔返。老細問「有咩風險？」你只能夠即場亂講幾個，自己都知唔夠說服力。',
     aiHelp: [
-      '用高情商語氣清晰列明各部門具體交付物與對應日期',
-      '設立各部門唯一對接負責人 (SPOC)，責任到人',
-      '將公司戰略目標與對方部門 KPI 綁定，增強合作動力',
-      '預設推進節奏與每週 Check-in 機制，防止失聯'
+      '根據項目描述建立風險矩陣：機率、影響、風險等級',
+      '系統化排列處理優先級，唔再靠感覺',
+      '明確緩解措施 + 負責人，唔會出現「冇人跟」',
+      '開會前 5 分鐘出稿，會上直接討論'
     ],
-    igCaption: `【開會個個點頭，散會個個推波 ⚽️】\n\n跨部門專案推唔郁？\nIT 說等 Marketing，Marketing 說等 Design……\n\nAI Agent 幫你：\n✅ 10 分鐘生成高情商對齊郵件\n✅ 條列各部門交付物與絕對死線\n✅ 綁定共同利益，減少阻力與藉口\n✅ 建立透明追蹤表，不再有人踢皮球\n\n📇 拍到「跨部門協作對齊信」卡，專案推進暢通無阻。\n👉 Link in bio 睇 AI 拍拍機`,
+    igCaption: `【項目做到一半爆鑊，同事先問「當初有冇 risk assessment？」💥】
+
+開頭大家只顧衝 timeline，
+冇人坐低講風險。
+冇矩陣就冇優先級 ——
+只能靠感覺救火，救錯位就補唔返。
+
+AI Agent 幫你：
+✅ 建立風險矩陣（機率 x 影響 x 等級）
+✅ 排出處理優先級
+✅ 明確緩解措施 + 負責人
+✅ 開會前 5 分鐘出稿
+
+由事後補鑊變成事前有數。
+
+📇 拍到「風險評估矩陣」呢張卡，跟住做就有準備。
+👉 Link in bio 睇 AI 拍拍機`,
     carouselSlides: [
-      { slideNumber: 1, label: '封面', title: '跨部門協作對齊信 高情商推動', description: '讓所有人朝同一個方向使勁', type: 'cover' },
-      { slideNumber: 2, label: '痛點', title: '責任邊界模糊，無人認領關鍵工作', description: '大家都在等別人先動，進度一拖再拖', type: 'pain' },
-      { slideNumber: 3, label: '痛點', title: '催促郵件太生硬，搞壞同事關係', description: '想 push 又怕得罪人，自己夾在中間受氣', type: 'pain' },
-      { slideNumber: 4, label: 'AI 方案', title: '職責清晰化與利益共贏表達', description: '既保持禮貌專業，又明確關鍵節點不可逾越', type: 'process' },
-      { slideNumber: 5, label: '效益對比', title: '跨團隊步調高度一致', description: '溝通成本降低一半，專案推進如期落地', type: 'outcome' },
-      { slideNumber: 6, label: 'CTA', title: 'AI 拍拍機 · 職場情商', description: '拍卡秒出溝通範本', type: 'cta' }
+      { slideNumber: 1, label: '封面', title: '混亂嘅項目現場 + 爆炸 icon', description: '', type: 'cover' },
+      { slideNumber: 2, label: '畫面', title: '同事問「有冇 risk assessment」嘅尷尬', description: '', type: 'pain' },
+      { slideNumber: 3, label: '畫面', title: '靠感覺救火、救錯位', description: '', type: 'pain' },
+      { slideNumber: 4, label: '畫面', title: 'AI Agent 生成風險矩陣', description: '', type: 'process' },
+      { slideNumber: 5, label: '畫面', title: '矩陣表示範', description: '風險 / 機率 / 影響 / 等級 / 措施 / 負責人', type: 'outcome' },
+      { slideNumber: 6, label: 'CTA', title: 'AI 拍拍機 + 情境卡展示', description: '', type: 'cta' }
     ],
-    hashtags: ['#香港職場', '#跨部門協作', '#商務溝通', '#項目管理', '#職場高情商', '#辦公效率'],
+    hashtags: ['#香港職場', '#項目管理', '#風險管理', '#AI工具', '#PM', '#職場求生'],
     imageFileName: '20260818_gunmetal_silver_whiteoutline_card_22.png'
   },
   {
@@ -271,31 +402,48 @@ export const cardsWeek3_4: CardData[] = [
     week: '第4週',
     weekNumber: 4,
     category: '日常文檔',
-    chineseTitle: '項目復盤結案報告',
-    englishTitle: 'Project Post-Mortem',
-    scenarioSummary: '項目圓滿結束或遭遇挫折，需沉澱經驗教訓並撰寫客觀結案復盤報告。',
-    promptShort: '輸入：根據[項目預期目標]與[實際產出數據]，梳理成功關鍵因素、主要失誤教訓、資源花費對比，並提出後續可複製的改進建議。',
-    benefits: ['沉澱團隊核心經驗', '客觀總結成績失誤', '提升下一階段成功率'],
-    articleNumber: 21,
-    articleTitle: '【做完專案冇人提，下次又犯同一個錯】項目結案復盤 20 分鐘見真章',
-    hook: '「項目做完就算，踩過嘅坑下次照樣踩。」',
-    painPoints: '做完一個大 Project，大家只想盡快忘記。但冇做 Post-mortem，好嘅經驗冇留底，壞嘅教訓下次重演。老細要結案報告，大家驚變批鬥大會，寫得太委婉又毫無價值。',
+    chineseTitle: '工作流程文檔化',
+    englishTitle: 'Workflow Documentation',
+    scenarioSummary: '將可重複流程整理成文檔，方便他人接手。',
+    promptShort: '輸入：整理一份標準作業程序（SOP）：列出每步操作、所需工具、注意事項及常見錯誤。[描述流程]',
+    benefits: ['流程清晰易跟從', '交接更加順暢', '新人可按步執行'],
+    articleNumber: 40,
+    articleTitle: '【你請兩日假，全組冇人知你點做嘢】工作流程一頁寫成 SOP',
+    hook: '「你請兩日假，返嚟發現全組等你 —— 冇人知你平日點做。」',
+    painPoints: '每個 office 都有幾個人「識做但冇寫低」。你一請假、一轉工，流程就斷。同事打嚟問你「個 file 放邊」「要唔要通知客」，你人在外地都要覆。想寫 SOP 又唔知由邊開始：太簡略冇用，太詳細又變手冊冇人睇。結果永遠靠口耳相傳，新人上手要三個月。',
     aiHelp: [
-      '用「對比分析法」客觀呈現預期 vs 實際數據差異',
-      '將問題聚焦於「流程與工具」而非個人責難',
-      '提取 3-5 條黃金傳承經驗 (Actionable Takeaways)',
-      '生成適合向上匯報的精美復盤簡報大綱'
+      '你口述流程，自動整理成標準作業程序（每步操作、所需工具、注意事項）',
+      '列出常見錯誤同處理方法，新人踩少啲坑',
+      '按步驟分節，可以自己睇、自己跟',
+      '交接、請假、帶新人時直接發出去，唔使逐個講一次'
     ],
-    igCaption: `【項目做完就算，踩過嘅坑下次照樣踩 🕳️】\n\n專案結束只係開香檳？\n冇復盤總結，團隊能力永遠原地踏步。\n\nAI Agent 幫你：\n✅ 客觀梳理預期與實際成果對比\n✅ 剖析卡點根源，聚焦流程改進而非人身指責\n✅ 沉澱 5 條團隊核心複用經驗\n✅ 20 分鐘出專業結案報告，老細刮目相看\n\n📇 拍到「項目復盤結案報告」卡，每一次完工都成為升級契機。\n👉 Link in bio 睇 AI 拍拍機`,
+    igCaption: `【你請兩日假，全組等你返嚟 —— 冇人知你平日點做 😩】
+
+同事打嚟問「個 file 放邊」、
+「要唔要通知客」，
+你人在外地都要覆電話。
+想寫 SOP 又唔知點開始 ——
+太簡略冇用，太詳細冇人睇。
+
+AI Agent 幫你：
+✅ 口述流程 → 自動整理成 SOP
+✅ 每步操作 + 所需工具 + 注意事項
+✅ 列出常見錯誤，新人踩少啲坑
+✅ 交接、請假、帶新人直接發出去
+
+你終於可以真正放假。
+
+📇 拍到「工作流程文檔化」呢張卡，跟住做就寫得出。
+👉 Link in bio 睇 AI 拍拍機`,
     carouselSlides: [
-      { slideNumber: 1, label: '封面', title: '項目復盤結案報告 經驗變資產', description: '告別無效復盤，把教訓轉化為下次勝利的武器', type: 'cover' },
-      { slideNumber: 2, label: '痛點', title: '復盤變推卸責任的批鬥會', description: '氣氛尷尬，人人防備，無法講出真正問題', type: 'pain' },
-      { slideNumber: 3, label: '痛點', title: '總結流於形式，束之高閣', description: '寫完沒人看，下一個項目依然犯相同錯誤', type: 'pain' },
-      { slideNumber: 4, label: 'AI 方案', title: '數據驅動的客觀事實梳理', description: '聚焦流程優化與標準化資產建立', type: 'process' },
-      { slideNumber: 5, label: '效益對比', title: '團隊戰鬥力持續進化', description: '打造學習型團隊，項目成功率節節攀升', type: 'outcome' },
-      { slideNumber: 6, label: 'CTA', title: 'AI 拍拍機 · 經驗積累', description: '拍卡開啟團隊複利成長', type: 'cta' }
+      { slideNumber: 1, label: '封面', title: '沙灘背景 + 手機響不停', description: '請假被追問', type: 'cover' },
+      { slideNumber: 2, label: '畫面', title: '全組等你返嚟嘅畫面', description: '', type: 'pain' },
+      { slideNumber: 3, label: '畫面', title: '口耳相傳、新人上手要三個月', description: '', type: 'pain' },
+      { slideNumber: 4, label: '畫面', title: 'AI Agent 生成 SOP 結構', description: '', type: 'process' },
+      { slideNumber: 5, label: '畫面', title: 'SOP 示範', description: '步驟 / 工具 / 注意 / 常見錯誤', type: 'outcome' },
+      { slideNumber: 6, label: 'CTA', title: 'AI 拍拍機 + 情境卡展示', description: '', type: 'cta' }
     ],
-    hashtags: ['#香港職場', '#項目復盤', '#結案報告', '#團隊成長', '#PM技巧', '#職場覆盤'],
+    hashtags: ['#香港職場', '#SOP', '#流程優化', '#交接', '#AI工具', '#帶新人'],
     imageFileName: '20260818_gunmetal_silver_whiteoutline_card_23.png'
   },
   {
@@ -303,32 +451,48 @@ export const cardsWeek3_4: CardData[] = [
     cardNumber: '24',
     week: '第4週',
     weekNumber: 4,
-    category: '財務預算',
-    chineseTitle: '年度財務預算拆解',
-    englishTitle: 'Budget Allocation Plan',
-    scenarioSummary: '新財年或新項目啟動，需要將總體預算合理分配到各季度與各項支出科目。',
-    promptShort: '輸入：總預算[金額]，針對[業務目標]，按照人事、行銷、營運、外判研發進行比例分配，包含應急備用金，並給出 ROI 預期。',
-    benefits: ['科學配比避免資金斷鏈', '清晰費用明細與依據', '提升管理層過審機率'],
-    articleNumber: 22,
-    articleTitle: '【老細一句畀幾十萬你搞掂佢】年度預算拆解 15 分鐘過審方案',
-    hook: '「老細畀個數字你，你點將佢拆成整年糧草？」',
-    painPoints: '每年做 Budget 係所有人嘅惡夢。數字報得太高畀老細摔返轉頭，報得太低年中唔夠用要自己掏荷包。唔識財務分類，Excel 試算表調嚟調去公式成日錯。',
+    category: '項目管理',
+    chineseTitle: '項目進度摘要',
+    englishTitle: 'Project Status Report',
+    scenarioSummary: '需要為主管提供清晰的項目進度摘要。',
+    promptShort: '輸入：製作一頁項目進度摘要，列出完成百分比、已達成里程碑、進行中任務、阻塞點及下週重點。[貼上項目狀態]',
+    benefits: ['一頁掌握項目全局', '清晰呈現阻塞事項', '聚焦下週工作重點'],
+    articleNumber: 48,
+    articleTitle: '【老細問「個 project 做到邊？」你答「進行中」】進度摘要一頁交貨',
+    hook: '「老細問『個 project 做到邊？』你答『進行中』—— 佢個樣即刻變。」',
+    painPoints: '每週都要報進度，但你手上係一堆 task list、幾個 group chat、自己隨手寫嘅筆記。要講到「完成幾多 %、邊個位卡住、下週做咩」，就要開幾個視窗對一次。講得太簡略，老細覺得你冇進度；講得太多，佢又冇心機聽。最慘係阻塞點冇寫出來 —— 到爆鑊時你先講「其實卡咗兩個禮拜」。',
     aiHelp: [
-      '根據行業常規支出比例（如 40% 人力、30% 獲客、20% 營運、10% 備用）自動分配',
-      '為每一筆主要開支撰寫商業必要性論證理由',
-      '建立按季度節奏的現金流預測',
-      '生成管理層 1 頁審批匯報摘要，數據一目了然'
+      '貼上項目狀態，出一頁進度摘要（完成 %、里程碑、進行中、阻塞點、下週重點）',
+      '阻塞點自動突出，唔會靜靜埋喺段落入面',
+      '每週格式一致，老細一眼睇到變化',
+      '5 分鐘寫完，唔使開五個視窗對數'
     ],
-    igCaption: `【老細一句畀幾十萬你，點樣拆成整年糧草？ 💰】\n\n做 Budget 調極都唔平，\n報高畀老細炳，報低年中跪求追加預算……\n\nAI Agent 幫你：\n✅ 按行業黃金比例科學切分開支科目\n✅ 自動配備 10% 彈性應急預備金\n✅ 每一筆費用附帶清晰 ROI 回報預估\n✅ 15 分鐘搞定管理層審批用預算案\n\n📇 拍到「年度財務預算拆解」卡，財務報告專業過人。\n👉 Link in bio 睇 AI 拍拍機`,
+    igCaption: `【老細問「個 project 做到邊？」你答「進行中」😐】
+
+手上係一堆 task list、幾個 group chat、
+同自己隨手寫嘅筆記。
+阻塞點冇寫出來 ——
+到爆鑊你先講「其實卡咗兩個禮拜」。
+
+AI Agent 幫你：
+✅ 一頁摘要（完成 % / 里程碑 / 進行中 / 阻塞 / 下週重點）
+✅ 阻塞點自動突出
+✅ 每週格式一致，一眼睇到變化
+✅ 5 分鐘寫完
+
+由「進行中」變成「做到邊、卡喺邊、下週做咩」。
+
+📇 拍到「項目進度摘要」呢張卡，跟住做就報得出。
+👉 Link in bio 睇 AI 拍拍機`,
     carouselSlides: [
-      { slideNumber: 1, label: '封面', title: '年度預算拆解 15 分鐘過審法', description: '讓每一分錢都有據可依，老細爽快批准', type: 'cover' },
-      { slideNumber: 2, label: '痛點', title: 'Excel 試算表調到眼花頭暈', description: '改一個數字全盤亂，開會時被 CFO 當面抓漏洞', type: 'pain' },
-      { slideNumber: 3, label: '痛點', title: '只會報數字，講不出商業回報', description: '沒有 ROI 論證，管理層直接砍掉一半預算', type: 'pain' },
-      { slideNumber: 4, label: 'AI 方案', title: '科目智能歸類與 ROI 自動關聯', description: '結合業務里程碑制定分階段支出節奏', type: 'process' },
-      { slideNumber: 5, label: '效益對比', title: '預算規劃有條不紊', description: '既能保證項目推進，又能向管理層展示財務紀律', type: 'outcome' },
-      { slideNumber: 6, label: 'CTA', title: 'AI 拍拍機 · 財務利器', description: '拍卡搞定理財預算難題', type: 'cta' }
+      { slideNumber: 1, label: '封面', title: '進行中', description: 'Hook 大字 + 老細個樣變咗', type: 'cover' },
+      { slideNumber: 2, label: '畫面', title: '進度散落喺 task list / group chat / 筆記', description: '', type: 'pain' },
+      { slideNumber: 3, label: '畫面', title: '阻塞點冇報，兩星期後爆鑊', description: '', type: 'pain' },
+      { slideNumber: 4, label: '畫面', title: 'AI Agent 生成一頁摘要', description: '', type: 'process' },
+      { slideNumber: 5, label: '畫面', title: '摘要示範', description: '% / 里程碑 / 阻塞 / 下週', type: 'outcome' },
+      { slideNumber: 6, label: 'CTA', title: 'AI 拍拍機 + 情境卡展示', description: '', type: 'cta' }
     ],
-    hashtags: ['#香港職場', '#財務預算', '#成本控制', '#Budgeting', '#管理層匯報', '#商業策劃'],
+    hashtags: ['#香港職場', '#項目管理', '#進度報告', '#PM', '#AI工具', '#職場求生'],
     imageFileName: '20260818_gunmetal_silver_whiteoutline_card_24.png'
   },
   {
@@ -336,32 +500,48 @@ export const cardsWeek3_4: CardData[] = [
     cardNumber: '25',
     week: '第4週',
     weekNumber: 4,
-    category: '數據分析',
-    chineseTitle: '數據可視化圖表建議',
-    englishTitle: 'Data Visualisation Strategy',
-    scenarioSummary: '手持大量枯燥數據表格，需挑選最合適的圖表類型向主管直觀呈現關鍵趨勢。',
-    promptShort: '輸入：分析這批數據[貼上數據特徵/欄位]，為「向老細展示[商業目標/痛點]」推薦3種最適合的圖表類型，並說明配色、亮點標註與結論提煉法。',
-    benefits: ['擺脫無效表格堆砌', '3秒抓住老細眼球', '數據說服力翻倍'],
-    articleNumber: 23,
-    articleTitle: '【密麻麻 Excel 老細一眼都唔睇】數據可視化 10 分鐘秒懂圖表',
-    hook: '「你辛辛苦苦做咗 500 行 Excel，老細睇咗 3 秒就閂窗。」',
-    painPoints: '做完分析興高采烈貼成版 Excel，老細眉頭深皺問「你到底想講咩」。唔知揀折線圖、長條圖定瀑布圖，求其畫個餅圖顏色五顏六色，反而遮蓋咗真正有價值嘅業務趨勢。',
+    category: '項目管理',
+    chineseTitle: '資源分配建議',
+    englishTitle: 'Resources Planning',
+    scenarioSummary: '在人手有限下，為各項目作出最佳資源分配。',
+    promptShort: '輸入：各項目的優先級及所需技能，建議資源分配方案，兼顧優先級、技能匹配及工作量平衡。',
+    benefits: ['合理分配資源', '清晰匹配技能', '平衡工作量'],
+    articleNumber: 32,
+    articleTitle: '【三個項目，一隊人，老細問你邊個排先】資源分配一頁講清',
+    hook: '「三個項目，一隊人，老細問你『邊個排先』——你心裡面只知人人都爆鐘。」',
+    painPoints: '香港團隊永遠人手不足。三個項目同時開，個個老細都話自己嗰個最急。你憑感覺派人，結果係識做嘅做到死，唔識做嘅學唔到；做完檢討先發現排錯優先級。老細問「點解咁排」，你只能講「因為 deadline 近」。冇一套講得出理由嘅分配邏輯，你連爭資源都爭唔到。',
     aiHelp: [
-      '根據數據類型（趨勢、佔比、分佈、漏斗）匹配最合適圖表',
-      '提供「結論先行」的圖表標題設計（不是「銷售數據」而是「Q3 銷量增長 35% 超預期」）',
-      '指導高亮關鍵異常點與轉折點',
-      '提供常用 BI 工具（Tableau / PowerBI / Excel）快速生成公式'
+      '輸入各項目優先級同所需技能，出資源分配建議',
+      '按技能匹配排人，唔會再「亂派」',
+      '計埋工作量平衡，避免有人爆鐘有人晾住',
+      '附分配理由，開會爭資源時有得講'
     ],
-    igCaption: `【辛辛苦苦整 500 行 Excel，老細睇 3 秒閂窗 📊】\n\n數據齊全但冇人睇得明，\n只怪圖表選錯、重點模糊！\n\nAI Agent 幫你：\n✅ 根據匯報目的精準推薦 3 種高說服力圖表\n✅ 標註異常波動與轉折點，引導視覺焦點\n✅ 提煉「一句話洞察」取代枯燥圖例\n✅ 10 分鐘變身數據視覺化高手\n\n📇 拍到「數據可視化圖表建議」卡，向老細匯報百發百中。\n👉 Link in bio 睇 AI 拍拍機`,
+    igCaption: `【三個項目，一隊人，老細問「邊個排先」😮‍💨】
+
+個個老細都話自己嗰個最急，
+你憑感覺派人 ——
+識做嘅做到死，唔識做嘅學唔到。
+「點解咁排？」你只答到「因為 deadline 近」。
+
+AI Agent 幫你：
+✅ 按項目優先級出分配方案
+✅ 技能匹配，唔會亂派
+✅ 平衡工作量，唔使爆鐘
+✅ 附理由，爭資源有得講
+
+由「憑感覺」變成「有得解釋」。
+
+📇 拍到「資源分配建議」呢張卡，跟住做就排得出。
+👉 Link in bio 睇 AI 拍拍機`,
     carouselSlides: [
-      { slideNumber: 1, label: '封面', title: '數據可視化圖表建議 秒懂匯報', description: '別再堆砌表格，讓圖表替你開口講故事', type: 'cover' },
-      { slideNumber: 2, label: '痛點', title: '圖表隨便選，重點完全被掩蓋', description: '餅圖分了 20 塊，老細看了只覺得眼花繚亂', type: 'pain' },
-      { slideNumber: 3, label: '痛點', title: '匯報缺乏結論，被老細連環追問', description: '只講「數據是什麼」，講不出「代表什麼」與「該做什麼」', type: 'pain' },
-      { slideNumber: 4, label: 'AI 方案', title: '目標導向的圖表選擇邏輯', description: '針對不同受眾（主管、團隊、客戶）定製視覺方案', type: 'process' },
-      { slideNumber: 5, label: '效益對比', title: '匯報通過率大幅提升', description: '一圖勝千言，決策效率直接拉滿', type: 'outcome' },
-      { slideNumber: 6, label: 'CTA', title: 'AI 拍拍機 · 數據說服力', description: '拍卡秒出圖表方案', type: 'cta' }
+      { slideNumber: 1, label: '封面', title: '三個項目 + 一隊人 + 混亂箭頭', description: '', type: 'cover' },
+      { slideNumber: 2, label: '畫面', title: '人人都話自己最急', description: '', type: 'pain' },
+      { slideNumber: 3, label: '畫面', title: '憑感覺派人的後果', description: '爆鐘／學唔到', type: 'pain' },
+      { slideNumber: 4, label: '畫面', title: 'AI Agent 分配流程', description: '優先級 → 技能 → 工作量', type: 'process' },
+      { slideNumber: 5, label: '畫面', title: '分配表示範', description: '項目 / 人手 / 工時 / 理由', type: 'outcome' },
+      { slideNumber: 6, label: 'CTA', title: 'AI 拍拍機 + 情境卡展示', description: '', type: 'cta' }
     ],
-    hashtags: ['#香港職場', '#數據可視化', '#Excel圖表', '#PowerBI', '#匯報技巧', '#職場技能'],
+    hashtags: ['#香港職場', '#項目管理', '#資源分配', '#AI工具', '#PM', '#團隊管理'],
     imageFileName: '20260818_gunmetal_silver_whiteoutline_card_25.png'
   },
   {
@@ -369,32 +549,47 @@ export const cardsWeek3_4: CardData[] = [
     cardNumber: '26',
     week: '第4週',
     weekNumber: 4,
-    category: '商務溝通',
-    chineseTitle: '跨文化國際商務郵件',
-    englishTitle: 'Global Business Email',
-    scenarioSummary: '與歐美或亞太海外總部、跨國客戶打交道，需符合當地職場文化與措辭禮儀。',
-    promptShort: '輸入：將[商務意圖]改寫為符合[地區/文化，如美式簡潔/英式委婉/日式敬語]風格的高級商務英文郵件，確保地道、禮貌且目的明確。',
-    benefits: ['消除文化溝通誤解', '措辭地道專業得體', '提升跨國合作信任度'],
-    articleNumber: 24,
-    articleTitle: '【港式英文嚇親外國總部】跨文化商務電郵 5 分鐘地道轉身',
-    hook: '「你以為自己好客氣，外國 HQ 覺得你勁粗魯。」',
-    painPoints: '好多香港人英文唔差，但寫親 Global Email 都係「Please find attached」或者直接中譯英。字面意思冇錯，但語氣硬崩崩或者過於囉嗦。同海外主管傾生意，往往因為文化語境差異造成誤會。',
+    category: '項目管理',
+    chineseTitle: '跨部門協作計劃',
+    englishTitle: 'Cross-Department Co-op',
+    scenarioSummary: '制定跨部門協作計劃，清晰界定各部門角色',
+    promptShort: '輸入：[項目]；製作跨部門協作計劃，列明各部門角色、責任範圍、交付物、時間節點及溝通渠道，並以 RACI 矩陣呈現。',
+    benefits: ['角色責任清晰', '交付時間明確', '協作溝通有序'],
+    articleNumber: 33,
+    articleTitle: '【項目開咗一個月，仲有人以為係你負責】跨部門協作計劃',
+    hook: '「項目開咗一個月，仲有人以為『嗰 part 係你搞』。」',
+    painPoints: '跨部門項目最恐怖嘅係「以為有人做」。Marketing 以為 IT 出 data、IT 以為 Marketing 定 spec、Finance 等緊你交 forecast。冇 RACI，冇交付日期，出事時大家一齊指住你。你想寫清楚，但每個部門嘅角度都唔同，寫得唔夠細又會漏，寫得太細又變成長篇小說冇人睇。',
     aiHelp: [
-      '根據目標受眾文化（美式高效直奔主題 vs 英式多層委婉修飾）轉換文風',
-      '替換掉陳腔濫調（Cliché），換上現代企業常用短語',
-      '巧妙調整語氣強弱（Assertive without being aggressive）',
-      '自動生成簡短吸引人點開的 Subject Line'
+      '按項目出跨部門協作計劃：角色、責任範圍、交付物、時間節點、溝通渠道',
+      '以 RACI 矩陣呈現，邊個負責、邊個被通知一眼睇清',
+      '標示交付物同時間節點，唔會再「以為有人做」',
+      '溝通渠道寫明（email / 週會 / group），減少來回追問'
     ],
-    igCaption: `【你以為自己好客氣，外國 HQ 覺得你勁粗魯 🌍】\n\nChinglish 直譯電郵成日得罪人？\n商務英語唔係考 Grammar，係考文化語感！\n\nAI Agent 幫你：\n✅ 一鍵切換美式俐落 / 英式紳士 / 日式敬重文風\n✅ 消除語氣生硬感，地道表達委婉請求\n✅ 撰寫高開啟率 Subject Line\n✅ 5 分鐘出國際範電郵，自信對話全球 HQ\n\n📇 拍到「跨文化國際商務郵件」卡，溝通無障礙。\n👉 Link in bio 睇 AI 拍拍機`,
+    igCaption: `【項目開咗一個月，仲有人以為「嗰 part 係你搞」😐】
+
+Marketing 以為 IT 出 data，
+IT 以為 Marketing 定 spec，
+出事時全部人一齊指住你。
+
+AI Agent 幫你：
+✅ 列出各部門角色 + 責任範圍
+✅ 交付物 + 時間節點寫清楚
+✅ RACI 矩陣呈現（邊個負責、邊個被通知）
+✅ 溝通渠道寫明，減少來回追問
+
+開會嗰陣，唔使再吵「邊個做」。
+
+📇 拍到「跨部門協作計劃」呢張卡，跟住做就唔會甩轆。
+👉 Link in bio 睇 AI 拍拍機`,
     carouselSlides: [
-      { slideNumber: 1, label: '封面', title: '跨文化國際商務電郵 地道指南', description: '打破文化隔閡，寫出受外國主管青睞的專業郵件', type: 'cover' },
-      { slideNumber: 2, label: '痛點', title: '用詞生硬直譯，常被誤解為催促不禮貌', description: '自以為客氣的詞彙，在對方文化中顯得盛氣凌人', type: 'pain' },
-      { slideNumber: 3, label: '痛點', title: '信件過於冗長，重要要求被忽略', description: '繞了一大圈才講重點，老外根本沒耐心看完', type: 'pain' },
-      { slideNumber: 4, label: 'AI 方案', title: '文化語境轉換與動態修辭', description: '精準把握商務分寸感，既堅定又令人信服', type: 'process' },
-      { slideNumber: 5, label: '效益對比', title: '跨國合作默契倍增', description: '回覆速度加快，海外團隊讚賞有加', type: 'outcome' },
-      { slideNumber: 6, label: 'CTA', title: 'AI 拍拍機 · 全球商務', description: '拍卡秒變國際商務精英', type: 'cta' }
+      { slideNumber: 1, label: '封面', title: '四部門圖示 + 互相指嘅箭頭', description: '', type: 'cover' },
+      { slideNumber: 2, label: '畫面', title: '「以為有人做」實錄', description: '', type: 'pain' },
+      { slideNumber: 3, label: '畫面', title: '出事時互相指責嘅會議', description: '', type: 'pain' },
+      { slideNumber: 4, label: '畫面', title: 'AI Agent 生成協作計劃', description: '', type: 'process' },
+      { slideNumber: 5, label: '畫面', title: 'RACI 矩陣示範', description: 'R／A／C／I 一格格睇清', type: 'outcome' },
+      { slideNumber: 6, label: 'CTA', title: 'AI 拍拍機 + 情境卡展示', description: '', type: 'cta' }
     ],
-    hashtags: ['#香港職場', '#商務英語', '#國際溝通', '#BusinessEnglish', '#職場英文', '#AI寫作'],
+    hashtags: ['#香港職場', '#跨部門', '#項目管理', '#RACI', '#AI工具', '#溝通技巧'],
     imageFileName: '20260818_gunmetal_silver_whiteoutline_card_26.png'
   },
   {
@@ -402,32 +597,48 @@ export const cardsWeek3_4: CardData[] = [
     cardNumber: '27',
     week: '第4週',
     weekNumber: 4,
-    category: '商業策略',
-    chineseTitle: '痛點轉化商業提案',
-    englishTitle: 'Pain-Point to Proposal',
-    scenarioSummary: '發現公司運營或客戶的一大痛點，順勢撰寫一份解決問題且具備變現力的提案。',
-    promptShort: '輸入：針對[具體痛點現象]，運用「痛點拆解 - 根本原因 - 解決方案 - 預期效益 - 試點計劃」框架，撰寫一份可說服決策層的內部創新提案。',
-    benefits: ['把日常抱怨變晉升籌碼', '結構嚴謹說服力強', '推動資源落地執行'],
-    articleNumber: 25,
-    articleTitle: '【成日投訴不如借力上位】痛點轉化提案 30 分鐘搞掂',
-    hook: '「個個都喺茶水間抱怨，只有你將痛點寫成提案交畀老細。」',
-    painPoints: '公司流程慢、工具舊，同事每日喺茶水間呻。但呻完聽日咪又係照舊。真正有野心嘅人知道：每一個痛點背後都係一個晉升機會。但好多人唔知點將一個「問題」包裝成一個「值得投資嘅提案」。',
+    category: '客戶服務',
+    chineseTitle: '客戶查詢分類與回覆草擬',
+    englishTitle: 'Reply to Client Enquiry',
+    scenarioSummary: '將客戶查詢分類並逐類草擬專業回覆。',
+    promptShort: '輸入：將客戶查詢分類為報價、技術支援、投訴或一般查詢，統計各類數量，並為每類草擬專業回覆模板。',
+    benefits: ['自動分類查詢', '提供回覆模板', '減少手動處理時間'],
+    articleNumber: 49,
+    articleTitle: '【inbox 幾十封未讀，一半係客問「點解未回我」】客戶查詢一鍵分類回覆',
+    hook: '「收工前打開 inbox：幾十封未讀，一半係客問『點解未回我』。」',
+    painPoints: '客戶查詢永遠混在一起：報價、技術問題、投訴、仲有隨口問一句嘅。你逐封開、逐封諗點答，答完報價嘅又收到投訴嘅，心情由專業變成崩潰。最耗時間係重複 —— 同一個技術問題答過十次，第十一次都要由零開始打字。回得慢，客戶就覺得你唔重視佢，然後去搵第二間。',
     aiHelp: [
-      '梳理問題帶來的隱形成本（每年浪費幾多小時、流失幾多客）',
-      '設計「低風險、小規模試點 (MVP)」方案，降低決策門檻',
-      '明確投資回報率 (ROI) 與資源需求清單',
-      '生成給 CEO / 部門主管看的 1 頁 Executive Summary'
+      '自動分類：報價 / 技術支援 / 投訴 / 一般查詢，順手統計各類數量',
+      '每類草擬專業回覆模板，改幾個字就用得',
+      '常見問題沉澱成 template，下次唔使由零開始打',
+      '投訴類自動標記，唔會混埋喺一般查詢入面等足三日'
     ],
-    igCaption: `【個個喺茶水間呻，只有你將痛點寫成提案 🚀】\n\n抱怨只係發洩，解決問題先係本事！\n將日常痛點變成老細眼中的創新專案。\n\nAI Agent 幫你：\n✅ 量化問題背後的隱形金錢與時間損失\n✅ 打造 MVP 試點方案，減低公司試錯成本\n✅ 嚴謹推導投資收益與關鍵里程碑\n✅ 30 分鐘生成高說服力商業提案\n\n📇 拍到「痛點轉化商業提案」卡，升職加薪指日可待。\n👉 Link in bio 睇 AI 拍拍機`,
+    igCaption: `【收工前打開 inbox：幾十封未讀，一半係客問「點解未回我」📩】
+
+報價、技術問題、投訴、隨口問一句 —— 全部混在一起。
+同一個技術問題答過十次，
+第十一次都要由零開始打。
+回得慢，客戶就去搵第二間。
+
+AI Agent 幫你：
+✅ 自動分類：報價 / 技術支援 / 投訴 / 一般查詢
+✅ 統計各類數量，睇到痛點集中喺邊
+✅ 逐類草擬專業回覆模板
+✅ 常見問題變 template，重複嘢唔使再做
+
+由「逐封諗」變成「分類 + 套模板」。
+
+📇 拍到「客戶查詢分類與回覆草擬」呢張卡，跟住做就回得切。
+👉 Link in bio 睇 AI 拍拍機`,
     carouselSlides: [
-      { slideNumber: 1, label: '封面', title: '痛點轉化商業提案 借力晉升', description: '別只做打工人，做能為公司創造新價值的推動者', type: 'cover' },
-      { slideNumber: 2, label: '痛點', title: '看得出問題，卻不知如何推動改變', description: '向主管口頭反映，往往得到「再看看」的冷淡回覆', type: 'pain' },
-      { slideNumber: 3, label: '痛點', title: '提案缺乏商業邏輯，像天馬行空', description: '沒有成本收益估算，決策層不敢投入任何資源', type: 'pain' },
-      { slideNumber: 4, label: 'AI 方案', title: 'MVP 思維與商業價值鏈路構建', description: '將零星想法淬煉為結構化、可落地的實戰方案', type: 'process' },
-      { slideNumber: 5, label: '效益對比', title: '成為管理層信賴的骨幹', description: '從被動執行者躍升為業務驅動核心', type: 'outcome' },
-      { slideNumber: 6, label: 'CTA', title: 'AI 拍拍機 · 職場進階', description: '拍卡開啟商業策劃力', type: 'cta' }
+      { slideNumber: 1, label: '封面', title: '爆滿 inbox + 崩潰表情', description: '', type: 'cover' },
+      { slideNumber: 2, label: '畫面', title: '四種查詢混在一起', description: '', type: 'pain' },
+      { slideNumber: 3, label: '畫面', title: '同一個問題答第十次', description: '', type: 'pain' },
+      { slideNumber: 4, label: '畫面', title: 'AI Agent 分類流程', description: '報價 / 支援 / 投訴 / 一般', type: 'process' },
+      { slideNumber: 5, label: '畫面', title: '回覆模板示範', description: '', type: 'outcome' },
+      { slideNumber: 6, label: 'CTA', title: 'AI 拍拍機 + 情境卡展示', description: '', type: 'cta' }
     ],
-    hashtags: ['#香港職場', '#商業提案', '#職場晉升', '#問題解決', '#創新思維', '#AI商業'],
+    hashtags: ['#香港職場', '#客戶服務', '#email技巧', '#CS', '#AI工具', '#職場自救'],
     imageFileName: '20260818_gunmetal_silver_whiteoutline_card_27.png'
   },
   {
@@ -435,32 +646,48 @@ export const cardsWeek3_4: CardData[] = [
     cardNumber: '28',
     week: '第4週',
     weekNumber: 4,
-    category: '商務溝通',
-    chineseTitle: '向上匯報電梯演講',
-    englishTitle: 'Executive Elevator Pitch',
-    scenarioSummary: '只有2分鐘同大老細同車或搭𨋢，需用最精煉語言匯報進度並爭取關鍵支持。',
-    promptShort: '輸入：將[複雜項目進度/瓶頸]濃縮為60秒電梯演講：1句話亮點進展 + 1個關鍵卡點 + 1個明確請求老細拍板的事項。',
-    benefits: ['高層溝通切中要害', '60秒贏得決策支援', '展現成熟商務素養'],
-    articleNumber: 26,
-    articleTitle: '【搭𨋢撞見大老細問你做成點】60 秒電梯演講極速應對',
-    hook: '「搭𨋢遇見 CEO 問：『你個 Project 近排點？』你窒咗 5 秒。」',
-    painPoints: '平時想約大老細開會難過登天，偶然喺 Lobby 或 Pantry 撞到，老細隨口問一句。你心慌意亂開始由三個月前講起，講咗兩分鐘都未講到重點，老細已經出咗𨋢門。白白浪費咗一次絕佳曝光同攞資源嘅機會。',
+    category: '客戶服務',
+    chineseTitle: '銷售話術草擬',
+    englishTitle: 'Sales Pitch',
+    scenarioSummary: '為不同客戶類型準備針對性銷售話術。',
+    promptShort: '輸入：為[產品／服務]草擬3個版本，針對價格敏感、品質優先、關係導向客戶；每版包括開場、賣點、異議處理及結尾。語氣自然。',
+    benefits: ['按客戶類型定制', '涵蓋賣點與異議', '銷售人員即時使用'],
+    articleNumber: 27,
+    articleTitle: '【新產品出咗，唔知點開口 Sell】三套銷售話術即刻有',
+    hook: '「同一套話術 sell 晒所有客，結果個個都話『貴』。」',
+    painPoints: '做 sales、BD、客戶經理，最怕公司出咗新產品／新服務，你唔知點開口。對唔同客要有唔同切入點 —— 價格敏感客要講慳幾多，品質優先客要講規格同穩定性，關係導向客要講信任同售後。但現實係你只有一套講法，講兩句就俾人問「點解咁貴？」，你即場兜唔到，單就飛咗。',
     aiHelp: [
-      '用「SCQA」框架迅速組織思路：情境 - 衝突 - 成果 - 行動',
-      '刪除所有技術行話與瑣碎過程，直擊商業結果',
-      '明確提出一個低摩擦力的行動請求（Call to Action）',
-      '隨時備好 30 秒、60 秒、90 秒三種長度版本'
+      '為同一個產品草擬 3 個版本，分別針對價格敏感、品質優先、關係導向客戶',
+      '每版包含開場、賣點、異議處理、結尾，唔使你自己砌',
+      '預備常見異議對答（貴、同對手比、再考慮下）',
+      '語氣自然，唔會似背稿'
     ],
-    igCaption: `【搭𨋢撞見 CEO 問進度，你窒咗 5 秒？ 🏢】\n\n高層冇時間聽你長篇大論，\n30 秒講唔出重點，你就錯失最重要曝光機會！\n\nAI Agent 幫你：\n✅ 濃縮複雜專案成 60 秒極速精華\n✅ 1 句話亮點成果 + 1 個關鍵瓶頸 + 1 個請求\n✅ 戒除廢話贅詞，散發自信專業氣場\n✅ 隨時隨地從容應對管理層突擊抽查\n\n📇 拍到「向上匯報電梯演講」卡，抓住每一個高光瞬間。\n👉 Link in bio 睇 AI 拍拍機`,
+    igCaption: `【同一套話術 sell 晒所有客，結果個個都話「貴」😮‍💨】
+
+價格敏感客要聽慳幾多，
+品質優先客要聽規格，
+關係導向客要聽售後 ——
+你只有一套講法，講兩句就被反問到啞。
+
+AI Agent 幫你：
+✅ 3 個版本，針對唔同客型
+✅ 每版有開場、賣點、異議處理、結尾
+✅ 預備常見異議對答
+✅ 語氣自然，唔似背稿
+
+下次見客，開口就有底。
+
+📇 拍到「銷售話術草擬」呢張卡，跟住做就 sell 得順。
+👉 Link in bio 睇 AI 拍拍機`,
     carouselSlides: [
-      { slideNumber: 1, label: '封面', title: '60 秒電梯演講 向上溝通秘技', description: '讓每一次偶然相遇，都成為爭取資源的最佳時機', type: 'cover' },
-      { slideNumber: 2, label: '痛點', title: '講了半天細節，老細依然一頭霧水', description: '缺乏商業宏觀視角，給主管留下「格局不夠」的印象', type: 'pain' },
-      { slideNumber: 3, label: '痛點', title: '緊張語塞，錯失表達訴求的窗口', description: '心裡想著要資源，話到嘴邊卻只會說「一切都好」', type: 'pain' },
-      { slideNumber: 4, label: 'AI 方案', title: '精準提煉三段式電梯話術', description: '成果亮眼 + 瓶頸清晰 + 請求具體，30 秒直達核心', type: 'process' },
-      { slideNumber: 5, label: '效益對比', title: '在管理層心中建立卓越專業形象', description: '隨時展現清晰敏捷思維，成為值得託付重任的人選', type: 'outcome' },
-      { slideNumber: 6, label: 'CTA', title: 'AI 拍拍機 · 向上管理', description: '拍卡掌握高層溝通密碼', type: 'cta' }
+      { slideNumber: 1, label: '封面', title: '唔知點開口 sell', description: 'Hook 大字 + 冒汗表情', type: 'cover' },
+      { slideNumber: 2, label: '畫面', title: '同一套話術撞板實錄', description: '', type: 'pain' },
+      { slideNumber: 3, label: '畫面', title: '被問「點解咁貴」答唔到', description: '', type: 'pain' },
+      { slideNumber: 4, label: '畫面', title: 'AI Agent 一次過出 3 個版本', description: '', type: 'process' },
+      { slideNumber: 5, label: '畫面', title: '三種客型 x 三套話術對比', description: '', type: 'outcome' },
+      { slideNumber: 6, label: 'CTA', title: 'AI 拍拍機 + 情境卡展示', description: '', type: 'cta' }
     ],
-    hashtags: ['#香港職場', '#向上管理', '#電梯演講', '#高層匯報', '#職場溝通', '#敏捷表達'],
+    hashtags: ['#香港職場', '#銷售技巧', '#BD', '#AI工具', '#見客', '#職場攻略'],
     imageFileName: '20260818_gunmetal_silver_whiteoutline_card_28.png'
   }
 ];
